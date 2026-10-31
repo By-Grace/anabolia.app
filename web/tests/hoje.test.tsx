@@ -40,7 +40,7 @@ describe("HojeView", () => {
 
   it("com meta padrão oferece o link 'calcular a minha' para /comecar; com meta própria, não", () => {
     const { rerender } = render(<HojeView recipes={fixtures} logs={[]} goal={{ protein_g: 160, kcal: 3100, isDefault: true }} now={NIGHT} />);
-    expect(screen.getByRole("link", { name: "calcular a minha" })).toHaveAttribute("href", "/comecar");
+    expect(screen.getByRole("link", { name: "calcular a minha" })).toHaveAttribute("href", "/comecar?de=hoje");
     rerender(<HojeView recipes={fixtures} logs={[]} goal={goal} now={NIGHT} />);
     expect(screen.queryByRole("link", { name: "calcular a minha" })).not.toBeInTheDocument();
   });

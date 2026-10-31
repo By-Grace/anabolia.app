@@ -4,11 +4,13 @@ import { supabaseServer } from "@/lib/supabase/server";
 import { getUserId } from "@/lib/supabase/session";
 import { Onboarding } from "./Onboarding";
 import { saveOnboardingAction } from "./actions";
+import { onboardingRoutes } from "./routes";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Sua meta · Anaból[IA]" };
 
-export default async function ComecarPage() {
+export default async function ComecarPage({ searchParams }: { searchParams: Promise<{ de?: string }> }) {
+  const { de } = await searchParams;
   let initial: Body | undefined;
   try {
     const client = await supabaseServer();
@@ -17,6 +19,6 @@ export default async function ComecarPage() {
   } catch {
     // Sem perfil carregado, o cadastro começa vazio.
   }
-  // Quem já tem os dados chega aqui pelo Perfil ("Recalcular") e pode voltar para lá.
-  return <Onboarding initial={initial} onSave={saveOnboardingAction} exitHref={initial ? "/perfil" : undefined} />;
+  const { exitHref, doneHref } = onboardingRoutes(de, !!initial);
+  return <Onboarding initial={initial} onSave={saveOnboardingAction} exitHref={exitHref} doneHref={doneHref} />;
 }

@@ -9,12 +9,24 @@ describe("supabaseListRepo", () => {
     expect(calls[0]).toMatchObject({ table: "shopping_list", kind: "select", filters: { user_id: "u1" } });
   });
 
-  it("add faz upsert de user_id, recipe_slug e portions com onConflict user_id,recipe_slug", async () => {
+  it("add de receita nova faz upsert de user_id, recipe_slug e portions com onConflict user_id,recipe_slug", async () => {
     const { client, calls } = fakeSupabase(() => ({ data: null, error: null }));
     await supabaseListRepo(client).add("u1", "a", 3);
-    expect(calls[0]).toMatchObject({
-      kind: "upsert", payload: { user_id: "u1", recipe_slug: "a", portions: 3 }, options: { onConflict: "user_id,recipe_slug" },
+    expect(calls.find((c) => c.kind === "upsert")).toMatchObject({
+      payload: { user_id: "u1", recipe_slug: "a", portions: 3 }, options: { onConflict: "user_id,recipe_slug" },
     });
+  });
+
+  it("add com outras porções troca as porções e desmarca os itens (as quantidades mudaram)", async () => {
+    const { client, calls } = fakeSupabase((op) => ({ data: op.kind === "select" ? { portions: 2 } : null, error: null }));
+    await supabaseListRepo(client).add("u1", "a", 4);
+    expect(calls.find((c) => c.kind === "update")).toMatchObject({ payload: { portions: 4, checked: [] }, filters: { user_id: "u1", recipe_slug: "a" } });
+  });
+
+  it("add com as mesmas porções não mexe no que já foi marcado", async () => {
+    const { client, calls } = fakeSupabase((op) => ({ data: op.kind === "select" ? { portions: 2 } : null, error: null }));
+    await supabaseListRepo(client).add("u1", "a", 2);
+    expect(calls.filter((c) => c.kind !== "select")).toHaveLength(0);
   });
 
   it("setChecked(true) acrescenta o índice uma vez só; setChecked(false) remove", async () => {

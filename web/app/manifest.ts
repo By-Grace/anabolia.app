@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Anaból[IA]",
     short_name: "Anabolia",
     description: "Receitas para ganhar massa que fecham a sua proteína do dia.",
-    start_url: "/hoje",
+    start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",
     theme_color: "#FFFFFF",

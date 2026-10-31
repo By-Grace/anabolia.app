@@ -39,7 +39,7 @@ describe("PerfilView", () => {
     expect(screen.getByRole("button", { name: "Editar meta de proteína, 160 g" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Editar meta de calorias, 3.150 kcal" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Editar peso, 80 kg" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Recalcular com os meus dados" })).toHaveAttribute("href", "/comecar");
+    expect(screen.getByRole("link", { name: "Recalcular com os meus dados" })).toHaveAttribute("href", "/comecar?de=perfil");
     expect(screen.getByText("180 cm · 30 anos · nível moderado")).toBeInTheDocument();
     expect(screen.getByText("A coluna cheia é a meta.")).toBeInTheDocument();
   });
@@ -62,8 +62,14 @@ describe("PerfilView", () => {
   it("sem corpo salvo mostra 'Você está usando a meta padrão.' e o link 'Calcular minha meta' para /comecar", () => {
     view({ profile: { body: null, goal: { protein_g: 160, kcal: 3100, isDefault: true } } });
     expect(screen.getByText("Você está usando a meta padrão.")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Calcular minha meta" })).toHaveAttribute("href", "/comecar");
+    expect(screen.getByRole("link", { name: "Calcular minha meta" })).toHaveAttribute("href", "/comecar?de=perfil");
     expect(screen.queryByRole("button", { name: /Editar peso/ })).not.toBeInTheDocument();
+  });
+
+  it("meta digitada à mão sem cadastro: não diz 'meta padrão' e oferece calcular com os dados", () => {
+    view({ profile: { body: null, goal: { protein_g: 170, kcal: 3300, isDefault: false } } });
+    expect(screen.queryByText("Você está usando a meta padrão.")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Calcular com os meus dados" })).toHaveAttribute("href", "/comecar?de=perfil");
   });
 
   it("editar peso: '82,5' chama onSaveWeight(82.5), fecha a folha e mostra a meta devolvida", async () => {

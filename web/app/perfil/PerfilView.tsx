@@ -83,9 +83,9 @@ export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
           onClick={() => setSheet("meta")} />
         <Row label="Calorias" value={`${fmtInt(goal.kcal)} kcal`} aria={`Editar meta de calorias, ${fmtInt(goal.kcal)} kcal`}
           onClick={() => setSheet("meta")} />
-        {body && (
-          <Link href="/comecar" className="mt-1 inline-flex h-11 items-center text-[15px] font-semibold text-acc">
-            Recalcular com os meus dados
+        {(body || !goal.isDefault) && (
+          <Link href="/comecar?de=perfil" className="mt-1 inline-flex h-11 items-center text-[15px] font-semibold text-acc">
+            {body ? "Recalcular com os meus dados" : "Calcular com os meus dados"}
           </Link>
         )}
       </section>
@@ -96,11 +96,11 @@ export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
           <Row label="Peso" sub={`${fmtInt(body.heightCm)} cm · ${body.age} anos · nível ${activity}`}
             value={`${fmtKg(body.weightKg)} kg`} aria={`Editar peso, ${fmtKg(body.weightKg)} kg`} onClick={() => setSheet("peso")} />
         </section>
-      ) : (
+      ) : goal.isDefault && (
         <section className="mt-6 rounded-[18px] bg-soft px-[18px] py-4">
           <p className="text-[16px] font-semibold tracking-[-0.01em]">Você está usando a meta padrão.</p>
           <p className="mt-1 text-[15px] leading-snug text-grey">Responda 4 perguntas e a meta passa a ser a sua.</p>
-          <ButtonLink href="/comecar" className="mt-4 w-full">Calcular minha meta</ButtonLink>
+          <ButtonLink href="/comecar?de=perfil" className="mt-4 w-full">Calcular minha meta</ButtonLink>
         </section>
       )}
       </>)}

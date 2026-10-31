@@ -27,10 +27,17 @@ export function supabaseListRepo(client: SupabaseClient): ListRepo {
     },
 
     async add(userId, slug, portions) {
-      check(await table().upsert(
-        { user_id: userId, recipe_slug: slug, portions: clampPortions(portions) },
-        { onConflict: "user_id,recipe_slug" },
-      ));
+      const p = clampPortions(portions);
+      const row = check(
+        await table().select("portions").eq("user_id", userId).eq("recipe_slug", slug).maybeSingle()
+      ) as { portions: number } | null;
+      if (!row) {
+        check(await table().upsert({ user_id: userId, recipe_slug: slug, portions: p }, { onConflict: "user_id,recipe_slug" }));
+        return;
+      }
+      if (row.portions === p) return;
+      // Outras porções, outras quantidades: o que estava marcado foi comprado para a quantidade antiga.
+      check(await table().update({ portions: p, checked: [] }).eq("user_id", userId).eq("recipe_slug", slug));
     },
 
     async setChecked(userId, slug, index, on) {
