@@ -125,9 +125,11 @@ export function RecipeView({ recipe, now = () => new Date() }: { recipe: Recipe;
       <div className="fixed inset-x-0 bottom-0 z-10 bg-gradient-to-t from-white from-70% to-white/0 px-5 pt-3"
         style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 18px)" }}>
         {error && <p role="alert" className="mx-auto mb-2 max-w-[440px] text-sm font-medium text-ink">{error}</p>}
-        <div className="mx-auto flex max-w-[440px] gap-2.5">
-          <ButtonLink href={`/cozinhar/${recipe.slug}?p=${portions}`}>Começar a cozinhar</ButtonLink>
-          <Button variant="soft" onClick={ate} disabled={saving}>{saving ? "Marcando…" : "Marquei, comi"}</Button>
+        <div className="mx-auto max-w-[440px] text-center">
+          <ButtonLink href={`/cozinhar/${recipe.slug}?p=${portions}`} className="w-full">Começar a cozinhar</ButtonLink>
+          <Button variant="text" onClick={ate} disabled={saving} className="mt-1">
+            {saving ? "Marcando…" : "Marquei, comi"}
+          </Button>
         </div>
       </div>
     </article>

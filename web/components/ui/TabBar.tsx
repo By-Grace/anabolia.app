@@ -24,8 +24,9 @@ export function TabBar({ active }: { active: Tab }) {
               {href ? (
                 <Link href={href} className={cls} aria-current={on ? "page" : undefined}><Icon />{label}</Link>
               ) : (
-                <span className="flex flex-col items-center gap-1 text-[11px] font-semibold text-grey" aria-disabled="true" aria-label={`${label}, em breve`}>
-                  <span className="text-ring"><Icon /></span>Em breve
+                <span className="flex flex-col items-center gap-1 text-[11px] font-semibold text-grey" aria-disabled="true"
+                  aria-label={`${label}, em breve`} title="Em breve">
+                  <span className="text-ring"><Icon /></span>{label}
                 </span>
               )}
             </li>

@@ -9,8 +9,8 @@ import { HojeView } from "./HojeView";
 
 export const dynamic = "force-dynamic";
 
-export default async function HojePage({ searchParams }: { searchParams: Promise<{ marcou?: string }> }) {
-  const { marcou } = await searchParams;
+export default async function HojePage({ searchParams }: { searchParams: Promise<{ marcou?: string; simular?: string }> }) {
+  const { marcou, simular } = await searchParams;
   const now = new Date();
   const recipes = getRecipes();
   let goal: Goal = DEFAULT_GOAL;
@@ -26,6 +26,11 @@ export default async function HojePage({ searchParams }: { searchParams: Promise
     }
   } catch {
     error = "Não deu para carregar o seu dia agora. As receitas continuam aqui.";
+  }
+  // Só no servidor de desenvolvimento: permite ver/capturar o estado de erro (?simular=erro).
+  if (process.env.NODE_ENV === "development" && simular === "erro") {
+    error = "Não deu para carregar o seu dia agora. As receitas continuam aqui.";
+    logs = [];
   }
 
   return (
