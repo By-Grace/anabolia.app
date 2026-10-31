@@ -65,4 +65,22 @@ describe("RecipeView", () => {
     render(<RecipeView recipe={{ ...frango, photo: undefined }} />);
     expect(screen.getByTestId("photo-placeholder")).toBeInTheDocument();
   });
+
+  it("'Pôr na lista de compras' chama onAddToList(slug, porções) e vira 'Na lista' com link 'Ver lista'", async () => {
+    const onAddToList = vi.fn().mockResolvedValue(true);
+    render(<RecipeView recipe={frango} onAddToList={onAddToList} />);
+    await userEvent.click(screen.getByRole("button", { name: "Pôr na lista de compras" }));
+    expect(onAddToList).toHaveBeenCalledWith(frango.slug, frango.basePortions);
+    expect(screen.getByText("Na lista")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Ver lista" })).toHaveAttribute("href", "/lista");
+    await userEvent.click(screen.getByRole("button", { name: "Mais uma porção" }));
+    expect(screen.getByRole("button", { name: `Atualizar a lista para ${frango.basePortions + 1} porções` })).toBeInTheDocument();
+  });
+
+  it("falha ao pôr na lista mostra alerta e mantém o botão", async () => {
+    render(<RecipeView recipe={frango} onAddToList={vi.fn().mockResolvedValue(false)} />);
+    await userEvent.click(screen.getByRole("button", { name: "Pôr na lista de compras" }));
+    expect(await screen.findByText("Não deu para pôr na lista. Tente de novo.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Pôr na lista de compras" })).toBeEnabled();
+  });
 });

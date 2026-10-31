@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Recipe } from "@/lib/recipes/schema";
 import { MEAL_SLOT_LABEL } from "@/lib/recipes/schema";
@@ -13,14 +14,19 @@ import { loggedUrl, postMeal } from "@/lib/client/meals";
 import { Stat } from "@/components/ui/Stat";
 import { Stepper } from "@/components/ui/Stepper";
 import { Button, ButtonLink } from "@/components/ui/Button";
-import { ChevronLeft, CheckIcon, PlateIcon } from "@/components/ui/icons";
+import { ChevronLeft, CheckIcon, ListIcon, PlateIcon } from "@/components/ui/icons";
 
-export function RecipeView({ recipe, now = () => new Date() }: { recipe: Recipe; now?: () => Date }) {
+export function RecipeView({ recipe, now = () => new Date(), onAddToList }: {
+  recipe: Recipe; now?: () => Date; onAddToList?: (slug: string, portions: number) => Promise<boolean>;
+}) {
   const router = useRouter();
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [portions, setPortions] = useState(recipe.basePortions);
   const [checked, setChecked] = useState<Set<number>>(new Set());
+  const [listed, setListed] = useState<number | null>(null);
+  const [listing, setListing] = useState(false);
+  const [listError, setListError] = useState(false);
   const ingredients = scaleIngredients(recipe, portions);
   const slots = recipe.slot.map((s) => MEAL_SLOT_LABEL[s]).join(" · ");
 
@@ -34,6 +40,16 @@ export function RecipeView({ recipe, now = () => new Date() }: { recipe: Recipe;
       setError("Não deu para marcar agora. Tente de novo.");
       setSaving(false);
     }
+  };
+
+  const addToList = async () => {
+    if (!onAddToList) return;
+    setListing(true);
+    setListError(false);
+    const ok = await onAddToList(recipe.slug, portions).catch(() => false);
+    if (ok) setListed(portions);
+    else setListError(true);
+    setListing(false);
   };
 
   const goBack = () => {
@@ -106,6 +122,26 @@ export function RecipeView({ recipe, now = () => new Date() }: { recipe: Recipe;
               );
             })}
           </ul>
+          {onAddToList && (
+            <div className="mt-1 flex min-h-11 items-center gap-3 border-t border-hair pt-1">
+              {listed === portions ? (
+                <>
+                  <span className="inline-flex items-center gap-2 text-[15px] font-semibold text-ink">
+                    <span className="grid size-[22px] place-items-center rounded-full bg-acc text-white"><CheckIcon size={12} /></span>
+                    Na lista
+                  </span>
+                  <Link href="/lista" className="ml-auto inline-flex h-11 items-center px-2 text-[15px] font-semibold text-acc">Ver lista</Link>
+                </>
+              ) : (
+                <button type="button" onClick={addToList} disabled={listing}
+                  className="inline-flex h-11 items-center gap-2 text-[15px] font-semibold text-acc disabled:opacity-50">
+                  <ListIcon size={20} />
+                  {listing ? "Pondo na lista…" : listed === null ? "Pôr na lista de compras" : `Atualizar a lista para ${portions} porções`}
+                </button>
+              )}
+            </div>
+          )}
+          {listError && <p role="alert" className="mt-1 text-sm font-medium text-ink">Não deu para pôr na lista. Tente de novo.</p>}
         </section>
 
         <section aria-labelledby="preparo" className="mt-6">

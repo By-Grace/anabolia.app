@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getRecipe, getRecipes } from "@/lib/recipes/load";
 import { RecipeView } from "./RecipeView";
+import { addToListAction } from "@/app/lista/actions";
 
 export function generateStaticParams() {
   return getRecipes().map((r) => ({ slug: r.slug }));
@@ -16,5 +17,5 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
   const { slug } = await params;
   const recipe = getRecipe(slug);
   if (!recipe) notFound();
-  return <RecipeView recipe={recipe} />;
+  return <RecipeView recipe={recipe} onAddToList={addToListAction} />;
 }
