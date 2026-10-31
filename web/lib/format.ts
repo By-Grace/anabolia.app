@@ -46,3 +46,8 @@ export function fmtWeight(i: Q): string {
 
 /** Compatível com o formato anterior. */
 export const fmtQty = fmtWeight;
+
+/** "01/12" no fuso local. */
+export function fmtDayMonth(iso: string, tz: string = DEFAULT_TZ): string {
+  return new Intl.DateTimeFormat("pt-BR", { timeZone: tz, day: "2-digit", month: "2-digit" }).format(new Date(iso));
+}
