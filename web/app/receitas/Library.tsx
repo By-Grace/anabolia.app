@@ -12,11 +12,11 @@ import { FilterSheet, NO_EXTRA, PROTEIN_OPTIONS, TIME_OPTIONS, type Extra } from
 type SlotValue = MealSlot | "todas";
 const SLOT_OPTIONS = [{ value: "todas" as SlotValue, label: "Todas" }, ...MEAL_SLOTS.map((s) => ({ value: s as SlotValue, label: MEAL_SLOT_LABEL[s] }))];
 const plural = (n: number) => (n === 1 ? "1 receita" : `${n} receitas`);
-const labelOf = (opts: { value: number; label: string }[], v: number) => opts.find((o) => o.value === v)?.label ?? "";
+const labelOf = <T,>(opts: { value: T; label: string }[], v: T) => opts.find((o) => o.value === v)?.label ?? "";
 
 /**
  * Biblioteca. Leis de UX aplicadas: Hick (de 10 chips para 1 seletor + 2 botões),
- * Tesler (tempo e proteína atrás de "Filtros"), Jakob (controle segmentado do iOS),
+ * Tesler (tempo — todas, rápidas ou demoradas — e proteína atrás de "Filtros"), Jakob (controle segmentado do iOS),
  * Fitts (alvos de 44 pt), atenção seletiva (contagem de resultados e filtros ativos visíveis).
  */
 export function Library({ recipes, favorites, initialSlot, onToggleFavorite }: {
@@ -35,14 +35,14 @@ export function Library({ recipes, favorites, initialSlot, onToggleFavorite }: {
   const run = useCallback(
     (e: Extra) => filterRecipes(recipes, {
       slot: slot === "todas" ? undefined : slot,
-      maxMinutes: e.maxMinutes || undefined,
+      time: e.time === "todas" ? undefined : e.time,
       minProtein: e.minProtein || undefined,
       query, favoritesOnly, favorites: favs,
     }),
     [recipes, slot, query, favoritesOnly, favs]
   );
   const list = useMemo(() => run(extra), [run, extra]);
-  const activeCount = (extra.maxMinutes ? 1 : 0) + (extra.minProtein ? 1 : 0);
+  const activeCount = (extra.time !== "todas" ? 1 : 0) + (extra.minProtein ? 1 : 0);
 
   const toggleFav = (slug: string) => {
     const wasFav = favs.includes(slug);
@@ -87,8 +87,8 @@ export function Library({ recipes, favorites, initialSlot, onToggleFavorite }: {
 
       <div className="mt-3 flex min-h-7 flex-wrap items-center gap-2">
         <span className="num mr-auto text-[13px] font-medium text-grey" aria-live="polite">{plural(list.length)}</span>
-        {extra.maxMinutes > 0 && (
-          <ActiveChip label={labelOf(TIME_OPTIONS, extra.maxMinutes)} onRemove={() => setExtra((e) => ({ ...e, maxMinutes: 0 }))} />
+        {extra.time !== "todas" && (
+          <ActiveChip label={labelOf(TIME_OPTIONS, extra.time)} onRemove={() => setExtra((e) => ({ ...e, time: "todas" }))} />
         )}
         {extra.minProtein > 0 && (
           <ActiveChip label={labelOf(PROTEIN_OPTIONS, extra.minProtein)} onRemove={() => setExtra((e) => ({ ...e, minProtein: 0 }))} />

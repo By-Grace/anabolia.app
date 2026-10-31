@@ -1,8 +1,12 @@
 import type { MealSlot, Recipe } from "@/lib/recipes/schema";
 
+/** Rápidas: até 20 min. Demoradas: mais de 20 min. O corte divide o cardápio v1 quase ao meio. */
+export const QUICK_MAX_MINUTES = 20;
+export type TimeChoice = "rapidas" | "demoradas";
+
 export type RecipeFilter = {
   slot?: MealSlot;
-  maxMinutes?: number;
+  time?: TimeChoice;
   minProtein?: number;
   query?: string;
   favoritesOnly?: boolean;
@@ -16,7 +20,8 @@ export function filterRecipes(recipes: Recipe[], f: RecipeFilter): Recipe[] {
   const favs = new Set(f.favorites ?? []);
   return recipes.filter((r) => {
     if (f.slot && !r.slot.includes(f.slot)) return false;
-    if (f.maxMinutes && r.minutes > f.maxMinutes) return false;
+    if (f.time === "rapidas" && r.minutes > QUICK_MAX_MINUTES) return false;
+    if (f.time === "demoradas" && r.minutes <= QUICK_MAX_MINUTES) return false;
     if (f.minProtein && r.perPortion.protein_g < f.minProtein) return false;
     if (f.favoritesOnly && !favs.has(r.slug)) return false;
     if (q) {

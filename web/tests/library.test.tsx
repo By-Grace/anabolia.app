@@ -15,7 +15,7 @@ describe("Library", () => {
       .toEqual(["Todas", "Café", "Almoço", "Lanche", "Jantar"]);
     expect(screen.getByRole("button", { name: "Só favoritas" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Filtros" })).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Até 15 min" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("radio", { name: "Rápidas" })).not.toBeInTheDocument();
     expect(screen.getByText("3 receitas")).toBeInTheDocument();
   });
 
@@ -36,7 +36,8 @@ describe("Library", () => {
     render(<Library recipes={recipes} favorites={[]} onToggleFavorite={vi.fn()} />);
     await userEvent.click(screen.getByRole("button", { name: "Filtros" }));
     const sheet = within(screen.getByRole("dialog", { name: "Filtros" }));
-    await userEvent.click(sheet.getByRole("radio", { name: "Até 15 min" }));
+    expect(sheet.getByText("Rápidas: até 20 min. Demoradas: mais de 20 min.")).toBeInTheDocument();
+    await userEvent.click(sheet.getByRole("radio", { name: "Rápidas" }));
     expect(sheet.getByRole("button", { name: "Ver 1 receita" })).toBeInTheDocument();
     await userEvent.click(sheet.getByRole("button", { name: "Ver 1 receita" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
@@ -48,18 +49,26 @@ describe("Library", () => {
     render(<Library recipes={recipes} favorites={[]} onToggleFavorite={vi.fn()} />);
     await userEvent.click(screen.getByRole("button", { name: "Filtros" }));
     const sheet = within(screen.getByRole("dialog", { name: "Filtros" }));
-    expect(sheet.getAllByRole("radio").map((r) => r.textContent)).toEqual(["Qualquer", "Até 15 min", "Até 30 min", "Qualquer", "30 g+", "40 g+"]);
+    expect(sheet.getAllByRole("radio").map((r) => r.textContent)).toEqual(["Todas", "Rápidas", "Demoradas", "Qualquer", "30 g+", "40 g+"]);
     await userEvent.click(sheet.getByRole("radio", { name: "40 g+" }));
     await userEvent.click(sheet.getByRole("button", { name: "Ver 2 receitas" }));
+    expect(slugs()).toEqual(["bowl-carne-batata-doce", "frango-crocante-arroz-tostado"]);
+  });
+
+  it("'Demoradas' mostra só as de mais de 20 min", async () => {
+    render(<Library recipes={recipes} favorites={[]} onToggleFavorite={vi.fn()} />);
+    await userEvent.click(screen.getByRole("button", { name: "Filtros" }));
+    await userEvent.click(within(screen.getByRole("dialog")).getByRole("radio", { name: "Demoradas" }));
+    await userEvent.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Ver 2 receitas" }));
     expect(slugs()).toEqual(["bowl-carne-batata-doce", "frango-crocante-arroz-tostado"]);
   });
 
   it("filtro ativo aparece como etiqueta removível", async () => {
     render(<Library recipes={recipes} favorites={[]} onToggleFavorite={vi.fn()} />);
     await userEvent.click(screen.getByRole("button", { name: "Filtros" }));
-    await userEvent.click(within(screen.getByRole("dialog")).getByRole("radio", { name: "Até 15 min" }));
+    await userEvent.click(within(screen.getByRole("dialog")).getByRole("radio", { name: "Rápidas" }));
     await userEvent.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Ver 1 receita" }));
-    await userEvent.click(screen.getByRole("button", { name: "Remover filtro Até 15 min" }));
+    await userEvent.click(screen.getByRole("button", { name: "Remover filtro Rápidas" }));
     expect(slugs()).toHaveLength(3);
   });
 

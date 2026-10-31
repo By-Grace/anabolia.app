@@ -3,14 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Segmented } from "@/components/ui/Segmented";
 import { buttonClass } from "@/components/ui/Button";
+import { QUICK_MAX_MINUTES, type TimeChoice } from "@/lib/domain/filter";
 
-export type Extra = { maxMinutes: number; minProtein: number };
-export const NO_EXTRA: Extra = { maxMinutes: 0, minProtein: 0 };
+export type Extra = { time: TimeChoice | "todas"; minProtein: number };
+export const NO_EXTRA: Extra = { time: "todas", minProtein: 0 };
 
-export const TIME_OPTIONS = [
-  { value: 0, label: "Qualquer" },
-  { value: 15, label: "Até 15 min" },
-  { value: 30, label: "Até 30 min" },
+export const TIME_OPTIONS: { value: Extra["time"]; label: string }[] = [
+  { value: "todas", label: "Todas" },
+  { value: "rapidas", label: "Rápidas" },
+  { value: "demoradas", label: "Demoradas" },
 ];
 export const PROTEIN_OPTIONS = [
   { value: 0, label: "Qualquer" },
@@ -54,8 +55,11 @@ export function FilterSheet({ initial, count, onApply, onClose }: {
         </div>
 
         <p className="mb-2 text-[15px] font-semibold">Tempo de preparo</p>
-        <Segmented label="Tempo de preparo" size="lg" options={TIME_OPTIONS} value={draft.maxMinutes}
-          onChange={(v) => setDraft((d) => ({ ...d, maxMinutes: v }))} />
+        <Segmented label="Tempo de preparo" size="lg" options={TIME_OPTIONS} value={draft.time}
+          onChange={(v) => setDraft((d) => ({ ...d, time: v }))} />
+        <p className="mt-2 text-[13px] text-grey">
+          Rápidas: até {QUICK_MAX_MINUTES} min. Demoradas: mais de {QUICK_MAX_MINUTES} min.
+        </p>
 
         <p className="mb-2 mt-6 text-[15px] font-semibold">Proteína por porção</p>
         <Segmented label="Proteína por porção" size="lg" options={PROTEIN_OPTIONS} value={draft.minProtein}
