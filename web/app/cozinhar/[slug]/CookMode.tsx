@@ -11,6 +11,7 @@ import { scaleHint } from "@/lib/cook/scale-hint";
 import { beep, unlockAudio } from "@/lib/cook/beep";
 import { loggedUrl, postMeal } from "@/lib/client/meals";
 import { ChevronLeft, FlameIcon, PauseIcon, PlayIcon } from "@/components/ui/icons";
+import { StepPills } from "@/components/ui/StepPills";
 import { buttonClass } from "@/components/ui/Button";
 
 type WakeLock = { release: () => Promise<void> };
@@ -115,15 +116,8 @@ export function CookMode({ recipe, portions, now = () => new Date(), clock = Dat
       <div className="flex items-center gap-3">
         <button type="button" onClick={exit} aria-label="Sair do modo cozinhar"
           className="grid size-9 flex-none place-items-center rounded-full bg-soft"><ChevronLeft size={20} /></button>
-        <div className="flex flex-1 gap-1.5" aria-hidden="true">
-          {recipe.steps.map((_, k) => (
-            <i key={k} data-testid="pill" data-on={k <= i}
-              className={"h-1.5 flex-1 rounded-full transition-colors " + (k <= i ? "bg-acc" : "bg-track")} />
-          ))}
-        </div>
-        <span aria-hidden="true" className="num flex-none text-[13px] font-semibold text-grey">{i + 1}/{total}</span>
+        <StepPills total={total} current={i} />
       </div>
-      <p className="sr-only" aria-live="polite">Passo {i + 1} de {total}</p>
 
       {others.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">

@@ -38,6 +38,13 @@ describe("HojeView", () => {
     expect(screen.getByText(/meta padrão/)).toBeInTheDocument();
   });
 
+  it("com meta padrão oferece o link 'calcular a minha' para /comecar; com meta própria, não", () => {
+    const { rerender } = render(<HojeView recipes={fixtures} logs={[]} goal={{ protein_g: 160, kcal: 3100, isDefault: true }} now={NIGHT} />);
+    expect(screen.getByRole("link", { name: "calcular a minha" })).toHaveAttribute("href", "/comecar");
+    rerender(<HojeView recipes={fixtures} logs={[]} goal={goal} now={NIGHT} />);
+    expect(screen.queryByRole("link", { name: "calcular a minha" })).not.toBeInTheDocument();
+  });
+
   it("às 21h a próxima refeição é do jantar e o card mostra o bowl com '+45 g proteína · 25 min · 680 kcal'", () => {
     render(<HojeView recipes={demoMenu} logs={[]} goal={goal} now={NIGHT} />);
     const card = within(screen.getByRole("region", { name: "Próxima refeição" }));

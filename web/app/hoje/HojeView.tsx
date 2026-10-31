@@ -74,7 +74,9 @@ export function HojeView({ recipes, logs, goal, now, error, justLogged }: {
           <>
             <p className="mt-1.5 text-[13px] font-medium text-grey num">
               {fmtInt(t.protein_g)} de {fmtInt(goal.protein_g)} g de proteína · {fmtInt(t.kcal)} de {fmtInt(goal.kcal)} kcal
-              {goal.isDefault && <> · meta padrão</>}
+              {goal.isDefault && (
+                <> · meta padrão, <Link href="/comecar" className="font-semibold text-acc">calcular a minha</Link></>
+              )}
             </p>
             <div className="mt-3.5">
               <ProgressBar value={t.progress} from={fromProgress} label="Proteína do dia" />
