@@ -73,6 +73,25 @@ describe("sugestões", () => {
       "frango-crocante-arroz-tostado",
     ]);
   });
+  it("no lanche, prefere receitas de até 15 min mesmo que outra feche melhor a proteína", () => {
+    const menu = [
+      fakeRecipe("torta-lenta", 47, ["lanche"], { minutes: 45 }),
+      fakeRecipe("wrap-rapido", 32, ["lanche"], { minutes: 8 }),
+      fakeRecipe("vitamina-rapida", 27, ["lanche"], { minutes: 5 }),
+    ];
+    expect(suggest(menu, 64, "lanche").map((r) => r.slug)).toEqual(["wrap-rapido", "vitamina-rapida"]);
+  });
+
+  it("no lanche, sem nenhuma receita rápida, volta a considerar todas", () => {
+    const menu = [fakeRecipe("torta-lenta", 47, ["lanche"], { minutes: 45 }), fakeRecipe("muffin", 35, ["lanche"], { minutes: 25 })];
+    expect(suggest(menu, 64, "lanche").map((r) => r.slug)).toEqual(["torta-lenta", "muffin"]);
+  });
+
+  it("almoço e jantar não têm preferência por tempo", () => {
+    const menu = [fakeRecipe("lento", 50, ["jantar"], { minutes: 45 }), fakeRecipe("rapido", 30, ["jantar"], { minutes: 10 })];
+    expect(suggest(menu, 50, "jantar")[0].slug).toBe("lento");
+  });
+
   it("suggest respeita limit", () => {
     expect(suggest(demoMenu, 87, "jantar", 1)).toHaveLength(1);
   });
