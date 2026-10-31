@@ -1,0 +1,85 @@
+{
+  "slug": "peixe-pure-brocolis",
+  "name": "Peixe grelhado com purê de batata e brócolis",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "filé de merluza",
+      "qty": 500,
+      "unit": "g",
+      "ref": "merluza"
+    },
+    {
+      "name": "batata",
+      "qty": 500,
+      "unit": "g",
+      "ref": "batata-inglesa"
+    },
+    {
+      "name": "leite integral",
+      "qty": 100,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "manteiga",
+      "qty": 15,
+      "unit": "g",
+      "ref": "manteiga"
+    },
+    {
+      "name": "brócolis",
+      "qty": 200,
+      "unit": "g",
+      "ref": "brocolis"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "limão",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe as batatas em água com sal até ficarem macias.",
+      "seconds": 900,
+      "ingredientHint": "batata · 500 g"
+    },
+    {
+      "text": "Amasse com o leite e a manteiga."
+    },
+    {
+      "text": "Tempere o peixe com sal e limão."
+    },
+    {
+      "text": "Grelhe no azeite em frigideira quente, de cada lado.",
+      "seconds": 180,
+      "ingredientHint": "merluza · 500 g · fogo médio-alto"
+    },
+    {
+      "text": "Cozinhe o brócolis no vapor e sirva tudo junto.",
+      "seconds": 300
+    }
+  ],
+  "photo": "/recipes/peixe-pure-brocolis.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Vire o peixe uma vez só: ele solta da frigideira quando está pronto."
+}

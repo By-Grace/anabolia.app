@@ -1,0 +1,73 @@
+{
+  "slug": "bolo-caneca-banana-aveia",
+  "name": "Bolo de caneca de banana e aveia",
+  "slot": [
+    "lanche",
+    "cafe"
+  ],
+  "minutes": 5,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "banana prata",
+      "qty": 1,
+      "unit": "un",
+      "ref": "banana-prata"
+    },
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 30,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "leite em pó",
+      "qty": 20,
+      "unit": "g",
+      "ref": "leite-po-integral"
+    },
+    {
+      "name": "fermento",
+      "qty": 3,
+      "unit": "g",
+      "ref": "fermento"
+    },
+    {
+      "name": "pasta de amendoim",
+      "qty": 10,
+      "unit": "g",
+      "ref": "pasta-amendoim"
+    },
+    {
+      "name": "canela",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Amasse a banana dentro de uma caneca grande."
+    },
+    {
+      "text": "Misture os ovos, a aveia, o leite em pó e a canela; o fermento por último."
+    },
+    {
+      "text": "Leve ao micro-ondas.",
+      "seconds": 120,
+      "ingredientHint": "micro-ondas · potência alta"
+    },
+    {
+      "text": "Cubra com a pasta de amendoim."
+    }
+  ],
+  "photo": "/recipes/bolo-caneca-banana-aveia.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

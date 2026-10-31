@@ -1,0 +1,54 @@
+{
+  "slug": "pao-frigideira-ovo-queijo",
+  "name": "Pão de frigideira de ovo e queijo",
+  "slot": [
+    "cafe",
+    "lanche"
+  ],
+  "minutes": 8,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 3,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "goma de tapioca",
+      "qty": 30,
+      "unit": "g",
+      "ref": "goma-tapioca"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 40,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata os ovos, a goma e o sal e misture metade do queijo."
+    },
+    {
+      "text": "Despeje numa frigideira antiaderente, tampe e cozinhe em fogo baixo.",
+      "seconds": 240,
+      "ingredientHint": "massa · fogo baixo"
+    },
+    {
+      "text": "Vire, coloque o resto do queijo e tampe de novo.",
+      "seconds": 120
+    }
+  ],
+  "photo": "/recipes/pao-frigideira-ovo-queijo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Tampa fechada: o pão cresce e fica fofo por dentro."
+}

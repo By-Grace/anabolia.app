@@ -1,0 +1,92 @@
+{
+  "slug": "carne-panela-batata-cenoura",
+  "name": "Carne de panela com batata e cenoura",
+  "slot": [
+    "almoco"
+  ],
+  "minutes": 45,
+  "difficulty": "médio",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "acém",
+      "qty": 500,
+      "unit": "g",
+      "ref": "acem"
+    },
+    {
+      "name": "batata",
+      "qty": 300,
+      "unit": "g",
+      "ref": "batata-inglesa"
+    },
+    {
+      "name": "cenoura",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cenoura"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 3,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "extrato de tomate",
+      "qty": 20,
+      "unit": "g",
+      "ref": "extrato-tomate"
+    },
+    {
+      "name": "água",
+      "qty": 400,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "óleo",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "oleo"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Corte o acém em cubos grandes e tempere com sal."
+    },
+    {
+      "text": "Sele no óleo bem quente na panela de pressão aberta.",
+      "seconds": 300,
+      "ingredientHint": "acém · 500 g · fogo alto"
+    },
+    {
+      "text": "Junte cebola, alho e extrato e refogue."
+    },
+    {
+      "text": "Adicione a água, feche e cozinhe depois que pegar pressão.",
+      "seconds": 1500,
+      "ingredientHint": "pressão"
+    },
+    {
+      "text": "Abra, junte a batata e a cenoura, feche e cozinhe mais.",
+      "seconds": 300,
+      "ingredientHint": "pressão"
+    }
+  ],
+  "photo": "/recipes/carne-panela-batata-cenoura.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Selar bem antes da pressão é o que dá cor ao caldo."
+}

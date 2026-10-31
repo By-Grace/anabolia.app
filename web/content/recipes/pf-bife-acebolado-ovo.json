@@ -1,0 +1,77 @@
+{
+  "slug": "pf-bife-acebolado-ovo",
+  "name": "PF: arroz, feijão, bife acebolado e ovo",
+  "slot": [
+    "almoco"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "bife de alcatra",
+      "qty": 150,
+      "unit": "g",
+      "ref": "bife-alcatra"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "ovo",
+      "qty": 1,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 150,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "feijão cozido",
+      "qty": 150,
+      "unit": "g",
+      "ref": "feijao-carioca-cozido"
+    },
+    {
+      "name": "óleo",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "oleo"
+    },
+    {
+      "name": "sal e pimenta",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Tempere o bife com sal e pimenta."
+    },
+    {
+      "text": "Sele em frigideira bem quente, sem mexer, de cada lado.",
+      "seconds": 120,
+      "ingredientHint": "bife · 150 g · fogo alto"
+    },
+    {
+      "text": "Na mesma frigideira, doure a cebola em rodelas.",
+      "seconds": 180
+    },
+    {
+      "text": "Frite o ovo."
+    },
+    {
+      "text": "Monte o prato com arroz, feijão, bife, cebola e ovo."
+    }
+  ],
+  "photo": "/recipes/pf-bife-acebolado-ovo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Frigideira fumegando antes do bife: é isso que faz a crosta."
+}

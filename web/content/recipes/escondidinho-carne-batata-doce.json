@@ -1,0 +1,92 @@
+{
+  "slug": "escondidinho-carne-batata-doce",
+  "name": "Escondidinho de carne moída com batata-doce",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 40,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "batata-doce",
+      "qty": 500,
+      "unit": "g",
+      "ref": "batata-doce"
+    },
+    {
+      "name": "manteiga",
+      "qty": 10,
+      "unit": "g",
+      "ref": "manteiga"
+    },
+    {
+      "name": "leite integral",
+      "qty": 50,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "patinho moído",
+      "qty": 400,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "extrato de tomate",
+      "qty": 20,
+      "unit": "g",
+      "ref": "extrato-tomate"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 60,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe a batata-doce em água com sal até ficar macia.",
+      "seconds": 900,
+      "ingredientHint": "batata-doce · 500 g"
+    },
+    {
+      "text": "Amasse com a manteiga e o leite até virar purê."
+    },
+    {
+      "text": "Refogue a carne com cebola, alho e extrato até secar.",
+      "seconds": 480,
+      "ingredientHint": "patinho moído · 400 g · fogo alto"
+    },
+    {
+      "text": "Monte no refratário: carne, purê e queijo por cima."
+    },
+    {
+      "text": "Gratine no forno a 220 °C.",
+      "seconds": 600,
+      "ingredientHint": "forno · 220 °C"
+    }
+  ],
+  "photo": "/recipes/escondidinho-carne-batata-doce.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

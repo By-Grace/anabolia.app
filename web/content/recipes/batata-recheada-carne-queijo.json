@@ -1,0 +1,76 @@
+{
+  "slug": "batata-recheada-carne-queijo",
+  "name": "Batata recheada com carne moída e queijo",
+  "slot": [
+    "jantar"
+  ],
+  "minutes": 40,
+  "difficulty": "médio",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "batata",
+      "qty": 600,
+      "unit": "g",
+      "ref": "batata-inglesa"
+    },
+    {
+      "name": "patinho moído",
+      "qty": 300,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "molho de tomate",
+      "qty": 100,
+      "unit": "g",
+      "ref": "molho-tomate"
+    },
+    {
+      "name": "requeijão",
+      "qty": 40,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 60,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe as batatas inteiras com casca em água com sal.",
+      "seconds": 1200,
+      "ingredientHint": "batata · 600 g"
+    },
+    {
+      "text": "Refogue a carne com a cebola e o molho.",
+      "seconds": 480,
+      "ingredientHint": "patinho moído · 300 g · fogo alto"
+    },
+    {
+      "text": "Corte as batatas ao meio, cave e misture o miolo com a carne e o requeijão."
+    },
+    {
+      "text": "Recheie, cubra com o queijo e gratine a 220 °C.",
+      "seconds": 600,
+      "ingredientHint": "forno · 220 °C"
+    }
+  ],
+  "photo": "/recipes/batata-recheada-carne-queijo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

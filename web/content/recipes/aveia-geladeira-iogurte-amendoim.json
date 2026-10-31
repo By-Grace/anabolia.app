@@ -1,0 +1,64 @@
+{
+  "slug": "aveia-geladeira-iogurte-amendoim",
+  "name": "Aveia de geladeira com iogurte e pasta de amendoim",
+  "slot": [
+    "cafe",
+    "lanche"
+  ],
+  "minutes": 5,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "aveia em flocos",
+      "qty": 50,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "iogurte natural",
+      "qty": 1,
+      "unit": "un",
+      "ref": "iogurte-natural"
+    },
+    {
+      "name": "leite em pó",
+      "qty": 30,
+      "unit": "g",
+      "ref": "leite-po-integral"
+    },
+    {
+      "name": "leite integral",
+      "qty": 80,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "pasta de amendoim",
+      "qty": 20,
+      "unit": "g",
+      "ref": "pasta-amendoim"
+    },
+    {
+      "name": "mel",
+      "qty": 10,
+      "unit": "g",
+      "ref": "mel"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture a aveia, o iogurte, o leite em pó e o leite num pote."
+    },
+    {
+      "text": "Feche e deixe na geladeira de um dia para o outro."
+    },
+    {
+      "text": "De manhã, cubra com a pasta de amendoim e o mel."
+    }
+  ],
+  "photo": "/recipes/aveia-geladeira-iogurte-amendoim.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Faça três potes no domingo e o café da semana está resolvido."
+}

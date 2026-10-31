@@ -1,0 +1,77 @@
+{
+  "slug": "hamburguer-caseiro-patinho",
+  "name": "Hambúrguer caseiro de patinho",
+  "slot": [
+    "jantar"
+  ],
+  "minutes": 20,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "patinho moído",
+      "qty": 360,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "pão de hambúrguer",
+      "qty": 2,
+      "unit": "un",
+      "ref": "pao-hamburguer"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 40,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "alface",
+      "qty": 30,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "sal e pimenta",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Modele dois hambúrgueres de 180 g sem apertar demais."
+    },
+    {
+      "text": "Tempere só por fora com sal e pimenta."
+    },
+    {
+      "text": "Grelhe em chapa bem quente de cada lado.",
+      "seconds": 240,
+      "ingredientHint": "hambúrguer · 180 g · fogo alto"
+    },
+    {
+      "text": "No último minuto, coloque o queijo e tampe.",
+      "seconds": 60
+    },
+    {
+      "text": "Toste o pão e monte com alface, tomate e cebola."
+    }
+  ],
+  "photo": "/recipes/hamburguer-caseiro-patinho.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Sal só na hora de ir para a chapa, para a carne não ressecar."
+}

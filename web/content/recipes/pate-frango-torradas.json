@@ -1,0 +1,62 @@
+{
+  "slug": "pate-frango-torradas",
+  "name": "Patê de frango com torradas",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "frango desfiado",
+      "qty": 200,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "requeijão",
+      "qty": 80,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "cenoura ralada",
+      "qty": 50,
+      "unit": "g",
+      "ref": "cenoura"
+    },
+    {
+      "name": "torrada",
+      "qty": 8,
+      "unit": "un",
+      "ref": "torrada"
+    },
+    {
+      "name": "cebolinha",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata o frango com o requeijão e o sal até ficar cremoso.",
+      "seconds": 60
+    },
+    {
+      "text": "Misture a cenoura e a cebolinha."
+    },
+    {
+      "text": "Sirva com as torradas."
+    }
+  ],
+  "photo": "/recipes/pate-frango-torradas.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Guarda três dias na geladeira em pote fechado."
+}

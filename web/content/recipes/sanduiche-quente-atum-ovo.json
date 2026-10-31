@@ -1,0 +1,64 @@
+{
+  "slug": "sanduiche-quente-atum-ovo",
+  "name": "Sanduíche quente de atum com ovo",
+  "slot": [
+    "cafe",
+    "lanche"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "pão integral",
+      "qty": 2,
+      "unit": "un",
+      "ref": "pao-integral"
+    },
+    {
+      "name": "atum em óleo (drenado)",
+      "qty": 80,
+      "unit": "g",
+      "ref": "atum-oleo"
+    },
+    {
+      "name": "ovo",
+      "qty": 1,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "requeijão",
+      "qty": 20,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "tomate",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "tomate"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture o atum com o requeijão."
+    },
+    {
+      "text": "Frite o ovo com a gema firme.",
+      "seconds": 180,
+      "ingredientHint": "ovo · 1 un"
+    },
+    {
+      "text": "Monte o pão com o atum, o ovo e rodelas de tomate."
+    },
+    {
+      "text": "Doure na frigideira dos dois lados.",
+      "seconds": 120,
+      "ingredientHint": "sanduíche · fogo médio"
+    }
+  ],
+  "photo": "/recipes/sanduiche-quente-atum-ovo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

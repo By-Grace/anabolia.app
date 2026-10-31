@@ -1,0 +1,61 @@
+{
+  "slug": "shake-leite-po-banana-aveia",
+  "name": "Shake caseiro de leite em pó, banana e aveia",
+  "slot": [
+    "lanche",
+    "cafe"
+  ],
+  "minutes": 5,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "leite integral",
+      "qty": 250,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "leite em pó",
+      "qty": 50,
+      "unit": "g",
+      "ref": "leite-po-integral"
+    },
+    {
+      "name": "banana prata",
+      "qty": 1,
+      "unit": "un",
+      "ref": "banana-prata"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 30,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "mel",
+      "qty": 10,
+      "unit": "g",
+      "ref": "mel"
+    },
+    {
+      "name": "canela",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Coloque tudo no liquidificador com gelo a gosto."
+    },
+    {
+      "text": "Bata até ficar espesso.",
+      "seconds": 60
+    }
+  ],
+  "photo": "/recipes/shake-leite-po-banana-aveia.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "O leite em pó faz o papel do suplemento, com comida de mercado."
+}

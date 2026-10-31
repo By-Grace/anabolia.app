@@ -1,0 +1,87 @@
+{
+  "slug": "sardinha-assada-arroz-salada",
+  "name": "Sardinha assada com arroz e salada",
+  "slot": [
+    "jantar",
+    "almoco"
+  ],
+  "minutes": 35,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "sardinha fresca limpa",
+      "qty": 400,
+      "unit": "g",
+      "ref": "sardinha"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "azeite",
+      "qty": 2,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 300,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "alface",
+      "qty": 60,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "pepino",
+      "qty": 100,
+      "unit": "g",
+      "ref": "pepino"
+    },
+    {
+      "name": "limão",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Tempere as sardinhas com sal, alho e limão e deixe pegar gosto.",
+      "seconds": 600,
+      "ingredientHint": "sardinha · 400 g"
+    },
+    {
+      "text": "Arrume numa assadeira com o azeite."
+    },
+    {
+      "text": "Asse a 220 °C até dourar.",
+      "seconds": 1200,
+      "ingredientHint": "forno · 220 °C"
+    },
+    {
+      "text": "Monte a salada e sirva com o arroz."
+    }
+  ],
+  "photo": "/recipes/sardinha-assada-arroz-salada.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Sardinha é uma das proteínas mais baratas do mercado."
+}

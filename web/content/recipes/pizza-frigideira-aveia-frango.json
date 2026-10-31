@@ -1,0 +1,79 @@
+{
+  "slug": "pizza-frigideira-aveia-frango",
+  "name": "Pizza de frigideira com massa de aveia e frango",
+  "slot": [
+    "jantar"
+  ],
+  "minutes": 20,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "aveia em flocos",
+      "qty": 50,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "fermento",
+      "qty": 3,
+      "unit": "g",
+      "ref": "fermento"
+    },
+    {
+      "name": "molho de tomate",
+      "qty": 50,
+      "unit": "g",
+      "ref": "molho-tomate"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 80,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 40,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "orégano",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture a aveia, os ovos, o fermento e o sal."
+    },
+    {
+      "text": "Espalhe numa frigideira untada, tampe e cozinhe em fogo baixo.",
+      "seconds": 240,
+      "ingredientHint": "massa · fogo baixo"
+    },
+    {
+      "text": "Vire a massa e cubra com molho, frango, queijo e orégano."
+    },
+    {
+      "text": "Tampe até o queijo derreter.",
+      "seconds": 180
+    }
+  ],
+  "photo": "/recipes/pizza-frigideira-aveia-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Massa fina e fogo baixo: fica crocante embaixo."
+}

@@ -1,0 +1,109 @@
+{
+  "slug": "galinhada",
+  "name": "Galinhada",
+  "slot": [
+    "almoco"
+  ],
+  "minutes": 40,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 350,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "arroz",
+      "qty": 150,
+      "unit": "g",
+      "ref": "arroz-cru"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "pimentão vermelho",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "pimentao-vermelho"
+    },
+    {
+      "name": "milho verde",
+      "qty": 80,
+      "unit": "g",
+      "ref": "milho-lata"
+    },
+    {
+      "name": "ervilha",
+      "qty": 50,
+      "unit": "g",
+      "ref": "ervilha-lata"
+    },
+    {
+      "name": "água quente",
+      "qty": 400,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "óleo",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "oleo"
+    },
+    {
+      "name": "açafrão-da-terra",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Doure o frango em cubos no óleo.",
+      "seconds": 360,
+      "ingredientHint": "peito de frango · 350 g · fogo alto"
+    },
+    {
+      "text": "Junte cebola, alho, pimentão e tomate e refogue.",
+      "seconds": 180
+    },
+    {
+      "text": "Acrescente o arroz e o açafrão e refogue mais um pouco.",
+      "seconds": 60,
+      "ingredientHint": "arroz · 150 g"
+    },
+    {
+      "text": "Cubra com a água quente, tampe e cozinhe em fogo baixo.",
+      "seconds": 900
+    },
+    {
+      "text": "Misture o milho e a ervilha e sirva."
+    }
+  ],
+  "photo": "/recipes/galinhada.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Arroz refogado antes da água fica soltinho."
+}

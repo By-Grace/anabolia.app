@@ -1,0 +1,53 @@
+{
+  "slug": "iogurte-aveia-banana-amendoim",
+  "name": "Iogurte com aveia, banana e pasta de amendoim",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 3,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "iogurte natural",
+      "qty": 2,
+      "unit": "un",
+      "ref": "iogurte-natural"
+    },
+    {
+      "name": "leite em pó",
+      "qty": 20,
+      "unit": "g",
+      "ref": "leite-po-integral"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 30,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "banana prata",
+      "qty": 1,
+      "unit": "un",
+      "ref": "banana-prata"
+    },
+    {
+      "name": "pasta de amendoim",
+      "qty": 20,
+      "unit": "g",
+      "ref": "pasta-amendoim"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture o iogurte com o leite em pó até ficar liso."
+    },
+    {
+      "text": "Cubra com a aveia, a banana em rodelas e a pasta de amendoim."
+    }
+  ],
+  "photo": "/recipes/iogurte-aveia-banana-amendoim.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "torta-liquidificador-frango",
+  "name": "Torta de liquidificador de frango",
+  "slot": [
+    "jantar",
+    "lanche"
+  ],
+  "minutes": 45,
+  "difficulty": "médio",
+  "basePortions": 3,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 3,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "leite integral",
+      "qty": 200,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "óleo",
+      "qty": 50,
+      "unit": "ml",
+      "ref": "oleo"
+    },
+    {
+      "name": "farinha de trigo",
+      "qty": 120,
+      "unit": "g",
+      "ref": "farinha-trigo"
+    },
+    {
+      "name": "fermento",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "fermento"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 300,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "milho verde",
+      "qty": 80,
+      "unit": "g",
+      "ref": "milho-lata"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "requeijão",
+      "qty": 50,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata os ovos, o leite, o óleo, a farinha e o sal no liquidificador; misture o fermento por último."
+    },
+    {
+      "text": "Misture o frango, o milho, o tomate, a cebola e o requeijão."
+    },
+    {
+      "text": "Numa forma untada, faça camadas: metade da massa, o recheio e o resto da massa."
+    },
+    {
+      "text": "Asse a 200 °C até dourar e o palito sair limpo.",
+      "seconds": 2100,
+      "ingredientHint": "forno · 200 °C"
+    }
+  ],
+  "photo": "/recipes/torta-liquidificador-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Rende três jantares: corta em fatias e congela."
+}

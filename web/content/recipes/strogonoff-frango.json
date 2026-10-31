@@ -1,0 +1,95 @@
+{
+  "slug": "strogonoff-frango",
+  "name": "Strogonoff de frango com arroz",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 400,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "extrato de tomate",
+      "qty": 30,
+      "unit": "g",
+      "ref": "extrato-tomate"
+    },
+    {
+      "name": "água",
+      "qty": 100,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "creme de leite",
+      "qty": 100,
+      "unit": "g",
+      "ref": "creme-leite"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 300,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Corte o frango em cubos e tempere com sal."
+    },
+    {
+      "text": "Doure no azeite em duas levas, sem amontoar.",
+      "seconds": 300,
+      "ingredientHint": "peito de frango · 400 g · fogo alto"
+    },
+    {
+      "text": "Junte a cebola e o alho e refogue.",
+      "seconds": 120
+    },
+    {
+      "text": "Acrescente o extrato e a água e cozinhe.",
+      "seconds": 180,
+      "ingredientHint": "molho · fogo médio"
+    },
+    {
+      "text": "Desligue o fogo e misture o creme de leite."
+    },
+    {
+      "text": "Sirva com o arroz."
+    }
+  ],
+  "photo": "/recipes/strogonoff-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Creme de leite só com o fogo desligado, para não talhar."
+}

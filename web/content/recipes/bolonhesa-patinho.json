@@ -1,0 +1,85 @@
+{
+  "slug": "bolonhesa-patinho",
+  "name": "Macarrão à bolonhesa de patinho",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "macarrão",
+      "qty": 200,
+      "unit": "g",
+      "ref": "macarrao-cru"
+    },
+    {
+      "name": "patinho moído",
+      "qty": 350,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "molho de tomate",
+      "qty": 300,
+      "unit": "g",
+      "ref": "molho-tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 3,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "queijo parmesão",
+      "qty": 20,
+      "unit": "g",
+      "ref": "parmesao"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe o macarrão em água fervente com sal.",
+      "seconds": 480,
+      "ingredientHint": "macarrão · 200 g"
+    },
+    {
+      "text": "Refogue a cebola e o alho no azeite."
+    },
+    {
+      "text": "Junte a carne e cozinhe até perder a cor.",
+      "seconds": 360,
+      "ingredientHint": "patinho moído · 350 g · fogo alto"
+    },
+    {
+      "text": "Acrescente o molho e cozinhe em fogo baixo.",
+      "seconds": 600
+    },
+    {
+      "text": "Misture com o macarrão e finalize com o parmesão."
+    }
+  ],
+  "photo": "/recipes/bolonhesa-patinho.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

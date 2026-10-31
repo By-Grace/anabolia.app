@@ -1,0 +1,75 @@
+{
+  "slug": "omelete-recheado-carne-queijo",
+  "name": "Omelete recheado de carne moída e queijo",
+  "slot": [
+    "jantar"
+  ],
+  "minutes": 15,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 3,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "patinho moído",
+      "qty": 100,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 30,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.25,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "tomate",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "manteiga",
+      "qty": 5,
+      "unit": "g",
+      "ref": "manteiga"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Refogue a carne com a cebola e o tomate.",
+      "seconds": 300,
+      "ingredientHint": "patinho moído · 100 g · fogo alto"
+    },
+    {
+      "text": "Bata os ovos com sal."
+    },
+    {
+      "text": "Derreta a manteiga, despeje os ovos e cozinhe em fogo baixo.",
+      "seconds": 180,
+      "ingredientHint": "ovo · 3 un · fogo baixo"
+    },
+    {
+      "text": "Coloque o recheio e o queijo numa metade, dobre e tampe.",
+      "seconds": 60
+    }
+  ],
+  "photo": "/recipes/omelete-recheado-carne-queijo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

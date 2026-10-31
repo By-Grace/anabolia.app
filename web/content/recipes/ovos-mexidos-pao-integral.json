@@ -1,0 +1,61 @@
+{
+  "slug": "ovos-mexidos-pao-integral",
+  "name": "Ovos mexidos cremosos com pão integral e queijo",
+  "slot": [
+    "cafe"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 4,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "manteiga",
+      "qty": 10,
+      "unit": "g",
+      "ref": "manteiga"
+    },
+    {
+      "name": "pão integral",
+      "qty": 2,
+      "unit": "un",
+      "ref": "pao-integral"
+    },
+    {
+      "name": "queijo minas",
+      "qty": 40,
+      "unit": "g",
+      "ref": "queijo-minas-frescal"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata os ovos com uma pitada de sal."
+    },
+    {
+      "text": "Derreta a manteiga em fogo baixo e despeje os ovos."
+    },
+    {
+      "text": "Mexa devagar com espátula, sem parar, até ficar cremoso.",
+      "seconds": 180,
+      "ingredientHint": "ovo · 4 un · fogo baixo"
+    },
+    {
+      "text": "Toste o pão e sirva com o queijo em fatias."
+    }
+  ],
+  "photo": "/recipes/ovos-mexidos-pao-integral.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Fogo baixo é o segredo: tire do fogo ainda brilhando."
+}

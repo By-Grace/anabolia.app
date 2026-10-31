@@ -1,0 +1,87 @@
+{
+  "slug": "coxinha-batata-doce-frango",
+  "name": "Coxinha de frango com massa de batata-doce",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 40,
+  "difficulty": "médio",
+  "basePortions": 3,
+  "ingredients": [
+    {
+      "name": "batata-doce",
+      "qty": 400,
+      "unit": "g",
+      "ref": "batata-doce"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 250,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "requeijão",
+      "qty": 40,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 1,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "ovo",
+      "qty": 1,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "farinha de rosca",
+      "qty": 40,
+      "unit": "g",
+      "ref": "farinha-rosca"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe a batata-doce em água com sal até ficar macia.",
+      "seconds": 900,
+      "ingredientHint": "batata-doce · 400 g"
+    },
+    {
+      "text": "Amasse e deixe esfriar."
+    },
+    {
+      "text": "Refogue o frango com cebola e alho e misture o requeijão."
+    },
+    {
+      "text": "Modele as coxinhas com a massa e recheie com o frango."
+    },
+    {
+      "text": "Passe no ovo batido e na farinha de rosca."
+    },
+    {
+      "text": "Asse na airfryer a 200 °C até dourar.",
+      "seconds": 900,
+      "ingredientHint": "airfryer · 200 °C"
+    }
+  ],
+  "photo": "/recipes/coxinha-batata-doce-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Massa bem fria modela sem grudar."
+}

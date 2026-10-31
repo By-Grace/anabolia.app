@@ -1,0 +1,57 @@
+{
+  "slug": "ovos-batata-doce-assada",
+  "name": "Ovos cozidos com batata-doce assada",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "batata-doce",
+      "qty": 200,
+      "unit": "g",
+      "ref": "batata-doce"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "ovo",
+      "qty": 4,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Corte a batata-doce em palitos, tempere com azeite e sal."
+    },
+    {
+      "text": "Asse na airfryer ou no forno a 200 °C.",
+      "seconds": 1200,
+      "ingredientHint": "batata-doce · 200 g · 200 °C"
+    },
+    {
+      "text": "Cozinhe os ovos em água fervente.",
+      "seconds": 540,
+      "ingredientHint": "ovo · 4 un"
+    },
+    {
+      "text": "Esfrie os ovos em água com gelo, descasque e sirva com a batata."
+    }
+  ],
+  "photo": "/recipes/ovos-batata-doce-assada.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Nove minutos dá gema firme e cremosa."
+}

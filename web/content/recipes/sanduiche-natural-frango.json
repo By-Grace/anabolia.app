@@ -1,0 +1,58 @@
+{
+  "slug": "sanduiche-natural-frango",
+  "name": "Sanduíche natural de frango",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "pão integral",
+      "qty": 2,
+      "unit": "un",
+      "ref": "pao-integral"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 100,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "requeijão",
+      "qty": 30,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "cenoura ralada",
+      "qty": 30,
+      "unit": "g",
+      "ref": "cenoura"
+    },
+    {
+      "name": "alface",
+      "qty": 20,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture o frango, o requeijão, a cenoura e o sal."
+    },
+    {
+      "text": "Monte no pão com a alface e corte na diagonal."
+    }
+  ],
+  "photo": "/recipes/sanduiche-natural-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

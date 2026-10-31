@@ -1,0 +1,82 @@
+{
+  "slug": "muffin-salgado-frango-ovo",
+  "name": "Muffin salgado de frango e ovo",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 3,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 6,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 30,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "fermento",
+      "qty": 3,
+      "unit": "g",
+      "ref": "fermento"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 150,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 60,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Ligue o forno a 180 °C e unte seis forminhas."
+    },
+    {
+      "text": "Bata os ovos com a aveia, o fermento e o sal."
+    },
+    {
+      "text": "Misture o frango, o tomate, a cebola e metade do queijo."
+    },
+    {
+      "text": "Encha as forminhas até 3/4 e cubra com o resto do queijo."
+    },
+    {
+      "text": "Asse até crescer e dourar.",
+      "seconds": 1200,
+      "ingredientHint": "forno · 180 °C"
+    }
+  ],
+  "photo": "/recipes/muffin-salgado-frango-ovo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Seis muffins: dois por lanche, três dias resolvidos."
+}

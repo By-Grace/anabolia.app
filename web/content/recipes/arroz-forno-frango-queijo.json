@@ -1,0 +1,72 @@
+{
+  "slug": "arroz-forno-frango-queijo",
+  "name": "Arroz de forno com frango e queijo",
+  "slot": [
+    "jantar",
+    "almoco"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "arroz cozido",
+      "qty": 300,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 250,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "milho verde",
+      "qty": 80,
+      "unit": "g",
+      "ref": "milho-lata"
+    },
+    {
+      "name": "ervilha",
+      "qty": 50,
+      "unit": "g",
+      "ref": "ervilha-lata"
+    },
+    {
+      "name": "molho de tomate",
+      "qty": 150,
+      "unit": "g",
+      "ref": "molho-tomate"
+    },
+    {
+      "name": "requeijão",
+      "qty": 60,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 60,
+      "unit": "g",
+      "ref": "mozarela"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture o arroz, o frango, o milho, a ervilha, o molho e o requeijão."
+    },
+    {
+      "text": "Espalhe num refratário e cubra com o queijo."
+    },
+    {
+      "text": "Leve ao forno a 220 °C até gratinar.",
+      "seconds": 900,
+      "ingredientHint": "forno · 220 °C"
+    }
+  ],
+  "photo": "/recipes/arroz-forno-frango-queijo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Melhor jeito de usar arroz de ontem."
+}

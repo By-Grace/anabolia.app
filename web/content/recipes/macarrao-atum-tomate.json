@@ -1,0 +1,76 @@
+{
+  "slug": "macarrao-atum-tomate",
+  "name": "Macarrão com atum e tomate",
+  "slot": [
+    "jantar",
+    "almoco"
+  ],
+  "minutes": 20,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "macarrão",
+      "qty": 200,
+      "unit": "g",
+      "ref": "macarrao-cru"
+    },
+    {
+      "name": "atum em óleo (drenado)",
+      "qty": 240,
+      "unit": "g",
+      "ref": "atum-oleo"
+    },
+    {
+      "name": "tomate",
+      "qty": 2,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "queijo parmesão",
+      "qty": 20,
+      "unit": "g",
+      "ref": "parmesao"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe o macarrão al dente em água com sal.",
+      "seconds": 480,
+      "ingredientHint": "macarrão · 200 g"
+    },
+    {
+      "text": "Doure o alho no azeite e junte o tomate picado.",
+      "seconds": 240,
+      "ingredientHint": "tomate · 2 un · fogo médio"
+    },
+    {
+      "text": "Acrescente o atum e misture."
+    },
+    {
+      "text": "Junte o macarrão com um pouco da água do cozimento e finalize com parmesão."
+    }
+  ],
+  "photo": "/recipes/macarrao-atum-tomate.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Um pouco da água do macarrão deixa o molho cremoso sem creme."
+}

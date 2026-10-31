@@ -1,0 +1,56 @@
+{
+  "slug": "vitamina-banana-aveia-amendoim",
+  "name": "Vitamina de banana, aveia e pasta de amendoim",
+  "slot": [
+    "lanche",
+    "cafe"
+  ],
+  "minutes": 5,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "leite integral",
+      "qty": 300,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "leite em pó",
+      "qty": 30,
+      "unit": "g",
+      "ref": "leite-po-integral"
+    },
+    {
+      "name": "banana prata",
+      "qty": 1,
+      "unit": "un",
+      "ref": "banana-prata"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 30,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "pasta de amendoim",
+      "qty": 20,
+      "unit": "g",
+      "ref": "pasta-amendoim"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Coloque tudo no liquidificador com gelo a gosto."
+    },
+    {
+      "text": "Bata até ficar liso.",
+      "seconds": 60
+    }
+  ],
+  "photo": "/recipes/vitamina-banana-aveia-amendoim.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Banana congelada deixa a vitamina com textura de milk-shake."
+}

@@ -17,6 +17,9 @@ export function getRecipes(): Recipe[] {
     if (!parsed.success) {
       throw new Error(`Receita inválida em content/recipes/${f}: ${parsed.error.message}`);
     }
+    if (`${parsed.data.slug}.json` !== f) {
+      throw new Error(`content/recipes/${f}: slug "${parsed.data.slug}" diferente do nome do arquivo`);
+    }
     return withNutrition(parsed.data, f);
   });
   recipes.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));

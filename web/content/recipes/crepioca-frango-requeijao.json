@@ -1,0 +1,63 @@
+{
+  "slug": "crepioca-frango-requeijao",
+  "name": "Crepioca de frango com requeijão",
+  "slot": [
+    "cafe",
+    "lanche"
+  ],
+  "minutes": 12,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "goma de tapioca",
+      "qty": 30,
+      "unit": "g",
+      "ref": "goma-tapioca"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 80,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "requeijão",
+      "qty": 30,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata os ovos com a goma e uma pitada de sal até ficar liso."
+    },
+    {
+      "text": "Despeje numa frigideira antiaderente em fogo médio e espalhe.",
+      "seconds": 120,
+      "ingredientHint": "massa · fogo médio"
+    },
+    {
+      "text": "Vire, espalhe o requeijão e o frango em metade."
+    },
+    {
+      "text": "Dobre ao meio e deixe aquecer o recheio.",
+      "seconds": 60
+    }
+  ],
+  "photo": "/recipes/crepioca-frango-requeijao.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Frango desfiado de véspera deixa isso pronto em 10 minutos."
+}

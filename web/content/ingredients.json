@@ -1,23 +1,350 @@
 {
   "_sobre": "Ingredientes do app. 'taco' aponta para content/taco/taco.json (TACO 4ª ed., NEPA/UNICAMP). Itens fora da TACO usam 'rotulo' (média de rótulos de mercado) e precisam de revisão de nutricionista. 'gramasPor' converte medida caseira em gramas. Quantidades nas receitas devem estar no mesmo estado do item (cru × cozido).",
   "ingredientes": {
-    "peito-frango": { "nome": "peito de frango (cru)", "taco": 409 },
-    "frango-desfiado": { "nome": "peito de frango cozido desfiado", "taco": 408 },
-    "patinho-moido": { "nome": "patinho moído (cru)", "taco": 376 },
-    "ovo": { "nome": "ovo inteiro (cru)", "taco": 489, "gramasPor": { "un": 50 } },
-    "arroz-cozido": { "nome": "arroz branco cozido", "taco": 3 },
-    "feijao-carioca-cozido": { "nome": "feijão carioca cozido", "taco": 561 },
-    "batata-doce": { "nome": "batata-doce (crua)", "taco": 89 },
-    "farinha-rosca": { "nome": "farinha de rosca", "taco": 34 },
-    "queijo-minas-frescal": { "nome": "queijo minas frescal", "taco": 461 },
-    "mamao-papaia": { "nome": "mamão papaia", "taco": 226 },
-    "cebola": { "nome": "cebola", "taco": 107, "gramasPor": { "un": 110 } },
-    "alho": { "nome": "alho", "taco": 82, "gramasPor": { "dente": 3 } },
-    "azeite": { "nome": "azeite de oliva", "taco": 260, "gramasPor": { "ml": 0.92, "colher": 13 } },
+    "peito-frango": {
+      "nome": "peito de frango (cru)",
+      "taco": 409
+    },
+    "frango-desfiado": {
+      "nome": "peito de frango cozido desfiado",
+      "taco": 408
+    },
+    "patinho-moido": {
+      "nome": "patinho moído (cru)",
+      "taco": 376
+    },
+    "ovo": {
+      "nome": "ovo inteiro (cru)",
+      "taco": 489,
+      "gramasPor": {
+        "un": 50
+      }
+    },
+    "arroz-cozido": {
+      "nome": "arroz branco cozido",
+      "taco": 3
+    },
+    "feijao-carioca-cozido": {
+      "nome": "feijão carioca cozido",
+      "taco": 561
+    },
+    "batata-doce": {
+      "nome": "batata-doce (crua)",
+      "taco": 89
+    },
+    "farinha-rosca": {
+      "nome": "farinha de rosca",
+      "taco": 34
+    },
+    "queijo-minas-frescal": {
+      "nome": "queijo minas frescal",
+      "taco": 461
+    },
+    "mamao-papaia": {
+      "nome": "mamão papaia",
+      "taco": 226
+    },
+    "cebola": {
+      "nome": "cebola",
+      "taco": 107,
+      "gramasPor": {
+        "un": 110
+      }
+    },
+    "alho": {
+      "nome": "alho",
+      "taco": 82,
+      "gramasPor": {
+        "dente": 3
+      }
+    },
+    "azeite": {
+      "nome": "azeite de oliva",
+      "taco": 260,
+      "gramasPor": {
+        "ml": 0.92,
+        "colher": 13
+      }
+    },
     "goma-tapioca": {
       "nome": "goma de tapioca hidratada",
-      "rotulo": { "kcal": 240, "protein_g": 0, "carbs_g": 60, "fat_g": 0 },
+      "rotulo": {
+        "kcal": 240,
+        "protein_g": 0,
+        "carbs_g": 60,
+        "fat_g": 0
+      },
       "fonteRotulo": "média de rótulos de goma de tapioca hidratada pronta para uso"
+    },
+    "agua": {
+      "nome": "água",
+      "rotulo": {
+        "kcal": 0,
+        "protein_g": 0,
+        "carbs_g": 0,
+        "fat_g": 0
+      },
+      "fonteRotulo": "água (sem macros)",
+      "gramasPor": {
+        "ml": 1
+      }
+    },
+    "leite-integral": {
+      "nome": "leite integral",
+      "rotulo": {
+        "kcal": 58,
+        "protein_g": 2.9,
+        "carbs_g": 4.4,
+        "fat_g": 3.2
+      },
+      "fonteRotulo": "média de rótulos de leite UHT integral (a TACO #458 não tem valores)",
+      "gramasPor": {
+        "ml": 1.03
+      }
+    },
+    "leite-po-integral": {
+      "nome": "leite em pó integral",
+      "taco": 459,
+      "gramasPor": {
+        "colher": 10
+      }
+    },
+    "iogurte-natural": {
+      "nome": "iogurte natural integral",
+      "taco": 448,
+      "gramasPor": {
+        "un": 170
+      }
+    },
+    "requeijao": {
+      "nome": "requeijão cremoso",
+      "taco": 468,
+      "gramasPor": {
+        "colher": 30
+      }
+    },
+    "mozarela": {
+      "nome": "queijo mozarela",
+      "taco": 463
+    },
+    "parmesao": {
+      "nome": "queijo parmesão",
+      "taco": 464,
+      "gramasPor": {
+        "colher": 5
+      }
+    },
+    "creme-leite": {
+      "nome": "creme de leite",
+      "taco": 447
+    },
+    "manteiga": {
+      "nome": "manteiga",
+      "taco": 261,
+      "gramasPor": {
+        "colher": 10
+      }
+    },
+    "oleo": {
+      "nome": "óleo de soja",
+      "taco": 272,
+      "gramasPor": {
+        "ml": 0.92,
+        "colher": 13
+      }
+    },
+    "pao-integral": {
+      "nome": "pão de forma integral (fatia)",
+      "taco": 52,
+      "gramasPor": {
+        "un": 25
+      }
+    },
+    "pao-hamburguer": {
+      "nome": "pão de hambúrguer",
+      "rotulo": {
+        "kcal": 270,
+        "protein_g": 9,
+        "carbs_g": 50,
+        "fat_g": 4
+      },
+      "fonteRotulo": "média de rótulos de pão de hambúrguer tradicional",
+      "gramasPor": {
+        "un": 60
+      }
+    },
+    "wrap": {
+      "nome": "pão folha (wrap/tortilha)",
+      "rotulo": {
+        "kcal": 300,
+        "protein_g": 8,
+        "carbs_g": 50,
+        "fat_g": 7
+      },
+      "fonteRotulo": "média de rótulos de tortilha de trigo",
+      "gramasPor": {
+        "un": 40
+      }
+    },
+    "torrada": {
+      "nome": "torrada de pão francês",
+      "taco": 63,
+      "gramasPor": {
+        "un": 8
+      }
+    },
+    "farinha-trigo": {
+      "nome": "farinha de trigo",
+      "taco": 35
+    },
+    "flocos-milho": {
+      "nome": "flocão de milho (cuscuz)",
+      "taco": 22
+    },
+    "pasta-amendoim": {
+      "nome": "pasta de amendoim integral",
+      "rotulo": {
+        "kcal": 600,
+        "protein_g": 25,
+        "carbs_g": 18,
+        "fat_g": 50
+      },
+      "fonteRotulo": "média de rótulos de pasta de amendoim integral sem açúcar",
+      "gramasPor": {
+        "colher": 15
+      }
+    },
+    "mel": {
+      "nome": "mel",
+      "taco": 507,
+      "gramasPor": {
+        "colher": 20
+      }
+    },
+    "fermento": {
+      "nome": "fermento químico em pó",
+      "taco": 513,
+      "gramasPor": {
+        "colher": 5
+      }
+    },
+    "extrato-tomate": {
+      "nome": "extrato de tomate",
+      "taco": 158,
+      "gramasPor": {
+        "colher": 20
+      }
+    },
+    "molho-tomate": {
+      "nome": "molho de tomate",
+      "taco": 159
+    },
+    "shoyu": {
+      "nome": "shoyu",
+      "taco": 518,
+      "gramasPor": {
+        "ml": 1.15,
+        "colher": 17
+      }
+    },
+    "amido-milho": {
+      "nome": "amido de milho",
+      "taco": 42,
+      "gramasPor": {
+        "colher": 10
+      }
+    },
+    "amendoim-torrado": {
+      "nome": "amendoim torrado",
+      "taco": 558
+    },
+    "banana-prata": {
+      "nome": "banana prata",
+      "taco": 182,
+      "gramasPor": {
+        "un": 70
+      }
+    },
+    "aveia": {
+      "nome": "aveia em flocos",
+      "taco": 7
+    },
+    "tomate": {
+      "nome": "tomate",
+      "taco": 157,
+      "gramasPor": {
+        "un": 100
+      }
+    },
+    "pimentao-vermelho": {
+      "nome": "pimentão vermelho",
+      "taco": 145,
+      "gramasPor": {
+        "un": 150
+      }
+    },
+    "milho-lata": {
+      "nome": "milho verde em conserva (drenado)",
+      "taco": 45
+    },
+    "ervilha-lata": {
+      "nome": "ervilha em conserva (drenada)",
+      "taco": 560
+    },
+    "alface": {
+      "nome": "alface",
+      "taco": 78
+    },
+    "pepino": {
+      "nome": "pepino",
+      "taco": 142
+    },
+    "cenoura": {
+      "nome": "cenoura",
+      "taco": 110,
+      "gramasPor": {
+        "un": 100
+      }
+    },
+    "brocolis": {
+      "nome": "brócolis",
+      "taco": 101
+    },
+    "abobrinha": {
+      "nome": "abobrinha",
+      "taco": 71
+    },
+    "batata-inglesa": {
+      "nome": "batata inglesa (crua)",
+      "taco": 92
+    },
+    "bife-alcatra": {
+      "nome": "bife de alcatra (cru)",
+      "taco": 369
+    },
+    "acem": {
+      "nome": "acém (cru)",
+      "taco": 329
+    },
+    "merluza": {
+      "nome": "filé de merluza (cru)",
+      "taco": 302
+    },
+    "atum-oleo": {
+      "nome": "atum em óleo (drenado)",
+      "taco": 277
+    },
+    "sardinha": {
+      "nome": "sardinha fresca limpa (crua)",
+      "taco": 321
+    },
+    "arroz-cru": {
+      "nome": "arroz branco (cru)",
+      "taco": 4
+    },
+    "macarrao-cru": {
+      "nome": "macarrão (cru)",
+      "taco": 40
     }
   }
 }

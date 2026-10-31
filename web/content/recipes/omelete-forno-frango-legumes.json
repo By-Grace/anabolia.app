@@ -1,0 +1,85 @@
+{
+  "slug": "omelete-forno-frango-legumes",
+  "name": "Omelete de forno com frango e legumes",
+  "slot": [
+    "cafe",
+    "jantar"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "ovo",
+      "qty": 6,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 150,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "abobrinha",
+      "qty": 100,
+      "unit": "g",
+      "ref": "abobrinha"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 60,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "sal e pimenta",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Ligue o forno a 200 °C e unte um refratário pequeno."
+    },
+    {
+      "text": "Refogue a cebola, a abobrinha e o tomate no azeite.",
+      "seconds": 180,
+      "ingredientHint": "legumes · fogo médio"
+    },
+    {
+      "text": "Bata os ovos com sal e pimenta e junte o frango e os legumes."
+    },
+    {
+      "text": "Despeje no refratário e cubra com o queijo."
+    },
+    {
+      "text": "Asse até firmar no centro.",
+      "seconds": 1200,
+      "ingredientHint": "forno · 200 °C"
+    }
+  ],
+  "photo": "/recipes/omelete-forno-frango-legumes.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Corta em quadrados e rende café de dois dias."
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "cuscuz-ovos-queijo",
+  "name": "Cuscuz nordestino com ovos e queijo",
+  "slot": [
+    "cafe",
+    "jantar"
+  ],
+  "minutes": 15,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "flocão de milho",
+      "qty": 70,
+      "unit": "g",
+      "ref": "flocos-milho"
+    },
+    {
+      "name": "água",
+      "qty": 80,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "ovo",
+      "qty": 3,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 40,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "manteiga",
+      "qty": 10,
+      "unit": "g",
+      "ref": "manteiga"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Hidrate o flocão com a água e o sal e deixe descansar.",
+      "seconds": 300,
+      "ingredientHint": "flocão · 70 g"
+    },
+    {
+      "text": "Leve à cuscuzeira com água fervendo embaixo.",
+      "seconds": 480
+    },
+    {
+      "text": "Enquanto isso, frite ou mexa os ovos na manteiga.",
+      "seconds": 180,
+      "ingredientHint": "ovo · 3 un"
+    },
+    {
+      "text": "Abra o cuscuz no prato, cubra com o queijo e os ovos por cima."
+    }
+  ],
+  "photo": "/recipes/cuscuz-ovos-queijo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "O vapor do cuscuz quente derrete o queijo sozinho."
+}

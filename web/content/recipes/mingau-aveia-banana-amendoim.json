@@ -1,0 +1,67 @@
+{
+  "slug": "mingau-aveia-banana-amendoim",
+  "name": "Mingau de aveia com banana e pasta de amendoim",
+  "slot": [
+    "cafe"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "leite integral",
+      "qty": 300,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 50,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "leite em pó",
+      "qty": 20,
+      "unit": "g",
+      "ref": "leite-po-integral"
+    },
+    {
+      "name": "banana prata",
+      "qty": 1,
+      "unit": "un",
+      "ref": "banana-prata"
+    },
+    {
+      "name": "pasta de amendoim",
+      "qty": 15,
+      "unit": "g",
+      "ref": "pasta-amendoim"
+    },
+    {
+      "name": "canela",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture o leite, a aveia e o leite em pó numa panela."
+    },
+    {
+      "text": "Cozinhe em fogo médio mexendo até engrossar.",
+      "seconds": 300,
+      "ingredientHint": "aveia · 50 g · fogo médio"
+    },
+    {
+      "text": "Corte a banana em rodelas."
+    },
+    {
+      "text": "Sirva com a banana, a pasta de amendoim e canela por cima."
+    }
+  ],
+  "photo": "/recipes/mingau-aveia-banana-amendoim.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "O leite em pó deixa cremoso e soma proteína sem suplemento."
+}

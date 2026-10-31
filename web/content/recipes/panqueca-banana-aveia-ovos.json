@@ -1,0 +1,75 @@
+{
+  "slug": "panqueca-banana-aveia-ovos",
+  "name": "Panqueca de banana e aveia com ovos",
+  "slot": [
+    "cafe",
+    "lanche"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "banana prata",
+      "qty": 1,
+      "unit": "un",
+      "ref": "banana-prata"
+    },
+    {
+      "name": "ovo",
+      "qty": 3,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "aveia em flocos",
+      "qty": 40,
+      "unit": "g",
+      "ref": "aveia"
+    },
+    {
+      "name": "manteiga",
+      "qty": 5,
+      "unit": "g",
+      "ref": "manteiga"
+    },
+    {
+      "name": "mel",
+      "qty": 10,
+      "unit": "g",
+      "ref": "mel"
+    },
+    {
+      "name": "canela",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Amasse a banana com um garfo até virar purê."
+    },
+    {
+      "text": "Junte os ovos, a aveia e a canela e misture bem."
+    },
+    {
+      "text": "Derreta a manteiga numa frigideira antiaderente em fogo médio-baixo."
+    },
+    {
+      "text": "Despeje a massa em porções pequenas e doure de um lado.",
+      "seconds": 120,
+      "ingredientHint": "massa · fogo médio-baixo"
+    },
+    {
+      "text": "Vire e doure o outro lado.",
+      "seconds": 90
+    },
+    {
+      "text": "Sirva com o mel por cima."
+    }
+  ],
+  "photo": "/recipes/panqueca-banana-aveia-ovos.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Panqueca pequena vira sem quebrar."
+}

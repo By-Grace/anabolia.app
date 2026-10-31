@@ -1,0 +1,63 @@
+{
+  "slug": "wrap-atum-queijo",
+  "name": "Wrap de atum com queijo",
+  "slot": [
+    "lanche"
+  ],
+  "minutes": 8,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "pão folha (wrap)",
+      "qty": 1,
+      "unit": "un",
+      "ref": "wrap"
+    },
+    {
+      "name": "atum em óleo (drenado)",
+      "qty": 80,
+      "unit": "g",
+      "ref": "atum-oleo"
+    },
+    {
+      "name": "queijo minas",
+      "qty": 40,
+      "unit": "g",
+      "ref": "queijo-minas-frescal"
+    },
+    {
+      "name": "tomate",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "alface",
+      "qty": 20,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "limão",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Tempere o atum com limão."
+    },
+    {
+      "text": "Aqueça o wrap na frigideira seca.",
+      "seconds": 30
+    },
+    {
+      "text": "Recheie com o queijo, o atum e a salada, enrole e doure a emenda.",
+      "seconds": 60
+    }
+  ],
+  "photo": "/recipes/wrap-atum-queijo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

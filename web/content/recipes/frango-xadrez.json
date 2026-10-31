@@ -1,0 +1,92 @@
+{
+  "slug": "frango-xadrez",
+  "name": "Frango xadrez com arroz",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 400,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "pimentão vermelho",
+      "qty": 1,
+      "unit": "un",
+      "ref": "pimentao-vermelho"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "shoyu",
+      "qty": 30,
+      "unit": "ml",
+      "ref": "shoyu"
+    },
+    {
+      "name": "amido de milho",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "amido-milho"
+    },
+    {
+      "name": "água",
+      "qty": 100,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "amendoim torrado",
+      "qty": 30,
+      "unit": "g",
+      "ref": "amendoim-torrado"
+    },
+    {
+      "name": "óleo",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "oleo"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 300,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Corte o frango em cubos e tempere com metade do shoyu."
+    },
+    {
+      "text": "Doure em frigideira bem quente com o óleo.",
+      "seconds": 300,
+      "ingredientHint": "peito de frango · 400 g · fogo alto"
+    },
+    {
+      "text": "Junte o pimentão e a cebola em cubos e salteie, ainda crocantes.",
+      "seconds": 180
+    },
+    {
+      "text": "Dissolva o amido na água com o resto do shoyu, despeje e engrosse.",
+      "seconds": 60
+    },
+    {
+      "text": "Finalize com o amendoim e sirva com o arroz."
+    }
+  ],
+  "photo": "/recipes/frango-xadrez.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Fogo alto o tempo todo: legume crocante é o que dá cara de restaurante."
+}

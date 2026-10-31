@@ -1,0 +1,65 @@
+{
+  "slug": "wrap-frango-requeijao",
+  "name": "Wrap de frango com requeijão e salada",
+  "slot": [
+    "jantar",
+    "lanche"
+  ],
+  "minutes": 10,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "pão folha (wrap)",
+      "qty": 1,
+      "unit": "un",
+      "ref": "wrap"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 120,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "requeijão",
+      "qty": 30,
+      "unit": "g",
+      "ref": "requeijao"
+    },
+    {
+      "name": "alface",
+      "qty": 20,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "tomate",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "cenoura ralada",
+      "qty": 30,
+      "unit": "g",
+      "ref": "cenoura"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Aqueça o wrap na frigideira seca.",
+      "seconds": 30
+    },
+    {
+      "text": "Espalhe o requeijão e distribua o frango e a salada."
+    },
+    {
+      "text": "Enrole firme e doure o lado da emenda para selar.",
+      "seconds": 60
+    }
+  ],
+  "photo": "/recipes/wrap-frango-requeijao.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}

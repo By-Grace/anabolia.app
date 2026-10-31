@@ -3,13 +3,13 @@ import { getRecipes, getRecipe } from "@/lib/recipes/load";
 import { RecipeSchema } from "@/lib/recipes/schema";
 
 describe("receitas", () => {
-  it("carrega as 3 receitas seed válidas", () => {
+  it("carrega o cardápio válido, incluindo as 3 receitas originais, em ordem alfabética", () => {
     const all = getRecipes();
-    expect(all.map((r) => r.slug)).toEqual([
-      "bowl-carne-batata-doce",
-      "frango-crocante-arroz-tostado",
-      "tapioca-frango-omelete",
-    ]);
+    for (const slug of ["bowl-carne-batata-doce", "frango-crocante-arroz-tostado", "tapioca-frango-omelete"]) {
+      expect(all.some((r) => r.slug === slug), slug).toBe(true);
+    }
+    const names = all.map((r) => r.name);
+    expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b, "pt-BR")));
     for (const r of all) expect(() => RecipeSchema.parse(r)).not.toThrow();
   });
 

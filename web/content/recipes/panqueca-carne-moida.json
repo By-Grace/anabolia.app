@@ -1,0 +1,91 @@
+{
+  "slug": "panqueca-carne-moida",
+  "name": "Panqueca de carne moída",
+  "slot": [
+    "jantar"
+  ],
+  "minutes": 35,
+  "difficulty": "médio",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "farinha de trigo",
+      "qty": 100,
+      "unit": "g",
+      "ref": "farinha-trigo"
+    },
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "leite integral",
+      "qty": 250,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "patinho moído",
+      "qty": 300,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "molho de tomate",
+      "qty": 200,
+      "unit": "g",
+      "ref": "molho-tomate"
+    },
+    {
+      "name": "queijo mozarela",
+      "qty": 40,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "óleo",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "oleo"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata a farinha, os ovos, o leite e o sal no liquidificador."
+    },
+    {
+      "text": "Faça discos finos em frigideira untada, de cada lado.",
+      "seconds": 60,
+      "ingredientHint": "massa · fogo médio"
+    },
+    {
+      "text": "Refogue a carne com a cebola e metade do molho.",
+      "seconds": 360,
+      "ingredientHint": "patinho moído · 300 g · fogo alto"
+    },
+    {
+      "text": "Recheie, enrole e cubra com o resto do molho e o queijo."
+    },
+    {
+      "text": "Leve ao forno a 200 °C para gratinar.",
+      "seconds": 600,
+      "ingredientHint": "forno · 200 °C"
+    }
+  ],
+  "photo": "/recipes/panqueca-carne-moida.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar."
+}
