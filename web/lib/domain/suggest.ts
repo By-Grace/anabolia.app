@@ -9,18 +9,10 @@ export function slotForHour(hour: number): MealSlot {
   return "jantar";
 }
 
-/** Tempo máximo preferido por refeição: lanche é entre uma coisa e outra, então só receitas rápidas. */
-export const QUICK_MINUTES: Partial<Record<MealSlot, number>> = { lanche: 15 };
-
-/**
- * Receitas do slot, as que mais se aproximam da proteína que falta primeiro.
- * Se o slot tem tempo preferido e existe receita dentro dele, só essas entram; senão, todas.
- */
+/** Receitas do slot, as que mais se aproximam da proteína que falta primeiro. */
 export function suggest(recipes: Recipe[], remainingProtein_g: number, slot: MealSlot, limit = 3): Recipe[] {
-  const inSlot = recipes.filter((r) => r.slot.includes(slot));
-  const max = QUICK_MINUTES[slot];
-  const quick = max ? inSlot.filter((r) => r.minutes <= max) : [];
-  return (quick.length ? quick : inSlot)
+  return recipes
+    .filter((r) => r.slot.includes(slot))
     .map((r) => ({ r, d: Math.abs(r.perPortion.protein_g - remainingProtein_g) }))
     .sort((a, b) => a.d - b.d || a.r.minutes - b.r.minutes)
     .slice(0, Math.max(0, limit))
