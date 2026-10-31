@@ -70,9 +70,16 @@ describe("verifyLoginCode", () => {
     expect(await verifyLoginCode({ auth } as never, " A@B.com ", "123 456", "email_change")).toEqual({ ok: true });
     expect(auth.verifyOtp).toHaveBeenCalledWith({ email: "a@b.com", token: "123456", type: "email_change" });
   });
+  it("aceita o código de 8 dígitos que este projeto do Supabase envia", async () => {
+    const auth = { verifyOtp: vi.fn().mockResolvedValue({ data: {}, error: null }) };
+    expect(await verifyLoginCode({ auth } as never, "a@b.com", "1234 5678", "email")).toEqual({ ok: true });
+    expect(auth.verifyOtp).toHaveBeenCalledWith({ email: "a@b.com", token: "12345678", type: "email" });
+  });
+
   it("código com formato errado nem chega ao Supabase; código recusado vira mensagem", async () => {
     const auth = { verifyOtp: vi.fn().mockResolvedValue({ data: {}, error: { message: "Token has expired or is invalid" } }) };
-    expect(await verifyLoginCode({ auth } as never, "a@b.com", "12a", "email")).toEqual({ ok: false, message: "O código tem 6 números." });
+    expect(await verifyLoginCode({ auth } as never, "a@b.com", "12a", "email")).toEqual({ ok: false, message: "Digite só os números do código do e-mail." });
+    expect(await verifyLoginCode({ auth } as never, "a@b.com", "12345", "email")).toEqual({ ok: false, message: "Digite só os números do código do e-mail." });
     expect(auth.verifyOtp).not.toHaveBeenCalled();
     expect(await verifyLoginCode({ auth } as never, "a@b.com", "123456", "email")).toEqual({ ok: false, message: "Código errado ou vencido. Peça outro link." });
   });

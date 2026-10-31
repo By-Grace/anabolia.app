@@ -35,7 +35,7 @@ describe("EntrarView", () => {
 
   it("link expirado mostra o aviso para pedir outro", () => {
     render(<EntrarView next="/" onSend={vi.fn()} linkError />);
-    expect(screen.getByText("Esse link não abriu aqui. Ele vence, só vale uma vez e só funciona no navegador onde você pediu. Peça outro e, se precisar, use o código de 6 dígitos do e-mail.")).toBeInTheDocument();
+    expect(screen.getByText("Esse link não abriu aqui. Ele vence, só vale uma vez e só funciona no navegador onde você pediu. Peça outro e, se precisar, use o código do e-mail.")).toBeInTheDocument();
   });
 
   it("Google e Apple só aparecem com as flags", () => {
@@ -52,7 +52,7 @@ describe("EntrarView", () => {
     render(<EntrarView next="/assinar" onSend={onSend} onVerify={onVerify} />);
     await userEvent.type(screen.getByLabelText("E-mail"), "a@b.com");
     await userEvent.click(screen.getByRole("button", { name: "Receber link" }));
-    await userEvent.type(await screen.findByLabelText("Código de 6 dígitos"), "123456");
+    await userEvent.type(await screen.findByLabelText("Código do e-mail"), "123456");
     await userEvent.click(screen.getByRole("button", { name: "Entrar com o código" }));
     expect(onVerify).toHaveBeenCalledWith("a@b.com", "123456", "email_change", "/assinar");
   });
@@ -62,7 +62,7 @@ describe("EntrarView", () => {
     render(<EntrarView next="/" onSend={vi.fn().mockResolvedValue({ ok: true, kind: "email" })} onVerify={onVerify} />);
     await userEvent.type(screen.getByLabelText("E-mail"), "a@b.com");
     await userEvent.click(screen.getByRole("button", { name: "Receber link" }));
-    await userEvent.type(await screen.findByLabelText("Código de 6 dígitos"), "000000");
+    await userEvent.type(await screen.findByLabelText("Código do e-mail"), "000000");
     await userEvent.click(screen.getByRole("button", { name: "Entrar com o código" }));
     expect(await screen.findByRole("alert")).toHaveTextContent("Código errado ou vencido. Peça outro link.");
     expect(screen.getByRole("button", { name: "Entrar com o código" })).toBeEnabled();

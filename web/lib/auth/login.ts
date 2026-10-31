@@ -2,7 +2,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { z } from "zod";
 
 export type SendResult = { ok: true } | { ok: false; message: string };
-/** Tipo do código de 6 dígitos: entrada normal ou conversão da conta anônima (troca de e-mail). */
+/** Tipo do código do e-mail: entrada normal ou conversão da conta anônima (troca de e-mail). */
 export type CodeKind = "email" | "email_change";
 
 const EmailSchema = z.string().trim().toLowerCase().pipe(z.email());
@@ -38,13 +38,14 @@ export async function sendLoginLink(client: SupabaseClient, rawEmail: string, re
 }
 
 /**
- * Entrar digitando o código de 6 dígitos do e-mail. Necessário no app instalado do iPhone, que não
+ * Entrar digitando o código numérico do e-mail. Necessário no app instalado do iPhone, que não
  * compartilha cookies com o Safari onde o link abre (o link com PKCE só vale no navegador que pediu).
  */
 export async function verifyLoginCode(client: SupabaseClient, rawEmail: string, rawCode: string, kind: CodeKind): Promise<SendResult> {
   const email = EmailSchema.safeParse(rawEmail);
   const token = rawCode.replace(/\s+/g, "");
-  if (!/^\d{6}$/.test(token)) return { ok: false, message: "O código tem 6 números." };
+  // O tamanho do código é configuração do Supabase (6 a 10); este projeto manda 8.
+  if (!/^\d{6,10}$/.test(token)) return { ok: false, message: "Digite só os números do código do e-mail." };
   if (!email.success) return { ok: false, message: "Confira o e-mail." };
   const { error } = await client.auth.verifyOtp({ email: email.data, token, type: kind });
   return error ? { ok: false, message: "Código errado ou vencido. Peça outro link." } : { ok: true };

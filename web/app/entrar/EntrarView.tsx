@@ -11,7 +11,7 @@ const FAIL = "Não deu para enviar o link agora. Tente de novo.";
 export function EntrarView({ next, onSend, onVerify, google = false, apple = false, linkError = false }: {
   next: string;
   onSend: (email: string, next: string) => Promise<SendResult & { kind?: CodeKind }>;
-  /** Entrar pelo código de 6 dígitos do e-mail (o link não funciona no app instalado do iPhone). */
+  /** Entrar pelo código do e-mail (o link não funciona no app instalado do iPhone). */
   onVerify?: (email: string, code: string, kind: CodeKind, next: string) => Promise<SendResult>;
   google?: boolean; apple?: boolean; linkError?: boolean;
 }) {
@@ -74,13 +74,13 @@ export function EntrarView({ next, onSend, onVerify, google = false, apple = fal
           </p>
           {onVerify && (
             <form onSubmit={verify} noValidate className="mt-7">
-              <label htmlFor="codigo" className="mb-2 block text-[15px] font-semibold">Código de 6 dígitos</label>
+              <label htmlFor="codigo" className="mb-2 block text-[15px] font-semibold">Código do e-mail</label>
               <p className="mb-2 text-[13px] text-grey">Se o link abrir em outro navegador, digite aqui o código do mesmo e-mail.</p>
-              <input id="codigo" inputMode="numeric" autoComplete="one-time-code" maxLength={7} value={code}
-                onChange={(ev) => setCode(ev.target.value.replace(/[^\d ]/g, ""))} placeholder="000000"
+              <input id="codigo" inputMode="numeric" autoComplete="one-time-code" maxLength={12} value={code}
+                onChange={(ev) => setCode(ev.target.value.replace(/[^\d ]/g, ""))} placeholder="00000000"
                 className="num h-[54px] w-full rounded-[12px] bg-soft px-4 text-[22px] font-bold tracking-[0.2em] placeholder:text-ring" />
               {codeError && <p role="alert" className="mt-3 text-sm font-medium text-ink">{codeError}</p>}
-              <button type="submit" disabled={verifying || code.replace(/\s/g, "").length !== 6} className={`${buttonClass("primary")} mt-4 w-full`}>
+              <button type="submit" disabled={verifying || code.replace(/\s/g, "").length < 6} className={`${buttonClass("primary")} mt-4 w-full`}>
                 {verifying ? "Entrando…" : "Entrar com o código"}
               </button>
             </form>
@@ -93,7 +93,7 @@ export function EntrarView({ next, onSend, onVerify, google = false, apple = fal
           <p className="mt-2 text-[15px] leading-snug text-grey">Receba um link no seu e-mail para entrar. Sem senha.</p>
 
           {linkError && (
-            <p className="mt-5 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink">Esse link não abriu aqui. Ele vence, só vale uma vez e só funciona no navegador onde você pediu. Peça outro e, se precisar, use o código de 6 dígitos do e-mail.</p>
+            <p className="mt-5 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink">Esse link não abriu aqui. Ele vence, só vale uma vez e só funciona no navegador onde você pediu. Peça outro e, se precisar, use o código do e-mail.</p>
           )}
 
           <label htmlFor="email" className="mb-2 mt-7 block text-[15px] font-semibold">E-mail</label>
