@@ -139,4 +139,54 @@ describe("PerfilView", () => {
     expect(screen.getByText("Nenhuma refeição marcada nesta semana.")).toBeInTheDocument();
     expect(screen.getByText("0 de 7 na meta")).toBeInTheDocument();
   });
+
+  describe("Conta", () => {
+    const active = { provider: "teste" as const, providerRef: "r1", status: "ativa" as const, currentPeriodEnd: "2026-12-01T12:00:00.000Z", cancelAtPeriodEnd: false };
+
+    it("sem conta permanente oferece criar conta, voltando ao Perfil", () => {
+      view({ account: { email: null, subscription: null, access: false } });
+      expect(screen.getByRole("link", { name: "Criar conta" })).toHaveAttribute("href", "/entrar?next=%2Fperfil");
+      expect(screen.queryByRole("button", { name: "Sair" })).not.toBeInTheDocument();
+    });
+
+    it("com assinatura ativa mostra e-mail, renovação e permite cancelar com confirmação", async () => {
+      const onCancel = vi.fn().mockResolvedValue({ ok: true, subscription: { ...active, status: "cancelada", cancelAtPeriodEnd: true } });
+      view({ account: { email: "a@b.com", subscription: active, access: true }, onCancel });
+      expect(screen.getByText("a@b.com")).toBeInTheDocument();
+      expect(screen.getByText("Ativa, renova em 01/12")).toBeInTheDocument();
+      await userEvent.click(screen.getByRole("button", { name: "Cancelar assinatura" }));
+      expect(screen.getByText("Cancelar a assinatura?")).toBeInTheDocument();
+      expect(screen.getByText("Você mantém o acesso até 01/12.")).toBeInTheDocument();
+      await userEvent.click(screen.getByRole("button", { name: "Manter" }));
+      expect(onCancel).not.toHaveBeenCalled();
+      await userEvent.click(screen.getByRole("button", { name: "Cancelar assinatura" }));
+      await userEvent.click(screen.getByRole("button", { name: "Confirmar cancelamento" }));
+      expect(onCancel).toHaveBeenCalledOnce();
+      expect(await screen.findByText("Cancelada, acesso até 01/12")).toBeInTheDocument();
+      expect(screen.queryByRole("button", { name: "Cancelar assinatura" })).not.toBeInTheDocument();
+    });
+
+    it("erro ao cancelar aparece em role=alert", async () => {
+      view({ account: { email: "a@b.com", subscription: active, access: true }, onCancel: vi.fn().mockResolvedValue({ ok: false, message: "Não deu para cancelar agora. Tente de novo." }) });
+      await userEvent.click(screen.getByRole("button", { name: "Cancelar assinatura" }));
+      await userEvent.click(screen.getByRole("button", { name: "Confirmar cancelamento" }));
+      expect(await screen.findByRole("alert")).toHaveTextContent("Não deu para cancelar agora. Tente de novo.");
+    });
+
+    it("falha ao ler a assinatura não diz 'Sem assinatura' nem oferece assinar de novo", () => {
+      view({ account: { email: "a@b.com", subscription: null, access: false, subscriptionError: true } });
+      expect(screen.getByText("Não deu para ver a assinatura agora.")).toBeInTheDocument();
+      expect(screen.queryByText("Sem assinatura")).not.toBeInTheDocument();
+      expect(screen.queryByRole("link", { name: "Assinar" })).not.toBeInTheDocument();
+    });
+
+    it("sem assinatura mostra o caminho para assinar; Sair chama a ação", async () => {
+      const onSignOut = vi.fn().mockResolvedValue(undefined);
+      view({ account: { email: "a@b.com", subscription: null, access: false }, onSignOut });
+      expect(screen.getByText("Sem assinatura")).toBeInTheDocument();
+      expect(screen.getByRole("link", { name: "Assinar" })).toHaveAttribute("href", "/assinar");
+      await userEvent.click(screen.getByRole("button", { name: "Sair" }));
+      expect(onSignOut).toHaveBeenCalledOnce();
+    });
+  });
 });

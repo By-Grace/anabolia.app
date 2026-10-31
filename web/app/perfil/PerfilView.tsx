@@ -14,6 +14,7 @@ import { buttonClass, ButtonLink } from "@/components/ui/Button";
 import { ChevronRight } from "@/components/ui/icons";
 import { ErrorNotice } from "@/app/hoje/ErrorNotice";
 import { WeekChart } from "./WeekChart";
+import { AccountSection, type Account, type CancelResult } from "./AccountSection";
 
 export type Result = { ok: true; goal: Goal } | { ok: false; message: string };
 
@@ -35,12 +36,16 @@ function Row({ label, sub, value, aria, onClick }: { label: string; sub?: string
   );
 }
 
-export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
+export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error, account, onCancel, onSignOut }: {
   profile: Profile;
   week: WeekHistory;
   onSaveWeight: (kg: number) => Promise<Result>;
   onSaveGoal: (g: { protein_g: number; kcal: number }) => Promise<Result>;
   error?: string;
+  /** Sem account, a seção Conta não aparece (telas de teste sem login). */
+  account?: Account;
+  onCancel?: () => Promise<CancelResult>;
+  onSignOut?: () => Promise<void>;
 }) {
   const router = useRouter();
   const [goal, setGoal] = useState(profile.goal);
@@ -104,6 +109,11 @@ export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
         </section>
       )}
       </>)}
+
+      {account && !error && (
+        <AccountSection account={account} onCancel={onCancel ?? (async () => ({ ok: false, message: "Indisponível." }))}
+          onSignOut={onSignOut ?? (async () => {})} />
+      )}
 
       {sheet === "peso" && body && (
         <WeightSheet initial={body.weightKg} onClose={close}

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { SendResult } from "@/lib/auth/login";
-import { supabaseBrowser } from "@/lib/supabase/client";
 import { Button, buttonClass } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/ui/icons";
 
@@ -32,6 +31,8 @@ export function EntrarView({ next, onSend, google = false, apple = false, linkEr
 
   const oauth = async (provider: "google" | "apple") => {
     const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+    // Carrega o cliente do Supabase só aqui: quem entra pelo e-mail não baixa a biblioteca.
+    const { supabaseBrowser } = await import("@/lib/supabase/client");
     const { error: err } = await supabaseBrowser().auth.signInWithOAuth({ provider, options: { redirectTo } });
     if (err) setError(FAIL);
   };
@@ -51,7 +52,7 @@ export function EntrarView({ next, onSend, google = false, apple = false, linkEr
           <Button variant="text" className="-ml-2 mt-4" onClick={() => setSent(null)}>Usar outro e-mail</Button>
         </div>
       ) : (
-        <form onSubmit={submit} noValidate className="flex flex-1 flex-col">
+        <form onSubmit={submit} noValidate>
           <h1 className="mt-0.5 text-[34px] font-bold leading-[1.05] tracking-[-0.025em]">Entrar</h1>
           <p className="mt-2 text-[15px] leading-snug text-grey">Receba um link no seu e-mail para entrar. Sem senha.</p>
 

@@ -337,6 +337,15 @@ Família de pílulas de 54px, firmes e com resposta tátil (`active: scale(.98)`
 ### Gráfico da semana (Perfil)
 Sete colunas na gramática da barra de proteína: trilho `track` de 10×96px com a altura da meta, preenchimento laranja até onde o dia chegou (teto na meta, mínimo visível de 10% quando houve registro), subindo da base em 700ms `cubic-bezier(.16,1,.3,1)` com 40ms de atraso entre colunas. Dia em 3 letras embaixo ("sáb"), hoje em ink 600 escrito "hoje", coluna tocada em ink 700. Uma leitura acima ("Hoje · 44 g de 160 g") troca com o toque; cada coluna é um botão com o valor no nome acessível. Sem legenda em caixa: uma série só, e a frase "A coluna cheia é a meta." embaixo.
 
+### Entrar
+Mesma coluna, sem tab bar. Contexto "Anaból[IA]" em cinza, título display "Entrar", uma frase ("Receba um link no seu e-mail para entrar. Sem senha."), campo de e-mail suave de 54px (raio 12, texto 17px, teclado de e-mail) e o primário "Receber link". Google e Apple, quando ligados, vêm depois de um "ou" como botões suaves de largura total. Enviado: círculo laranja de 48px com check, headline "Confira seu e-mail", o endereço em ink 600 e "Usar outro e-mail" em texto. Link vencido: aviso suave acima do campo.
+
+### Assinatura (paywall)
+Sem hero e sem tagline: título display "Assinatura", três linhas com check laranja de 22px dizendo o que vem (o número de receitas vem do conteúdo), card suave de preço com "R$ 29,90" em numeral hero e "por mês" em cinza, as duas frases de condição (Pix ou cartão, cancela no Perfil; garantia de 7 dias) e um único primário fixo no rodapé, "Assinar por R$ 29,90/mês". Com assinatura ativa, a tela só confirma e leva para Hoje.
+
+### Conta (Perfil)
+Última seção do Perfil. Linhas com fio: e-mail (valor em cinza à direita) e assinatura (estado em meta: "Ativa, renova em 01/12", "Cancelada, acesso até 01/12", "Sem assinatura" com "Assinar" em texto). "Cancelar assinatura" e "Sair" em texto laranja; cancelar abre a confirmação na própria tela ("Manter" suave e "Confirmar cancelamento" primário), nunca um diálogo do sistema. Sem conta: frase curta e botão suave "Criar conta".
+
 ### Lista de compras
 Agrupada por receita: nome em title 19/700 (leva à receita), "N porções · M de T" em meta, X num círculo suave de 36px para tirar a receita. Itens com o checkbox de ingrediente da receita e gramas à direita (Grams-First); comprado fica laranja com o nome e o peso em cinza riscado. "Limpar" em texto ao lado do título abre uma confirmação na própria tela (cartão suave com "Cancelar" e "Limpar lista"), nunca um diálogo do sistema. Tempero "a gosto" e água não entram.
 
