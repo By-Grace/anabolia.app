@@ -35,6 +35,8 @@ test("loop central: Hoje → receita → cozinhar → marcar → Hoje atualiza",
   const protein = Number((await page.getByTestId("stat").first().innerText()).match(/\d+/)![0]);
 
   await page.getByRole("link", { name: "Começar a cozinhar" }).click();
+  // A página da receita também tem "Marquei, comi": só procurar depois de o modo cozinhar abrir.
+  await page.waitForURL("**/cozinhar/**");
   for (;;) {
     const done = page.getByRole("button", { name: "Marquei, comi" });
     if (await done.isVisible()) { await done.click(); break; }
