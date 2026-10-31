@@ -2,11 +2,14 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { MealSlot } from "@/lib/recipes/schema";
 import { DEFAULT_GOAL, type Goal, type MealLog } from "@/lib/domain/day";
 import { clampPortions } from "@/lib/domain/scale";
+import type { DayLog } from "@/lib/domain/history";
 import { localDayKey } from "./day-key";
 
 export interface DayRepo {
   getGoal(userId: string): Promise<Goal>;
   getLogs(userId: string, dayKey: string): Promise<MealLog[]>;
+  /** Refeições entre duas chaves de dia, inclusive (histórico). */
+  getLogsBetween(userId: string, fromKey: string, toKey: string): Promise<DayLog[]>;
   logMeal(userId: string, input: { recipeSlug: string; portions: number; slot: MealSlot; at?: Date }): Promise<MealLog>;
   getFavorites(userId: string): Promise<string[]>;
   toggleFavorite(userId: string, slug: string): Promise<boolean>;
@@ -50,6 +53,19 @@ export function supabaseDayRepo(client: SupabaseClient): DayRepo {
           .order("logged_at", { ascending: true })
       ) as LogRow[] | null;
       return (rows ?? []).map(toLog);
+    },
+
+    async getLogsBetween(userId, fromKey, toKey) {
+      const rows = check(
+        await client
+          .from("meal_logs")
+          .select("id, recipe_slug, portions, slot, logged_at, day_key")
+          .eq("user_id", userId)
+          .gte("day_key", fromKey)
+          .lte("day_key", toKey)
+          .order("logged_at", { ascending: true })
+      ) as (LogRow & { day_key: string })[] | null;
+      return (rows ?? []).map((r) => ({ ...toLog(r), dayKey: r.day_key }));
     },
 
     async logMeal(userId, { recipeSlug, portions, slot, at }) {

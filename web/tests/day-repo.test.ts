@@ -38,6 +38,16 @@ describe("supabaseDayRepo", () => {
     expect(logs[0].recipeSlug).toBe("a");
   });
 
+  it("getLogsBetween filtra user_id e day_key entre from e to e devolve dayKey", async () => {
+    const { client, calls } = fakeSupabase(() => ({
+      data: [{ id: "l1", recipe_slug: "a", portions: 1, slot: "cafe", logged_at: "2026-10-31T11:00:00+00:00", day_key: "2026-10-31" }],
+      error: null,
+    }));
+    const logs = await supabaseDayRepo(client).getLogsBetween("u1", "2026-10-26", "2026-11-01");
+    expect(calls[0].filters).toEqual({ user_id: "u1", "day_key>=": "2026-10-26", "day_key<=": "2026-11-01" });
+    expect(logs).toEqual([{ id: "l1", recipeSlug: "a", portions: 1, slot: "cafe", loggedAt: "2026-10-31T11:00:00.000Z", dayKey: "2026-10-31" }]);
+  });
+
   it("toggleFavorite insere quando ausente e apaga quando presente", async () => {
     let present = false;
     const { client, calls } = fakeSupabase((op) => {
