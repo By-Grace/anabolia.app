@@ -34,7 +34,7 @@ export default async function HojePage({ searchParams }: { searchParams: Promise
   }
 
   return (
-    <AppShell active="hoje">
+    <AppShell>
       <HojeView recipes={recipes} logs={logs} goal={goal} now={now} error={error} justLogged={marcou} />
     </AppShell>
   );

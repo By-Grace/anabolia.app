@@ -5,6 +5,7 @@ import "./globals.css";
 // Números arredondados fora da Apple (Android, Windows). No iPhone/Mac vale o SF Rounded do sistema.
 const rounded = Nunito({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-nunito", display: "swap" });
 import { RegisterSW } from "./RegisterSW";
+import { TabBar } from "@/components/ui/TabBar";
 
 export const metadata: Metadata = {
   title: "Anaból[IA]",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={rounded.variable}>
       <body>
         {children}
+        <TabBar />
         <RegisterSW />
       </body>
     </html>

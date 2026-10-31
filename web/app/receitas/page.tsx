@@ -21,7 +21,7 @@ export default async function ReceitasPage({ searchParams }: { searchParams: Pro
     favorites = [];
   }
   return (
-    <AppShell active="receitas" title="Receitas">
+    <AppShell title="Receitas">
       <Library recipes={getRecipes()} favorites={favorites} initialSlot={initialSlot} onToggleFavorite={toggleFavoriteAction} />
     </AppShell>
   );

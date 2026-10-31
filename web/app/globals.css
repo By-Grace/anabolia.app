@@ -63,3 +63,37 @@ body {
   from { opacity: 0; transform: translateY(12px) scale(0.98); }
   to { opacity: 1; transform: none; }
 }
+
+/* Vidro líquido: translúcido, com desfoque, borda de luz e sombra suave (iOS 26). */
+.glass {
+  background: rgb(255 255 255 / 0.62);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow:
+    0 10px 30px rgb(0 0 0 / 0.12),
+    0 2px 6px rgb(0 0 0 / 0.06),
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    inset 0 -1px 0 rgb(0 0 0 / 0.04);
+}
+
+/* A lente que segue a aba ativa: desliza e desacelera suave, sem quicar. */
+.tab-lens {
+  background: rgb(0 0 0 / 0.055);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6);
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease;
+}
+
+/* Controle segmentado: o "polegar" branco desliza até a opção marcada. */
+.seg-thumb {
+  transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes sheetIn {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -217,8 +217,8 @@ Neutro de app nativo com um único laranja de crosta funcional.
 - **Papel** (`paper`): fundo de tudo; também texto sobre acento, foto e ink.
 - **Tinta** (`ink`): texto principal, anel da próxima refeição, chip selecionado, toast e timer-chip.
 - **Cinza** (`grey`): datas, sublinhas, metas, rótulos de stat, abas inativas, medida caseira.
-- **Fio** (`hair`): divisória de 1px entre linhas de lista e topo da tab bar.
-- **Suave** (`soft`): superfícies sem borda (card de proteína, chips, stepper, busca, aviso, dica, botões secundários) e fundo de foto ausente.
+- **Fio** (`hair`): divisória de 1px entre linhas de lista.
+- **Suave** (`soft`): superfícies sem borda (card de proteína, trilho do controle segmentado, stepper, busca, botões de ícone, aviso, dica, botões secundários) e fundo de foto ausente.
 - **Trilho** (`track`): fundo da barra de progresso e pílulas de passo futuras.
 - **Anel** (`ring`): círculo de refeição pendente, checkbox vazio, ícone de aba indisponível, coração não favoritado, placeholder de prato.
 
@@ -255,15 +255,15 @@ Neutro de app nativo com um único laranja de crosta funcional.
 
 ## Layout
 
-Coluna única centralizada, `max-width: 480px`, gutter de 20px; no desktop a mesma coluna fica centrada sobre branco (sem breakpoints, sem layout de duas colunas). Topo e base respeitam `env(safe-area-inset-*)`. Ritmo: 20px de topo + safe area, cabeçalho de tela com 20px abaixo, seções separadas por 24px, cabeçalho de seção a 4–10px do conteúdo. Linhas de lista com 10–12px verticais e 12px de gap horizontal. O card de proteína respira 16/18px. Conteúdo rolável reserva 96px (tab bar) ou 110px (barra de ação fixa) mais a safe area no rodapé.
+Coluna única centralizada, `max-width: 480px`, gutter de 20px; no desktop a mesma coluna fica centrada sobre branco (sem breakpoints, sem layout de duas colunas). Topo e base respeitam `env(safe-area-inset-*)`. Ritmo: 20px de topo + safe area, cabeçalho de tela com 20px abaixo, seções separadas por 24px, cabeçalho de seção a 4–10px do conteúdo. Linhas de lista com 10–12px verticais e 12px de gap horizontal. O card de proteína respira 16/18px. Conteúdo rolável reserva 110px (tab bar flutuante ou barra de ação fixa) mais a safe area no rodapé.
 
-Ações fixas de rodapé ficam sobre um gradiente de branco (`from-white 70%` até transparente) para não cortar o conteúdo seco. Faixas horizontais de chips sangram até a borda (margem negativa de 20px) e escondem a scrollbar.
+Ações fixas de rodapé ficam sobre um gradiente de branco (`from-white 70%` até transparente) para não cortar o conteúdo seco. Não há faixas horizontais de chips: escolhas frequentes viram controle segmentado; as raras ficam numa folha (Lei de Hick, revelação progressiva).
 
 **The One Step Rule.** No modo cozinhar, uma instrução por tela: pílulas de progresso (6px, uma por passo, laranja até o atual) com contador `N/total` em rounded cinza, texto do passo em headline, cronômetro gigante ancorado embaixo, e a dupla voltar (círculo suave 54px) + primário ("Próximo passo" / "Marquei, comi"). Troca de passo por botão ou deslize horizontal acima de 60px.
 
 ## Elevation & Depth
 
-Plano por padrão: profundidade vem de superfície suave sobre branco e de fios hairline, não de sombra. Sombra existe só em três coisas que flutuam ou são o alvo do polegar, sempre ambiente, preta e difusa. A tab bar é translúcida (branco 90% + blur) com fio no topo. A foto ganha legibilidade por gradiente preto só na base (75–80% até transparente), nunca por véu na imagem inteira.
+Plano por padrão: profundidade vem de superfície suave sobre branco e de fios hairline, não de sombra. Sombra existe só em três coisas que flutuam ou são o alvo do polegar, sempre ambiente, preta e difusa. A tab bar é uma cápsula flutuante de vidro (`.glass`: branco 62%, `blur(22px) saturate(180%)`, borda de luz branca, sombra ambiente dupla e realces internos), afastada 16px das laterais e 10px acima da safe area; o conteúdo passa por baixo dela. A foto ganha legibilidade por gradiente preto só na base (75–80% até transparente), nunca por véu na imagem inteira.
 
 ### Shadow Vocabulary
 - **Lift** (`box-shadow: 0 6px 16px rgba(0,0,0,.14)`): botão primário.
@@ -275,7 +275,7 @@ Plano por padrão: profundidade vem de superfície suave sobre branco e de fios 
 
 ## Shapes
 
-Família arredondada de app nativo: pílula total para botões, chips, barra, círculos de estado e timer-chip; 20px no photo card; 18px no card de proteína; 16px em toast, aviso e dica; 12px em busca e hint-chip; 10px em stepper e miniatura de receita (56px); 7px no checkbox de ingrediente (22px, borda 2px). Ícones em traço único de 2px, `round` cap e join, grade 24px; play, pausa e check são formas preenchidas próprias. Fotos sempre `object-cover` com recorte pelo raio do contêiner.
+Família arredondada de app nativo: pílula total para botões, chips, barra, círculos de estado e timer-chip; 20px no photo card; 18px no card de proteína; 16px em toast, aviso e dica; 12px em busca e hint-chip; 10px em stepper e miniatura de receita (56px); 7px no checkbox de ingrediente (22px, borda 2px). Ícones: Phosphor (MIT), um único conjunto. Peso `regular` no repouso e `fill` no estado ativo/selecionado (aba ativa, coração favoritado), como o iOS; `bold` em ícones pequenos de controle (lupa, filtros, fechar, menos/mais, voltar); play, pausa e chama em `fill`. Nada de glifo de texto no lugar de ícone. Fotos sempre `object-cover` com recorte pelo raio do contêiner.
 
 ## Components
 
@@ -302,11 +302,15 @@ Família de pílulas de 54px, firmes e com resposta tátil (`active: scale(.98)`
 
 ### Inputs / Fields
 - **Busca:** campo suave de 44px, raio 12px, ícone de lupa cinza, sem borda, sem anel próprio além do foco global.
-- **Stepper:** grupo suave raio 10px, botões de 36×32px, valor em rounded 15/700 ao centro; limite desabilita para `ring`.
+- **Stepper:** grupo suave raio 10px, botões de 36×32px com ícones Phosphor menos/mais, valor em rounded 15/700 ao centro; limite desabilita para `ring`.
+- **Controle segmentado:** trilho `soft` raio 12px, 40–44px de altura, polegar branco raio 9px com sombra curta que desliza até a opção marcada (340ms, `cubic-bezier(.22,1,.36,1)`); opção marcada ink 600, demais cinza 500; `radiogroup` com setas do teclado. Usado para refeição na biblioteca e para tempo/proteína na folha de filtros.
+- **Folha de filtros:** sobe de baixo (raio 28px no topo, alça de 40×6px, véu preto 30%); título 22/700 com "Limpar" em texto; seções com controle segmentado; botão primário "Ver N receitas" com a contagem ao vivo. Só aplica ao tocar no botão; fechar descarta.
+- **Botões de ícone:** 44×44px raio 12px em `soft` ao lado da busca (favoritas, filtros). Favoritas ativo: `acc-soft` com coração `fill` laranja. Filtros ativo: ink com selo laranja de contagem.
+- **Etiqueta de filtro ativo:** pílula ink 28px com rótulo e X; tocar remove o filtro. Aparece só quando há filtro, ao lado da contagem "N receitas".
 - **Checkbox de ingrediente:** quadrado 22px raio 7px, borda `ring`; marcado vira laranja com check branco e o nome passa a cinza riscado.
 
 ### Navigation
-- **Tab bar:** fixa no rodapé, 60px + safe area, branco 90% com blur e fio no topo; ícone de traço 24px sobre rótulo 11px/600. Ativa em laranja, inativas em cinza; abas ainda não construídas ficam com ícone `ring` e `aria-disabled`.
+- **Tab bar:** cápsula flutuante de vidro de 64px, até 440px de largura, no layout raiz (aparece só em /hoje e /receitas). Uma lente (preto 5,5% com realce interno) desliza até a aba ativa em 480ms `cubic-bezier(.22,1,.36,1)`. Ícone Phosphor 25px sobre rótulo 11px/600; ativa em laranja com ícone `fill`, inativas em tinta 75% com ícone `regular`; abas ainda não construídas ficam com ícone `ring`, rótulo cinza e `aria-disabled`.
 
 ### Set Row (signature)
 A refeição como série de treino. Linha com fio no topo: círculo de 26px à esquerda (anel `ring` pendente, anel ink próxima, laranja cheio com check feita), rótulo body-strong com sublinha cinza truncada, valor em gramas rounded 16/700 à direita (`+N g` para a próxima, `—` para pendente, que também fica cinza). Na próxima refeição o círculo é botão de marcar direto.
