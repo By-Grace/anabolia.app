@@ -15,3 +15,12 @@ export function dayLabel(date: Date, tz: string = DEFAULT_TZ): string {
 export function recipeMeta(r: { minutes: number; perPortion: { protein_g: number; kcal: number } }): string {
   return `+${fmtInt(r.perPortion.protein_g)} g proteína · ${r.minutes} min · ${fmtInt(r.perPortion.kcal)} kcal`;
 }
+
+const PLURAL: Record<string, string> = { dente: "dentes", colher: "colheres" };
+
+/** "400 g", "2 dentes", "1 un", "a gosto" */
+export function fmtQty(i: { qty: number; unit: string }): string {
+  if (i.unit === "a gosto") return "a gosto";
+  const unit = i.qty > 1 && PLURAL[i.unit] ? PLURAL[i.unit] : i.unit;
+  return `${fmtInt(i.qty)} ${unit}`;
+}
