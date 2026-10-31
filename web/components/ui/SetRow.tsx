@@ -5,7 +5,7 @@ export type SetState = "done" | "todo" | "next";
 export function SetRow({ label, sub, value, state }: { label: string; sub?: string; value: string; state: SetState }) {
   const muted = state === "todo";
   return (
-    <div className="flex items-center gap-3 border-t border-hair py-3 first:border-t-0">
+    <div data-state={state} data-label={label} className="flex items-center gap-3 border-t border-hair py-3 first:border-t-0">
       <span
         className={
           "grid size-[26px] flex-none place-items-center rounded-full border-2 transition-colors " +
