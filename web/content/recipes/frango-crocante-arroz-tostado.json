@@ -1,0 +1,29 @@
+{
+  "slug": "frango-crocante-arroz-tostado",
+  "name": "Frango crocante com arroz tostado",
+  "slot": ["almoco", "jantar"],
+  "minutes": 22,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "perPortion": { "kcal": 610, "protein_g": 42, "carbs_g": 58, "fat_g": 21 },
+  "ingredients": [
+    { "name": "peito de frango", "qty": 400, "unit": "g" },
+    { "name": "arroz cozido", "qty": 300, "unit": "g" },
+    { "name": "farinha de rosca", "qty": 40, "unit": "g" },
+    { "name": "ovo", "qty": 1, "unit": "un" },
+    { "name": "alho", "qty": 2, "unit": "dente" },
+    { "name": "azeite", "qty": 15, "unit": "ml" },
+    { "name": "sal e pimenta", "qty": 0, "unit": "a gosto" }
+  ],
+  "steps": [
+    { "text": "Corte o frango em filés finos e tempere com sal, pimenta e o alho amassado." },
+    { "text": "Bata o ovo num prato fundo. Passe cada filé no ovo e depois na farinha de rosca, apertando bem." },
+    { "text": "Sele o frango 3 minutos de cada lado. Não mexa até formar a crosta.", "seconds": 180, "ingredientHint": "peito de frango · 400 g · fogo alto" },
+    { "text": "Tire o frango e deixe descansar numa tábua enquanto prepara o arroz." },
+    { "text": "Na mesma frigideira, coloque o arroz cozido e espalhe numa camada fina.", "ingredientHint": "arroz cozido · 300 g" },
+    { "text": "Deixe tostar sem mexer até o fundo ficar dourado.", "seconds": 240, "ingredientHint": "fogo médio" },
+    { "text": "Fatie o frango e sirva por cima do arroz tostado." }
+  ],
+  "photo": "/recipes/frango-crocante-arroz-tostado.webp",
+  "tip": "Comece pela crosta. O resto vai sozinho."
+}

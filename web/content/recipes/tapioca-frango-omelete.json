@@ -1,0 +1,24 @@
+{
+  "slug": "tapioca-frango-omelete",
+  "name": "Tapioca de frango com omelete",
+  "slot": ["cafe", "lanche"],
+  "minutes": 12,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "perPortion": { "kcal": 520, "protein_g": 38, "carbs_g": 48, "fat_g": 18 },
+  "ingredients": [
+    { "name": "goma de tapioca", "qty": 60, "unit": "g" },
+    { "name": "frango desfiado", "qty": 80, "unit": "g" },
+    { "name": "ovo", "qty": 2, "unit": "un" },
+    { "name": "queijo minas", "qty": 30, "unit": "g" },
+    { "name": "mamão", "qty": 150, "unit": "g" },
+    { "name": "sal", "qty": 0, "unit": "a gosto" }
+  ],
+  "steps": [
+    { "text": "Espalhe a goma numa frigideira antiaderente fria e leve ao fogo médio até firmar.", "seconds": 90, "ingredientHint": "goma de tapioca · 60 g" },
+    { "text": "Vire, recheie com o frango e o queijo e dobre ao meio." },
+    { "text": "Bata os ovos com sal e faça o omelete na mesma frigideira.", "seconds": 120, "ingredientHint": "ovo · 2 un" },
+    { "text": "Sirva com o mamão cortado." }
+  ],
+  "photo": "/recipes/tapioca-frango-omelete.webp"
+}

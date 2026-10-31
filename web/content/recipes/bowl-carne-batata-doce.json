@@ -1,0 +1,28 @@
+{
+  "slug": "bowl-carne-batata-doce",
+  "name": "Bowl de carne com batata-doce",
+  "slot": ["almoco", "jantar"],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "perPortion": { "kcal": 680, "protein_g": 45, "carbs_g": 62, "fat_g": 24 },
+  "ingredients": [
+    { "name": "patinho moído", "qty": 400, "unit": "g" },
+    { "name": "batata-doce", "qty": 400, "unit": "g" },
+    { "name": "feijão cozido", "qty": 200, "unit": "g" },
+    { "name": "cebola", "qty": 1, "unit": "un" },
+    { "name": "alho", "qty": 2, "unit": "dente" },
+    { "name": "azeite", "qty": 15, "unit": "ml" },
+    { "name": "sal e cominho", "qty": 0, "unit": "a gosto" }
+  ],
+  "steps": [
+    { "text": "Descasque a batata-doce, corte em cubos e cozinhe em água com sal até ficar macia.", "seconds": 600, "ingredientHint": "batata-doce · 400 g" },
+    { "text": "Enquanto isso, pique a cebola e o alho." },
+    { "text": "Doure a cebola e o alho no azeite." },
+    { "text": "Junte a carne e deixe dourar bem antes de mexer.", "seconds": 300, "ingredientHint": "patinho moído · 400 g · fogo alto" },
+    { "text": "Tempere com sal e cominho e junte o feijão para aquecer." },
+    { "text": "Monte o bowl: batata-doce, carne com feijão por cima." }
+  ],
+  "photo": "/recipes/bowl-carne-batata-doce.webp",
+  "tip": "Carne só vira crosta se você deixar ela quieta."
+}
