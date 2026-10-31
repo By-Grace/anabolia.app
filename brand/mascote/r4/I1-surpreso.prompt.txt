@@ -1,0 +1,5 @@
+model: gpt-image-2
+base: I1-frangao.png
+
+Expression: surprised, both eyes very wide with small pupils, eyebrows high, beak slightly open in a small 'o'.
+Keep EXACTLY the same character, same design, same proportions, same colors (off-white #F1F5EA body, lime green #C8F24C comb, wattle and beak, dark teal-ink #17282B background and eyes), same framing (head-and-shoulders bust, head filling most of the square, muscular shoulders cropped by the bottom edge), same rendering style. Change ONLY the facial expression as described. No text, no watermark, no extra objects.

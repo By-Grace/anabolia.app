@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- PUBLICAR: se for hospedar fora de https://anabolia.app (host interino), troque as URLs absolutas de canonical/og:url/og:image abaixo pelo domínio real — senão o preview de compartilhamento quebra. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anaból[IA] — Sua meta virou almoço.</title>
+<meta name="description" content="O app que transforma sua meta de proteína em comida de verdade: receitas que dão vontade, macros resolvidos e lista de compras inteligente. Em breve — siga @anabolia.app.">
+<link rel="canonical" href="https://anabolia.app/">
+<meta property="og:title" content="Anaból[IA] — Sua meta virou almoço.">
+<meta property="og:description" content="Você bate proteína com comida que dá vontade de repetir. Em breve — siga @anabolia.app.">
+<meta property="og:image" content="https://anabolia.app/assets/og-card.png">
+<meta property="og:url" content="https://anabolia.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1F5EA">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#17282B; --pulse:#3156FF; --goal:#C8F24C; --mist:#B9D8DB; --ice:#F1F5EA;
+    --ink-2:#22363A; --ice-2:#FFFDF8; --line:#DCE3D2; --muted:#5D6E71;
+    --sg:"Space Grotesk","Plus Jakarta Sans",system-ui,sans-serif;
+    --pj:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+    --shadow:0 14px 34px rgba(23,40,43,.10), 0 2px 8px rgba(23,40,43,.06);
+    --r-bubble:22px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--ice); color:var(--ink); font-family:var(--pj);
+    font-size:1.0625rem; line-height:1.6; -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--goal); color:var(--ink)}
+  a{color:var(--pulse)}
+  :focus-visible{outline:3px solid var(--pulse); outline-offset:3px; border-radius:4px}
+  img{max-width:100%; display:block}
+
+  .mono{font-family:var(--mono)}
+  .wrap{max-width:760px; margin:0 auto; padding:0 clamp(16px,4.5vw,32px)}
+
+  /* ---------- header ---------- */
+  header.top{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--ice) 90%, transparent);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:12px; padding-bottom:12px}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink)}
+  .brand svg{width:34px; height:34px; flex:none}
+  .brand b{font-family:var(--sg); font-weight:500; font-size:1.25rem; letter-spacing:-.03em}
+  .brand b span{color:var(--pulse)}
+  .btn{display:inline-flex; align-items:center; gap:10px; background:var(--pulse); color:#fff;
+    font-family:var(--sg); font-weight:500; font-size:1rem; letter-spacing:-.01em;
+    padding:.72em 1.3em; border-radius:999px; text-decoration:none;
+    box-shadow:0 8px 22px rgba(49,86,255,.28); transition:transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(49,86,255,.34)}
+  .btn:active{transform:translateY(0)}
+  .btn svg{width:18px; height:18px}
+  .btn.small{font-size:.92rem; padding:.6em 1.1em}
+
+  /* ---------- chat ---------- */
+  .chat{padding:clamp(28px,6vw,56px) 0 0}
+  .day{display:block; text-align:center; font-family:var(--mono); font-size:.72rem; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 26px}
+  .msg{display:flex; gap:12px; margin:0 0 18px; align-items:flex-end; position:relative}
+  .msg .avatar{width:38px; height:38px; flex:none; border-radius:12px; overflow:hidden}
+  .msg .avatar svg{width:100%; height:100%; display:block}
+  .bubble{max-width:min(560px,86%); background:var(--ice-2); border:1px solid var(--line);
+    border-radius:var(--r-bubble); border-bottom-left-radius:8px; padding:14px 18px; box-shadow:var(--shadow)}
+  .bubble p{margin:.3em 0}
+  .msg.me{justify-content:flex-end}
+  .msg.me .bubble{background:var(--ink); color:var(--ice); border:none;
+    border-bottom-left-radius:var(--r-bubble); border-bottom-right-radius:8px}
+  .stamp{font-family:var(--mono); font-size:.68rem; color:var(--muted); letter-spacing:.06em; margin-top:6px}
+  .msg.me .stamp{color:var(--mist)}
+
+  .chip{display:inline-block; font-family:var(--mono); font-weight:600; font-size:.95em;
+    background:var(--ink); color:var(--goal); border-radius:8px; padding:.08em .45em; white-space:nowrap}
+
+  .headline{font-family:var(--sg); font-weight:500; letter-spacing:-.035em; line-height:1.02;
+    font-size:clamp(2.35rem,8.5vw,5.4rem); margin:.15em 0 .1em; text-wrap:balance}
+  .headline .pair{white-space:nowrap}
+  @media (max-width:359px){ .headline .pair{white-space:normal} }
+  .headline .goal-ink{background:var(--ink); color:var(--goal); border-radius:.14em; padding:0 .12em; white-space:nowrap}
+  .sub{font-size:1.12rem; color:var(--muted); max-width:34ch}
+
+  /* recipe / app demo cards */
+  .appcard{max-width:min(560px,86%); border-radius:20px; overflow:hidden; background:var(--ice-2);
+    border:1px solid var(--line); box-shadow:var(--shadow)}
+  .appcard .photo{position:relative}
+  .appcard .photo img{width:100%; height:auto; aspect-ratio:1408/1126; object-fit:cover}
+  .appcard.tall .photo img{aspect-ratio:1405/1126}
+  .appcard .photo .badge{position:absolute; left:14px; bottom:14px; font-family:var(--mono); font-weight:600;
+    font-size:.95rem; background:var(--ink); color:var(--goal); padding:.35em .6em; border-radius:10px;
+    box-shadow:0 6px 16px rgba(23,40,43,.35)}
+  .appcard .body{padding:16px 18px 18px}
+  .appcard h2{font-family:var(--sg); font-weight:500; letter-spacing:-.02em; font-size:1.35rem; margin:0 0 2px}
+  .appcard .meta{font-family:var(--mono); font-size:.78rem; color:var(--muted); letter-spacing:.04em}
+  .appcard .hint{font-style:italic; color:var(--muted); margin:.55em 0 0; font-size:.98rem}
+  .appcard .go{display:flex; justify-content:space-between; align-items:center; margin-top:14px;
+    border-top:1px dashed var(--line); padding-top:12px}
+  .appcard .go .cta-fake{font-family:var(--sg); font-weight:500; color:var(--pulse)}
+  .demo-note{font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+
+  /* system line (efeito em cadeia) */
+  .sysline{margin:26px auto; max-width:min(560px,92%); text-align:center; font-family:var(--mono);
+    font-size:.8rem; letter-spacing:.03em; color:var(--muted); line-height:2}
+  .sysline b{color:var(--ink); font-weight:600}
+  .sysline .arrow{color:var(--pulse); font-weight:600; padding:0 .35em}
+
+  /* shopping list */
+  .list{max-width:min(480px,86%)}
+  .list ul{list-style:none; margin:.4em 0 0; padding:0}
+  .list li{display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:1rem}
+  .list li:last-child{border-bottom:none}
+  .list li .qty{margin-left:auto; font-family:var(--mono); font-size:.8rem; color:var(--muted)}
+  .tick{width:22px; height:22px; flex:none; border-radius:7px; border:1.5px solid var(--mist); display:grid; place-items:center}
+  .tick.on{background:var(--goal); border-color:var(--goal)}
+  .tick svg{width:13px; height:13px; stroke:var(--ink); stroke-width:3; fill:none; stroke-linecap:square}
+  .list li.off .name{color:var(--muted)}
+  .list .foot{margin-top:12px; font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--pulse)}
+
+  /* CTA block inside chat */
+  .cta-row{display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin:34px 0 8px}
+  .cta-row .aside{font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; color:var(--muted); text-transform:uppercase}
+
+  /* ---------- interlude (outdoor) ---------- */
+  .outdoor{background:var(--ink); color:var(--ice); margin:56px 0; padding:clamp(56px,9vw,104px) 0}
+  .outdoor h2{font-family:var(--sg); font-weight:500; letter-spacing:-.03em; line-height:.98;
+    font-size:clamp(3rem,10.5vw,6rem); margin:0; text-wrap:balance; max-width:11ch}
+  .outdoor h2 em{font-style:normal; color:var(--goal)}
+  .outdoor ul{list-style:none; margin:34px 0 0; padding:0; display:grid; gap:14px; max-width:56ch}
+  .outdoor li{font-size:1.15rem; color:var(--mist); line-height:1.5}
+  .outdoor li b{color:var(--ice); font-weight:700}
+  .outdoor .sig{margin-top:38px; font-family:var(--mono); font-size:.74rem; letter-spacing:.3em; color:var(--goal); text-transform:uppercase}
+
+  /* ---------- promise + close ---------- */
+  .promise{text-align:center; padding:8px 0 0}
+  .promise p.big{font-family:var(--sg); font-weight:500; letter-spacing:-.025em; line-height:1.12;
+    font-size:clamp(1.7rem,4.6vw,2.6rem); max-width:22ch; margin:0 auto; text-wrap:balance}
+  .close{background:var(--ink); color:var(--ice); margin-top:64px; padding:clamp(64px,10vw,110px) 0 clamp(46px,7vw,72px); text-align:center}
+  .close h2{font-family:var(--sg); font-weight:500; letter-spacing:-.03em; line-height:1;
+    font-size:clamp(2.6rem,8.5vw,5rem); margin:0 0 10px}
+  .close h2 .dot{color:var(--goal)}
+  .close .sub2{color:var(--mist); font-size:1.1rem; max-width:38ch; margin:0 auto 30px}
+  .close .btn{font-size:1.15rem; padding:.85em 1.6em}
+  .close .after{margin-top:18px; font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mist)}
+  footer{background:var(--ink); color:var(--mist); padding:26px 0 40px; border-top:1px solid var(--ink-2)}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between;
+    font-size:.85rem}
+  footer .note{width:100%; font-size:.78rem; color:#8FA4A8; margin-top:6px}
+  footer a{color:var(--mist)}
+
+  /* ---------- motion: a conversa chegando ---------- */
+  @media (prefers-reduced-motion: no-preference){
+    .js .reveal{opacity:0; transform:translateY(12px);
+      transition:opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1)}
+    .js .msg.me.reveal{transform:translateX(16px)}
+    .js .msg.reveal:not(.me){transform:translateX(-16px)}
+    .js .reveal.in{opacity:1; transform:none}
+    .js .typing-bubble{position:absolute; display:flex; gap:5px; align-items:center;
+      background:var(--ice-2); border:1px solid var(--line); border-radius:var(--r-bubble);
+      border-bottom-left-radius:8px; padding:14px 16px; box-shadow:var(--shadow);
+      opacity:0; transition:opacity .25s}
+    .js .typing-bubble.on{opacity:1}
+    .js .typing-bubble i{width:7px; height:7px; border-radius:50%; background:var(--mist); animation:tp 1s infinite}
+    .js .typing-bubble i:nth-child(2){animation-delay:.15s}
+    .js .typing-bubble i:nth-child(3){animation-delay:.3s}
+    @keyframes tp{0%,60%,100%{transform:none; opacity:.5}30%{transform:translateY(-4px); opacity:1}}
+    .js .msg.wait-typing{transition-delay:0s}
+  }
+  .rcpt{width:15px; height:10px; display:inline-block; vertical-align:middle; margin-left:2px}
+  .rcpt path{stroke:var(--mist); stroke-width:2; fill:none; stroke-linecap:square}
+
+  @media (max-width:560px){
+    .msg .avatar{width:30px; height:30px}
+    .bubble,.appcard{max-width:92%}
+    .cta-row .btn{width:100%; justify-content:center}
+  }
+</style>
+</head>
+<body>
+<!--
+THESIS: a pagina E a conversa do onboarding — a meta do visitante vira almoço na frente dele; recusa o hero de features + grid de cards padrão da categoria fitness.
+OWN-WORLD: chat "Precisão Gostosa": ICE de fundo, bolhas claras da [ia] com avatar oficial, bolha INK do usuário, valores calculados sempre em chips mono lima-sobre-INK [87g], interlúdio outdoor INK, CTA PULSE único (Instagram). Space Grotesk display / Plus Jakarta corpo / Plex Mono precisão.
+STORY: o visitante entende em segundos que o app transforma meta de proteína em comida real (demonstração encenada: receita, saldo, lista inteligente), acredita pela precisão gostosa da encenação, e segue @anabolia.app.
+FIRST VIEWPORT: header fino (logo + CTA), pergunta da [ia], resposta do usuário em INK, e a manchete "Sua meta virou almoço." em Space Grotesk gigante dentro da bolha da [ia]; o card de receita anotado entra na sequência; CTA visível no header.
+FORM: chat de onboarding encenado — candidato 4 da lista própria; seed 92f9f722.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="av-ia"><rect width="512" height="512" rx="122" fill="#17282B"/><path d="M161 139H111V373H161" fill="none" stroke="#C8F24C" stroke-width="34" stroke-linecap="square"/><path d="M351 139H401V373H351" fill="none" stroke="#C8F24C" stroke-width="34" stroke-linecap="square"/><text x="167" y="349" fill="#F1F5EA" font-family="Space Grotesk, Arial, sans-serif" font-size="250" font-weight="500" letter-spacing="-18">a</text><circle cx="397" cy="111" r="24" fill="#3156FF"/></g>
+</defs></svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Anaból[IA] — início">
+      <svg viewBox="0 0 512 512" aria-hidden="true" style="border-radius:11px"><use href="#av-ia"/></svg>
+      <b>anaból<span>[ia]</span></b>
+    </a>
+    <a class="btn small" href="https://instagram.com/anabolia.app" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>
+      Seguir @anabolia.app
+    </a>
+  </div>
+</header>
+
+<main class="chat" id="conversa">
+  <div class="wrap">
+    <span class="day">hoje · 11:47</span>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="bubble">
+        <p>Oi. Eu sou a <b>[ia]</b> da cozinha. Me diz uma coisa:</p>
+        <p><b>qual é a sua meta?</b></p>
+      </div>
+    </div>
+
+    <div class="msg me reveal">
+      <div class="bubble">
+        <p>Ganhar massa. Mas sem viver de frango sem graça, marmita triste e planilha de macro.</p>
+        <p class="stamp">11:48 <svg class="rcpt" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 5.5 4.5 9 10 2M6.5 9 12 2"/></svg></p>
+      </div>
+    </div>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="bubble">
+        <p>Feito. Calculei sua proteína do dia: <span class="chip">[125g]</span></p>
+        <h1 class="headline">Sua meta <span class="pair">virou <span class="goal-ink">almoço.</span></span></h1>
+        <p class="sub">Comida de verdade, com o macro já resolvido. Olha o de hoje:</p>
+      </div>
+    </div>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="appcard">
+        <div class="photo">
+          <picture>
+            <source srcset="assets/food-1.webp" type="image/webp">
+            <img src="assets/food-1.jpg" alt="Prato com frango grelhado fatiado, arroz de couve-flor, milho e coentro" width="1408" height="1126" fetchpriority="high">
+          </picture>
+          <span class="badge">[42g] proteína</span>
+        </div>
+        <div class="body">
+          <h2>Frango crocante com arroz tostado</h2>
+          <p class="meta">22 min · fácil · 610 kcal</p>
+          <p class="hint">"Comece pela crosta. O resto vai sozinho."</p>
+          <div class="go">
+            <span class="cta-fake">cozinhar&nbsp;→</span>
+            <span class="demo-note">demonstração</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-row reveal">
+      <a class="btn" href="https://instagram.com/anabolia.app" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>
+        Seguir @anabolia.app
+      </a>
+      <span class="aside">app em pré-lançamento · o cardápio começa no instagram</span>
+    </div>
+
+    <span class="day" style="margin-top:44px">mais tarde · 13:02</span>
+
+    <div class="msg me reveal">
+      <div class="bubble">
+        <p>Feito. Comi. 🔥</p>
+        <p class="stamp">13:02 <svg class="rcpt" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 5.5 4.5 9 10 2M6.5 9 12 2"/></svg></p>
+      </div>
+    </div>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="bubble">
+        <p>Boa. Café e almoço marcados: <span class="chip">[80g]</span> na conta. Faltam <span class="chip">[45g]</span> — a janta resolve.</p>
+      </div>
+    </div>
+
+    <p class="sysline reveal"><b>marcou a refeição</b><span class="arrow">→</span>a lista se ajusta<span class="arrow">→</span>os macros atualizam<span class="arrow">→</span><b>a próxima escolha fica mais fácil</b></p>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="bubble list">
+        <p><b>Sua lista de compras se atualizou sozinha:</b></p>
+        <ul>
+          <li class="off"><span class="tick on" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span><span class="name">peito de frango</span><span class="qty">800 g · tem em casa</span></li>
+          <li class="off"><span class="tick on" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span><span class="name">arroz</span><span class="qty">500 g · tem em casa</span></li>
+          <li><span class="tick" aria-hidden="true"></span><span class="name">tomate</span><span class="qty">4 un · comprar</span></li>
+          <li><span class="tick" aria-hidden="true"></span><span class="name">limão</span><span class="qty">3 un · comprar</span></li>
+        </ul>
+        <p class="foot">lista atualizada · 3 refeições selecionadas</p>
+      </div>
+    </div>
+
+    <div class="msg me reveal">
+      <div class="bubble">
+        <p>E a janta?</p>
+        <p class="stamp">18:40 <svg class="rcpt" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 5.5 4.5 9 10 2M6.5 9 12 2"/></svg></p>
+      </div>
+    </div>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="appcard tall">
+        <div class="photo">
+          <picture>
+            <source srcset="assets/food-2.webp" type="image/webp">
+            <img src="assets/food-2.jpg" alt="Bowl com carne moída, batata-doce assada, feijão-preto, alface e vinagrete" width="1405" height="1126" loading="lazy">
+          </picture>
+          <span class="badge">[45g] proteína</span>
+        </div>
+        <div class="body">
+          <h2>Bowl de carne com batata-doce</h2>
+          <p class="meta">25 min · fácil · 680 kcal · fecha a meta do dia</p>
+          <div class="go">
+            <span class="cta-fake">cozinhar&nbsp;→</span>
+            <span class="demo-note">demonstração</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="outdoor" aria-label="Manifesto da campanha">
+    <div class="wrap">
+      <h2>Frango sem graça <em>nunca mais.</em></h2>
+      <ul>
+        <li><b>Prazer</b> — comer bem sem sentir que saiu do plano.</li>
+        <li><b>Praticidade</b> — decidir rápido sem depender de planilha.</li>
+        <li><b>Progresso</b> — enxergar avanço sem viver obcecado.</li>
+      </ul>
+      <p class="sig">nosso papel: tirar a dieta do modo castigo</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <span class="day">amanhã · 07:10</span>
+
+    <div class="msg reveal">
+      <span class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 512 512"><use href="#av-ia"/></svg>
+      </span>
+      <div class="appcard">
+        <div class="photo">
+          <picture>
+            <source srcset="assets/food-3.webp" type="image/webp">
+            <img src="assets/food-3.jpg" alt="Café da manhã com tapioca de frango desfiado, omelete, abacate, tomate e mamão" width="1405" height="1126" loading="lazy">
+          </picture>
+          <span class="badge">[38g] proteína</span>
+        </div>
+        <div class="body">
+          <h2>Tapioca de frango + omelete</h2>
+          <p class="meta">15 min · fácil · antes do treino</p>
+          <div class="go">
+            <span class="cta-fake">cozinhar&nbsp;→</span>
+            <span class="demo-note">demonstração</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise">
+      <p class="big">Você bate proteína com comida que dá <em style="font-style:normal; border-bottom:4px solid var(--goal)">vontade de repetir</em>.</p>
+    </div>
+  </div>
+
+  <section class="close">
+    <div class="wrap">
+      <h2>Cozinha. Come. Cresce<span class="dot">.</span></h2>
+      <p class="sub2">O app está no forno. As primeiras receitas saem no Instagram — chega junto.</p>
+      <a class="btn" href="https://instagram.com/anabolia.app" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>
+        Seguir @anabolia.app
+      </a>
+      <p class="after">precisão que dá fome</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Anaból[IA] · anabolia.app</span>
+    <a href="https://instagram.com/anabolia.app" target="_blank" rel="noopener">instagram.com/anabolia.app</a>
+    <span class="note">As conversas, receitas e telas desta página são uma demonstração do produto em desenvolvimento. Nada aqui é conselho nutricional.</span>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  try{
+    const mq = matchMedia('(prefers-reduced-motion: reduce)');
+    if(!mq.matches && 'IntersectionObserver' in window){
+      const typed = new WeakSet();
+      const show = (el)=>{
+        const isIa = el.classList.contains('msg') && !el.classList.contains('me');
+        if(isIa && !typed.has(el)){
+          typed.add(el);
+          const t=document.createElement('span');
+          t.className='typing-bubble'; t.setAttribute('aria-hidden','true');
+          t.style.left='50px'; t.style.bottom='0';
+          t.innerHTML='<i></i><i></i><i></i>';
+          el.appendChild(t);
+          requestAnimationFrame(()=>t.classList.add('on'));
+          setTimeout(()=>{ t.remove(); el.classList.add('in'); }, 620);
+        } else {
+          el.classList.add('in');
+        }
+      };
+      const obs = new IntersectionObserver(es=>{
+        es.forEach(e=>{ if(e.isIntersecting){ show(e.target); obs.unobserve(e.target); }});
+      },{rootMargin:'0px 0px -8% 0px', threshold:.08});
+      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    }
+  }catch(e){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')); }
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Create one 1:1 square image.
+Background: solid flat deep dark teal-ink #17282B filling the whole square, no gradient, no vignette, no scenery.
+Subject: the face of a friendly, confident cartoon MONSTER with no defined species: big rounded head, two small blunt rounded horns, big expressive eyes, small confident smile. Below the head, huge muscular shoulders and traps rise into the frame and are cut by the bottom edge.
+Style: soft 3D mascot render, matte clay-like surfaces, in the spirit of the Duolingo owl app icon.
+Colors: head and shoulders lime green #C8F24C; horns and a chest patch off-white #F1F5EA.
+Palette strictly: off-white #F1F5EA, lime green #C8F24C, dark teal-ink #17282B for eyes and tiny details. No red, yellow or orange.
+No text, no watermark, no frame, no rounded-corner mask, one character only. Framing is what matters: this is a HEAD-AND-SHOULDERS BUST, the head is very large and fills most of the square, the shoulders are cropped by the bottom edge. The image must read instantly at 64 pixels: one big simple silhouette, big eyes, minimal detail, bold shapes.

@@ -1,0 +1,5 @@
+model: gpt-image-2
+ref: I1-piscada.png
+
+Pose: one hand pointing toward the viewer, the other hand on the hip, leaning slightly forward, winking, like a presenter talking to camera.
+Use the reference image as the exact character: the SAME rooster head, same face, same confident wink expression, same off-white #F1F5EA color, same lime green #C8F24C comb, wattle and beak, same soft matte 3D clay-like rendering style. Now show the character FULL BODY, standing, entire figure visible from comb to feet, on a solid flat dark teal-ink #17282B background with no floor, no scenery, no text, no watermark. Body: a stylized bodybuilder physique in bulking phase: massive chest and shoulders, defined pectorals, big biceps, V-shaped torso, strong thighs, small waist; muscle is smooth and stylized, never veiny. Off-white feathers on the body, stylized wing feathers on the forearms, a plume of rounded tail feathers with lime green tips, and three-toed lime green chicken feet. Palette strictly off-white, lime green and dark teal-ink. Character centered, filling about 85% of the height.

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T12:43:46Z",
+  "title": "Design System: Anaból[IA]",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#17282B", "tonalRamp": ["oklch(15% 0.02 200)", "oklch(26% 0.02 200)", "oklch(38% 0.02 200)", "oklch(49% 0.02 200)", "oklch(61% 0.02 200)", "oklch(72% 0.02 200)", "oklch(84% 0.02 200)", "oklch(95% 0.02 200)"] },
+      "pulse": { "role": "primary", "displayName": "Pulse Blue", "canonical": "#3156FF", "tonalRamp": ["oklch(15% 0.22 265)", "oklch(26% 0.22 265)", "oklch(38% 0.22 265)", "oklch(49% 0.22 265)", "oklch(61% 0.22 265)", "oklch(72% 0.18 265)", "oklch(84% 0.12 265)", "oklch(95% 0.05 265)"] },
+      "goal": { "role": "secondary", "displayName": "Goal Lime", "canonical": "#C8F24C", "tonalRamp": ["oklch(15% 0.06 125)", "oklch(26% 0.10 125)", "oklch(38% 0.14 125)", "oklch(49% 0.17 125)", "oklch(61% 0.19 125)", "oklch(72% 0.19 125)", "oklch(84% 0.19 125)", "oklch(95% 0.12 125)"] },
+      "mist": { "role": "tertiary", "displayName": "Mist", "canonical": "#B9D8DB", "tonalRamp": ["oklch(15% 0.03 200)", "oklch(26% 0.03 200)", "oklch(38% 0.03 200)", "oklch(49% 0.03 200)", "oklch(61% 0.03 200)", "oklch(72% 0.03 200)", "oklch(84% 0.03 200)", "oklch(95% 0.03 200)"] },
+      "ice": { "role": "neutral", "displayName": "Ice", "canonical": "#F1F5EA", "tonalRamp": ["oklch(15% 0.015 120)", "oklch(26% 0.015 120)", "oklch(38% 0.015 120)", "oklch(49% 0.015 120)", "oklch(61% 0.015 120)", "oklch(72% 0.015 120)", "oklch(84% 0.015 120)", "oklch(96% 0.015 120)"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink Hairline", "canonical": "#22363A", "tonalRamp": ["oklch(15% 0.02 200)", "oklch(26% 0.02 200)", "oklch(38% 0.02 200)", "oklch(49% 0.02 200)", "oklch(61% 0.02 200)", "oklch(72% 0.02 200)", "oklch(84% 0.02 200)", "oklch(95% 0.02 200)"] },
+      "ice-2": { "role": "neutral", "displayName": "Warm Surface", "canonical": "#FFFDF8", "tonalRamp": ["oklch(15% 0.008 90)", "oklch(26% 0.008 90)", "oklch(38% 0.008 90)", "oklch(49% 0.008 90)", "oklch(61% 0.008 90)", "oklch(72% 0.008 90)", "oklch(84% 0.008 90)", "oklch(99% 0.008 90)"] },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "#DCE3D2", "tonalRamp": ["oklch(15% 0.025 115)", "oklch(26% 0.025 115)", "oklch(38% 0.025 115)", "oklch(49% 0.025 115)", "oklch(61% 0.025 115)", "oklch(72% 0.025 115)", "oklch(84% 0.025 115)", "oklch(95% 0.025 115)"] },
+      "muted": { "role": "neutral", "displayName": "Muted Text", "canonical": "#5D6E71", "tonalRamp": ["oklch(15% 0.02 200)", "oklch(26% 0.02 200)", "oklch(38% 0.02 200)", "oklch(49% 0.02 200)", "oklch(61% 0.02 200)", "oklch(72% 0.02 200)", "oklch(84% 0.02 200)", "oklch(95% 0.02 200)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Manchetes (h1 na bolha, outdoor, close, promise). Sempre Space Grotesk 500, tracking negativo, lh <= 1.12, text-wrap: balance." },
+      "title": { "displayName": "Title", "purpose": "Título de receita no appcard e wordmark." },
+      "body": { "displayName": "Body", "purpose": "Texto de bolhas e listas; Plus Jakarta Sans 400, bold 700 para ênfase; itálico apenas na hint de receita." },
+      "label": { "displayName": "Precision Label", "purpose": "Camada de precisão IBM Plex Mono: day separators, stamps, meta, sysline, microlabels uppercase 0.66-0.8rem, tracking 0.03-0.3em; chips/badges em 600." }
+    },
+    "shadows": [
+      { "name": "ambient", "value": "0 14px 34px rgba(23,40,43,.10), 0 2px 8px rgba(23,40,43,.06)", "purpose": "Bolhas da [ia], appcards e typing bubble sobre ICE (token --shadow)." },
+      { "name": "cta-glow", "value": "0 8px 22px rgba(49,86,255,.28)", "purpose": "Exclusiva do botão PULSE em repouso — única sombra colorida." },
+      { "name": "cta-glow-hover", "value": "0 12px 28px rgba(49,86,255,.34)", "purpose": "Botão PULSE em hover, junto de translateY(-2px)." },
+      { "name": "badge-lift", "value": "0 6px 16px rgba(23,40,43,.35)", "purpose": "Badge de macro sobre a foto de comida." }
+    ],
+    "motion": [
+      { "name": "ease-arrive", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Reveal das mensagens (0.5s, opacity + translate; [ia] de -16px, usuário de +16px, demais de +12px em Y). Dispara uma vez por elemento (IO rootMargin -8%, threshold .08)." },
+      { "name": "ease-press", "value": "cubic-bezier(.2,.8,.2,1)", "purpose": "Hover/active do botão (0.18s, transform + box-shadow)." },
+      { "name": "typing-hold", "value": "620ms", "purpose": "Duração do typing indicator antes de cada bolha da [ia]; fade de 0.25s; remove-se ao revelar." },
+      { "name": "typing-dots", "value": "1s infinite (delays .15s/.3s)", "purpose": "Bounce dos 3 pontos MIST (translateY -4px); única animação em loop do sistema." }
+    ],
+    "breakpoints": [
+      { "name": "compact", "value": "560px", "purpose": "max-width: avatar 30px, bolhas/cards a 92%, CTA da cta-row em largura total." },
+      { "name": "narrow", "value": "359px", "purpose": "max-width: o par da manchete ('virou almoço.') volta a quebrar linha." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA único do sistema: pill PULSE com ícone Instagram, glow azul e lift no hover.",
+      "html": "<a class=\"ds-btn\" href=\"https://instagram.com/anabolia.app\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2.5\" y=\"2.5\" width=\"19\" height=\"19\" rx=\"5.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.4\"/><circle cx=\"17.6\" cy=\"6.4\" r=\"1.15\" fill=\"currentColor\" stroke=\"none\"/></svg>Seguir @anabolia.app</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;background:var(--pulse,#3156FF);color:#fff;font-family:'Space Grotesk','Plus Jakarta Sans',system-ui,sans-serif;font-weight:500;font-size:1rem;letter-spacing:-.01em;padding:.72em 1.3em;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(49,86,255,.28);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s}.ds-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(49,86,255,.34)}.ds-btn:active{transform:translateY(0)}.ds-btn:focus-visible{outline:3px solid var(--pulse,#3156FF);outline-offset:3px;border-radius:999px}"
+    },
+    {
+      "name": "Bolha [ia]",
+      "kind": "card",
+      "refersTo": "bubble-ia",
+      "description": "Mensagem da [ia]: superfície Ice-2 com borda Line, cauda de 8px no canto inferior-esquerdo e sombra ambiente.",
+      "html": "<div class=\"ds-bubble-ia\"><p>Feito. Calculei sua proteína do dia: <span class=\"ds-bubble-ia-chip\">[125g]</span></p></div>",
+      "css": ".ds-bubble-ia{max-width:560px;background:var(--ice-2,#FFFDF8);color:var(--ink,#17282B);border:1px solid var(--line,#DCE3D2);border-radius:22px;border-bottom-left-radius:8px;padding:14px 18px;box-shadow:0 14px 34px rgba(23,40,43,.10),0 2px 8px rgba(23,40,43,.06);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:1.0625rem;line-height:1.6}.ds-bubble-ia p{margin:.3em 0}.ds-bubble-ia-chip{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.95em;background:var(--ink,#17282B);color:var(--goal,#C8F24C);border-radius:8px;padding:.08em .45em;white-space:nowrap}"
+    },
+    {
+      "name": "Bolha usuário",
+      "kind": "card",
+      "refersTo": "bubble-me",
+      "description": "Mensagem do usuário: INK sólido, texto ICE, cauda à direita, stamp mono com double-check MIST.",
+      "html": "<div class=\"ds-bubble-me\"><p>Feito. Comi.</p><p class=\"ds-bubble-me-stamp\">13:02 <svg viewBox=\"0 0 16 11\" width=\"15\" height=\"10\" aria-hidden=\"true\"><path d=\"M1 5.5 4.5 9 10 2M6.5 9 12 2\" stroke=\"#B9D8DB\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"square\"/></svg></p></div>",
+      "css": ".ds-bubble-me{max-width:560px;margin-left:auto;background:var(--ink,#17282B);color:var(--ice,#F1F5EA);border-radius:22px;border-bottom-right-radius:8px;padding:14px 18px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:1.0625rem;line-height:1.6}.ds-bubble-me p{margin:.3em 0}.ds-bubble-me-stamp{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.06em;color:var(--mist,#B9D8DB);margin-top:6px}"
+    },
+    {
+      "name": "Chip calculado",
+      "kind": "chip",
+      "refersTo": "chip-calc",
+      "description": "Dispositivo-assinatura da marca: valor calculado entre colchetes, mono GOAL sobre INK. Só existe quando houve cálculo.",
+      "html": "<span class=\"ds-chip\">[42g]</span>",
+      "css": ".ds-chip{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.95em;background:var(--ink,#17282B);color:var(--goal,#C8F24C);border-radius:8px;padding:.08em .45em;white-space:nowrap}"
+    },
+    {
+      "name": "App Card (receita)",
+      "kind": "card",
+      "refersTo": "appcard",
+      "description": "Card de receita: foto 5:4 com badge INK/GOAL, título display, meta mono, hint em itálico e rodapé tracejado com 'cozinhar →' + rótulo demonstração. Em produção a foto é comida real do kit.",
+      "html": "<div class=\"ds-appcard\"><div class=\"ds-appcard-photo\"><span class=\"ds-appcard-badge\">[42g] proteína</span></div><div class=\"ds-appcard-body\"><h2>Frango crocante com arroz tostado</h2><p class=\"ds-appcard-meta\">22 min · fácil · 610 kcal</p><p class=\"ds-appcard-hint\">\"Comece pela crosta. O resto vai sozinho.\"</p><div class=\"ds-appcard-go\"><span class=\"ds-appcard-cta\">cozinhar&nbsp;→</span><span class=\"ds-appcard-note\">demonstração</span></div></div></div>",
+      "css": ".ds-appcard{max-width:420px;border-radius:20px;overflow:hidden;background:var(--ice-2,#FFFDF8);border:1px solid var(--line,#DCE3D2);box-shadow:0 14px 34px rgba(23,40,43,.10),0 2px 8px rgba(23,40,43,.06);font-family:'Plus Jakarta Sans',system-ui,sans-serif}.ds-appcard-photo{position:relative;aspect-ratio:1408/1126;background:linear-gradient(135deg,var(--mist,#B9D8DB),var(--ice,#F1F5EA))}.ds-appcard-badge{position:absolute;left:14px;bottom:14px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.95rem;background:var(--ink,#17282B);color:var(--goal,#C8F24C);padding:.35em .6em;border-radius:10px;box-shadow:0 6px 16px rgba(23,40,43,.35)}.ds-appcard-body{padding:16px 18px 18px;color:var(--ink,#17282B)}.ds-appcard-body h2{font-family:'Space Grotesk','Plus Jakarta Sans',system-ui,sans-serif;font-weight:500;letter-spacing:-.02em;font-size:1.35rem;margin:0 0 2px}.ds-appcard-meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.78rem;color:var(--muted,#5D6E71);letter-spacing:.04em;margin:0}.ds-appcard-hint{font-style:italic;color:var(--muted,#5D6E71);margin:.55em 0 0;font-size:.98rem}.ds-appcard-go{display:flex;justify-content:space-between;align-items:center;margin-top:14px;border-top:1px dashed var(--line,#DCE3D2);padding-top:12px}.ds-appcard-cta{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:500;color:var(--pulse,#3156FF)}.ds-appcard-note{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#5D6E71)}"
+    },
+    {
+      "name": "Lista de compras",
+      "kind": "custom",
+      "refersTo": "bubble-ia",
+      "description": "Linhas com divisória tracejada, tick 22px (marcado = GOAL com check INK), quantidade mono à direita e rodapé de status em PULSE.",
+      "html": "<div class=\"ds-list\"><ul><li class=\"off\"><span class=\"ds-tick on\"><svg viewBox=\"0 0 16 16\" width=\"13\" height=\"13\"><path d=\"M2.5 8.5 6 12l7.5-8\" stroke=\"#17282B\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"square\"/></svg></span><span class=\"ds-name\">peito de frango</span><span class=\"ds-qty\">800 g · tem em casa</span></li><li><span class=\"ds-tick\"></span><span class=\"ds-name\">tomate</span><span class=\"ds-qty\">4 un · comprar</span></li></ul><p class=\"ds-list-foot\">lista atualizada · 3 refeições selecionadas</p></div>",
+      "css": ".ds-list{max-width:420px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink,#17282B)}.ds-list ul{list-style:none;margin:0;padding:0}.ds-list li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line,#DCE3D2);font-size:1rem}.ds-list li:last-child{border-bottom:none}.ds-list li.off .ds-name{color:var(--muted,#5D6E71)}.ds-qty{margin-left:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.8rem;color:var(--muted,#5D6E71)}.ds-tick{width:22px;height:22px;flex:none;border-radius:7px;border:1.5px solid var(--mist,#B9D8DB);display:grid;place-items:center}.ds-tick.on{background:var(--goal,#C8F24C);border-color:var(--goal,#C8F24C)}.ds-list-foot{margin-top:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pulse,#3156FF)}"
+    },
+    {
+      "name": "Day separator",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Marcador temporal do chat: mono uppercase centralizado em Muted.",
+      "html": "<span class=\"ds-day\">hoje · 11:47</span>",
+      "css": ".ds-day{display:block;text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#5D6E71)}"
+    },
+    {
+      "name": "Sysline (efeito em cadeia)",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Linha de sistema centralizada: termos-âncora em INK bold conectados por setas PULSE.",
+      "html": "<p class=\"ds-sysline\"><b>marcou a refeição</b><span class=\"ds-arrow\">→</span>a lista se ajusta<span class=\"ds-arrow\">→</span>os macros atualizam<span class=\"ds-arrow\">→</span><b>a próxima escolha fica mais fácil</b></p>",
+      "css": ".ds-sysline{max-width:560px;margin:0 auto;text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.8rem;letter-spacing:.03em;color:var(--muted,#5D6E71);line-height:2}.ds-sysline b{color:var(--ink,#17282B);font-weight:600}.ds-arrow{color:var(--pulse,#3156FF);font-weight:600;padding:0 .35em}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Página é a Conversa (Precisão Gostosa em forma de chat)",
+    "overview": "A landing recusa o hero-de-features da categoria fitness: ela É o onboarding encenado — a [ia] pergunta a meta, o visitante responde, e a manchete 'Sua meta virou almoço.' nasce dentro de uma bolha de chat. Fundo ICE claro e quente, superfícies levemente elevadas em branco-creme, estrutura e contraste em INK, um único azul de ação (PULSE) e o lima GOAL reservado ao que foi calculado. A camada de precisão é mono: todo número, timestamp e microlabel do sistema fala IBM Plex Mono. O sistema é mobile-first, coluna única, e alterna dois palcos: o chat sobre ICE e interlúdios full-bleed em INK. Tudo encenado é rotulado 'demonstração'.",
+    "keyCharacteristics": [
+      "Cores com função, não decoração: INK estrutura · PULSE ação/reconhecimento · GOAL progresso calculado · MIST apoio no escuro · ICE respiro.",
+      "Colchetes são semântica: [42g] só existe como chip/badge mono lima-sobre-INK quando houve cálculo/personalização.",
+      "Display Space Grotesk 500 com tracking negativo e line-height <=1.12; números viram manchete.",
+      "Sombras ambiente tingidas de INK; nunca duras.",
+      "Setas → marcam próximo passo e efeito em cadeia."
+    ],
+    "rules": [
+      { "name": "The Bracket Rule", "body": "Colchetes só enquadram o que foi calculado ou personalizado, e o valor calculado vive no chip/badge mono GOAL-sobre-INK ([125g], [42g] proteína). Sem cálculo, sem colchete. Exceção única: o [ia] do wordmark (marca registrada do kit).", "section": "colors" },
+      { "name": "The Food Layer Rule", "body": "PULSE nunca toca a camada de comida. Sobre a foto, a única sobreposição permitida é o badge INK/GOAL; PULSE só aparece abaixo dela, no corpo do card.", "section": "colors" },
+      { "name": "The GOAL-on-INK Rule", "body": "GOAL nunca é texto sobre fundo claro. Como texto, só sobre INK. Sobre claro, GOAL aparece apenas como preenchimento ou traço: fundo de tick (check em INK), sublinhado, fundo de seleção.", "section": "colors" },
+      { "name": "The Precision Layer Rule", "body": "Todo metadado do sistema — número, tempo, timestamp, status, rótulo — é IBM Plex Mono; rótulos de sistema são uppercase com tracking largo. Números importantes não viram parágrafo: viram chip, badge ou manchete.", "section": "typography" },
+      { "name": "The Medium Display Rule", "body": "Display é sempre peso 500 com tracking negativo e line-height <=1.12. Itálico só existe na 'dica' de receita (hint).", "section": "typography" },
+      { "name": "The Ambient Ink Rule", "body": "Sombras são sempre difusas e tingidas de INK (rgba(23,40,43,·)), nunca duras nem cinza-neutro; a única exceção cromática é o glow PULSE do CTA.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do enquadrar todo valor calculado no chip/badge mono GOAL-sobre-INK: [125g], [42g] proteína.",
+      "Do usar → para próximo passo e efeito em cadeia (PULSE quando for o conector do sistema).",
+      "Do usar mono uppercase 0.66–0.8rem com tracking largo para todo microlabel de sistema.",
+      "Do usar foto real de comida (luz quente, sem pote de suplemento) com o badge INK/GOAL como única sobreposição.",
+      "Do rotular toda tela/momento encenado com 'demonstração' e manter a nota legal no footer.",
+      "Do manter um único CTA por página — pill PULSE, mesmo destino em todas as instâncias."
+    ],
+    "donts": [
+      "Don't usar GOAL como texto sobre fundo claro — sobre claro, só preenchimento/traço (tick, sublinhado, seleção).",
+      "Don't deixar PULSE tocar a camada de comida (nem overlay, nem texto sobre foto).",
+      "Don't usar colchetes decorativos; sem cálculo, sem colchete (exceção: wordmark [ia]).",
+      "Don't usar sombras duras, offset ou cinza-neutro — sempre Ambient Ink; glow só no CTA.",
+      "Don't usar itálico fora da hint de receita, nem display em peso diferente de 500.",
+      "Don't re-animar reveals nem animar em loop; com prefers-reduced-motion, entregar a página estática."
+    ]
+  }
+}

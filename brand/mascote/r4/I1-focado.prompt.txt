@@ -1,0 +1,5 @@
+model: gpt-image-2
+base: I1-frangao.png
+
+Expression: serious, focused, determined game-face: eyebrows pressed down toward the center, eyes narrowed, beak closed in a firm flat line.
+Keep EXACTLY the same character, same design, same proportions, same colors (off-white #F1F5EA body, lime green #C8F24C comb, wattle and beak, dark teal-ink #17282B background and eyes), same framing (head-and-shoulders bust, head filling most of the square, muscular shoulders cropped by the bottom edge), same rendering style. Change ONLY the facial expression as described. No text, no watermark, no extra objects.

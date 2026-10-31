@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-label="anaból[ia] — Precisão que dá fome">
+  <g transform="translate(20 20)">
+    <rect width="180" height="180" rx="44" fill="#17282B"/>
+    <path d="M55 50H38V130H55" fill="none" stroke="#C8F24C" stroke-width="13" stroke-linecap="square"/>
+    <path d="M125 50H142V130H125" fill="none" stroke="#C8F24C" stroke-width="13" stroke-linecap="square"/>
+    <text x="61" y="130" fill="#F1F5EA" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="100" font-weight="500" letter-spacing="-6">a</text>
+    <circle cx="142" cy="38" r="8" fill="#3156FF"/>
+  </g>
+  <text x="238" y="132" fill="#17282B" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="105" font-weight="500" letter-spacing="-7"><tspan>anaból</tspan><tspan fill="#3156FF">[ia]</tspan></text>
+  <text x="244" y="178" fill="#3156FF" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="500" letter-spacing="4">PRECISÃO QUE DÁ FOME</text>
+</svg>

@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.env*
+!.env.example
+.DS_Store
+.superpowers/
+.impeccable/config.local.json
+.vercel
+web/test-results/
+web/playwright-report/

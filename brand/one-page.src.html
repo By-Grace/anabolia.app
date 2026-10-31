@@ -1,0 +1,206 @@
+<title>Identidade One Page Anaból[IA]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&family=Plus+Jakarta+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  /* Identity card: single committed look — cores verdadeiras da marca em qualquer tema do viewer */
+  :root{
+    --ink:#17282B; --pulse:#3156FF; --goal:#C8F24C; --mist:#B9D8DB; --ice:#F1F5EA;
+    --white:#FFFDF8; --line:#D3DCC9; --muted:#5D6E71;
+    --sg:"Space Grotesk",sans-serif; --pj:"Plus Jakarta Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--ice); color:var(--ink); font-family:var(--pj); font-size:14.5px; line-height:1.5}
+  .sheet{max-width:1180px; margin:0 auto; padding:clamp(16px,3vw,36px)}
+  header.bar{display:flex; flex-wrap:wrap; align-items:center; gap:16px 22px; padding-bottom:18px; border-bottom:2px solid var(--ink); margin-bottom:18px}
+  header.bar svg.mark{width:56px; height:56px; flex:none}
+  .wordk{font-family:var(--sg); font-weight:500; font-size:2rem; letter-spacing:-.04em; line-height:1}
+  .wordk span{color:var(--pulse)}
+  .sig{font-family:var(--mono); font-size:.66rem; font-weight:500; letter-spacing:.3em; color:var(--pulse); text-transform:uppercase; margin-top:5px}
+  .meta{margin-left:auto; text-align:right; font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; line-height:1.9}
+
+  .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+  .card{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:16px 18px; grid-column:span 4}
+  .card.w6{grid-column:span 6} .card.w8{grid-column:span 8} .card.w12{grid-column:span 12}
+  @media (max-width:920px){ .card,.card.w6,.card.w8{grid-column:span 6} }
+  @media (max-width:640px){ .card,.card.w6,.card.w8,.card.w12{grid-column:span 12} }
+  .card h2{font-family:var(--mono); font-size:.66rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--pulse); margin:0 0 10px}
+  .card ul{margin:.3em 0 0; padding-left:1.1em}
+  .card li{margin:.28em 0}
+  .card li::marker{color:var(--pulse)}
+  .rule{font-size:.8rem; color:var(--muted); border-top:1px dashed var(--line); margin-top:10px; padding-top:8px}
+  .no{color:#B6402C; font-weight:700}
+
+  /* logo card */
+  .logolab{display:grid; gap:12px}
+  .logorow{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .onink{background:var(--ink); border-radius:10px; padding:12px 16px; display:inline-flex; align-items:center; gap:10px}
+  .onink .wk{font-family:var(--sg); font-weight:500; font-size:1.25rem; letter-spacing:-.04em; color:var(--ice)}
+  .onink .wk span{color:var(--pulse)}
+
+  /* palette */
+  .pal{display:grid; grid-template-columns:repeat(5,1fr); gap:8px}
+  @media (max-width:640px){ .pal{grid-template-columns:repeat(3,1fr)} }
+  .sw i{display:block; height:52px; border-radius:8px; border:1px solid var(--line)}
+  .sw b{display:block; font-size:.72rem; margin-top:5px}
+  .sw code{font-family:var(--mono); font-size:.62rem; color:var(--muted)}
+  .sw small{display:block; font-size:.62rem; color:var(--muted)}
+
+  /* type samples */
+  .tspec{display:grid; gap:10px}
+  .tspec .row{display:flex; align-items:baseline; gap:12px; border-bottom:1px dashed var(--line); padding-bottom:8px}
+  .tspec .row:last-child{border-bottom:none}
+  .tspec .aa{flex:none; width:118px}
+  .tspec .sg-s{font-family:var(--sg); font-weight:500; font-size:1.7rem; letter-spacing:-.04em}
+  .tspec .pj-s{font-family:var(--pj); font-size:1.05rem}
+  .tspec .mono-s{font-family:var(--mono); font-weight:600; font-size:1rem}
+  .tspec .use{font-size:.76rem; color:var(--muted)}
+
+  .chip{display:inline-block; font-family:var(--mono); font-weight:600; background:var(--ink); color:var(--goal); border-radius:7px; padding:.06em .45em}
+  .bigno{font-family:var(--sg); font-weight:500; font-size:2rem; letter-spacing:-.03em}
+
+  /* photos */
+  .shots{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px}
+  .shots img{width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:8px; display:block}
+
+  /* icons */
+  .icons{display:flex; gap:14px; align-items:center; margin:6px 0 8px}
+  .icons svg{width:26px; height:26px; stroke:var(--ink); stroke-width:2; fill:none; stroke-linecap:square; stroke-linejoin:miter}
+
+  /* voice */
+  .assin{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px}
+  @media (max-width:640px){ .assin{grid-template-columns:1fr} }
+  .assin div{background:var(--ice); border:1px solid var(--line); border-radius:8px; padding:8px 11px}
+  .assin .mono-l{display:block; font-family:var(--mono); font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:2px}
+  .assin b{font-family:var(--sg); font-weight:500; font-size:.98rem; letter-spacing:-.02em}
+
+  footer{margin-top:16px; padding-top:12px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:8px 22px;
+    font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; color:var(--muted); text-transform:uppercase}
+
+  @media print{
+    body{background:#fff}
+    .sheet{max-width:none; padding:8mm}
+    .card{break-inside:avoid; border-color:#bbb}
+    header.bar{border-color:#000}
+  }
+</style>
+
+<div class="sheet">
+  <header class="bar">
+    <svg class="mark" viewBox="0 0 512 512" aria-label="Ícone Anaból[IA]">
+      <rect width="512" height="512" rx="122" fill="#17282B"/>
+      <path d="M161 139H111V373H161" fill="none" stroke="#C8F24C" stroke-width="34" stroke-linecap="square"/>
+      <path d="M351 139H401V373H351" fill="none" stroke="#C8F24C" stroke-width="34" stroke-linecap="square"/>
+      <text x="167" y="349" fill="#F1F5EA" font-family="Space Grotesk, Arial, sans-serif" font-size="250" font-weight="500" letter-spacing="-18">a</text>
+      <circle cx="397" cy="111" r="24" fill="#3156FF"/>
+    </svg>
+    <div>
+      <div class="wordk">anaból<span>[ia]</span></div>
+      <div class="sig">Precisão que dá fome</div>
+    </div>
+    <div class="meta">Identidade One Page · v1 · set/2026<br>consulta rápida p/ quem produz peça · dúvida maior → Brand Book</div>
+  </header>
+
+  <div class="grid">
+    <div class="card w6">
+      <h2>Logo</h2>
+      <div class="logolab">
+        <div class="logorow">
+          <svg width="150" viewBox="0 0 960 220" aria-label="Assinatura principal anaból[ia]">
+            <g transform="translate(20 20)"><rect width="180" height="180" rx="44" fill="#17282B"/><path d="M55 50H38V130H55" fill="none" stroke="#C8F24C" stroke-width="13" stroke-linecap="square"/><path d="M125 50H142V130H125" fill="none" stroke="#C8F24C" stroke-width="13" stroke-linecap="square"/><text x="61" y="130" fill="#F1F5EA" font-family="Space Grotesk, Arial, sans-serif" font-size="100" font-weight="500" letter-spacing="-6">a</text><circle cx="142" cy="38" r="8" fill="#3156FF"/></g>
+            <text x="238" y="132" fill="#17282B" font-family="Space Grotesk, Arial, sans-serif" font-size="105" font-weight="500" letter-spacing="-7"><tspan>anaból</tspan><tspan fill="#3156FF">[ia]</tspan></text>
+            <text x="244" y="178" fill="#3156FF" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="500" letter-spacing="4">PRECISÃO QUE DÁ FOME</text>
+          </svg>
+          <span class="onink"><span class="wk">anaból<span>[ia]</span></span></span>
+        </div>
+        <ul>
+          <li>Respiro mínimo de <b>1×</b> (altura do monograma) ao redor.</li>
+          <li>Wordmark sempre <b>minúsculo</b>; [ia] sempre em PULSE.</li>
+          <li class="no">Nunca: esticar, inclinar, contornar ou trocar as cores-base.</li>
+          <li>O <b>ponto da [ia]</b> (círculo PULSE na ponta do colchete direito) faz parte do ícone — não remover.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card w6">
+      <h2>Cor — com função, não com capricho</h2>
+      <div class="pal">
+        <div class="sw"><i style="background:#17282B"></i><b>INK</b><code>#17282B</code><small>estrutura</small></div>
+        <div class="sw"><i style="background:#3156FF"></i><b>PULSE</b><code>#3156FF</code><small>reconhecimento</small></div>
+        <div class="sw"><i style="background:#C8F24C"></i><b>GOAL</b><code>#C8F24C</code><small>progresso</small></div>
+        <div class="sw"><i style="background:#B9D8DB"></i><b>MIST</b><code>#B9D8DB</code><small>apoio</small></div>
+        <div class="sw"><i style="background:#F1F5EA"></i><b>ICE</b><code>#F1F5EA</code><small>respiro</small></div>
+      </div>
+      <p style="margin:.7em 0 0"><b>Hierarquia:</b> azul reconhece · lima confirma · ink organiza · ice respira.</p>
+      <p class="rule"><span class="no">Leis:</span> PULSE nunca toca a camada de comida (nas fotos entra como objeto — pano, caneca) · GOAL nunca é texto sobre fundo claro (só chip com texto INK, ou sobre INK).</p>
+    </div>
+
+    <div class="card w6">
+      <h2>Tipografia — trio de trabalho v1.1</h2>
+      <div class="tspec">
+        <div class="row"><span class="aa sg-s">AaGg42</span><span class="use"><b>Space Grotesk 500</b> — display, wordmark, manchetes. Tracking −0.03 a −0.04em.</span></div>
+        <div class="row"><span class="aa pj-s">AaGg42</span><span class="use"><b>Plus Jakarta Sans</b> — texto corrido, interface, legendas.</span></div>
+        <div class="row"><span class="aa mono-s">[42g]</span><span class="use"><b>IBM Plex Mono</b> — camada de precisão: macros, dados, timestamps, labels.</span></div>
+      </div>
+      <p class="rule">Avenir Next (citada no deck) está <span class="no">suspensa</span> até decisão de licença — não usar em peça.</p>
+    </div>
+
+    <div class="card w6">
+      <h2>Forma proprietária — colchetes semânticos</h2>
+      <p><span class="bigno">Faltam <span class="chip">[87g]</span></span></p>
+      <ul>
+        <li>Colchetes <b>só enquadram o que foi calculado ou personalizado</b> — nunca são enfeite.</li>
+        <li><b>Números viram manchete</b> — o dado no tamanho de título.</li>
+        <li><b>Setas →</b> mostram o próximo passo ("cozinhar →").</li>
+        <li>Chip padrão: mono, lima sobre INK, cantos 7–8px.</li>
+      </ul>
+    </div>
+
+    <div class="card w8">
+      <h2>Fotografia — apetite antes de academia</h2>
+      <div class="shots">
+        <img src="%%T1%%" alt="Frango grelhado com arroz de couve-flor e milho">
+        <img src="%%T2%%" alt="Bowl de carne moída com batata-doce e feijão-preto">
+        <img src="%%T3%%" alt="Café da manhã com tapioca, omelete e mamão">
+      </div>
+      <ul>
+        <li>Comida <b>real</b>, textura, vapor, cor natural, luz quente.</li>
+        <li>Ingredientes acessíveis — comida BR de verdade.</li>
+        <li class="no">Sem pote de suplemento na fotografia de marca (parceria vive em stories/app).</li>
+        <li>Azul PULSE entra como objeto de cena (pano, caneca) — nunca na comida.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Iconografia</h2>
+      <div class="icons" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M8 4H5v16h3M16 4h3v16h-3"/></svg>
+      </div>
+      <ul>
+        <li>SVG desenhado, traço <b>2px</b>, cantos retos (eco dos colchetes).</li>
+        <li class="no">Nunca emoji no lugar de ícone.</li>
+      </ul>
+      <p class="rule"><b>Ilustração:</b> estilo não definido (v2). Até lá, só fotografia real.</p>
+    </div>
+
+    <div class="card w12">
+      <h2>Voz — apetitosa · precisa · parceira</h2>
+      <p><b>Regra de ouro: "Curta. Direta. Com fome."</b> Fala junto, nunca de cima. <span class="no">Evita:</span> clínico demais · guru de performance · coach motivacional · promessa de shape rápido.</p>
+      <div class="assin">
+        <div><span class="mono-l">Institucional</span><b>Precisão que dá fome.</b></div>
+        <div><span class="mono-l">Produto</span><b>Sua meta virou almoço.</b></div>
+        <div><span class="mono-l">Campanha</span><b>Frango sem graça nunca mais.</b></div>
+        <div><span class="mono-l">Manifesto</span><b>Cozinha. Come. Cresce.</b></div>
+      </div>
+      <p class="rule">A assinatura define a promessa ativa da peça — não é decoração. Exemplo de fala: <em>"Hoje tem 42 g de proteína sem gosto de castigo."</em></p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 Anaból[IA]</span>
+    <span>Fontes: Brand Kit v1 (pptx) · Playbook v1.3 · DESIGN.md do projeto</span>
+    <span>Sistema herdável pela esteira [ia]</span>
+  </footer>
+</div>
