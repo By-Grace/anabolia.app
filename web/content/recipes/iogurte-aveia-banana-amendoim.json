@@ -15,10 +15,10 @@
       "ref": "iogurte-natural"
     },
     {
-      "name": "leite em pó",
+      "name": "leite em pó desnatado",
       "qty": 20,
       "unit": "g",
-      "ref": "leite-po-integral"
+      "ref": "leite-po-desnatado"
     },
     {
       "name": "aveia em flocos",

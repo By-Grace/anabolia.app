@@ -1,0 +1,107 @@
+{
+  "slug": "frango-bbq-pure",
+  "name": "Frango BBQ com purê de batata",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 35,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 380,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "extrato de tomate",
+      "qty": 40,
+      "unit": "g",
+      "ref": "extrato-tomate"
+    },
+    {
+      "name": "mel",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "mel"
+    },
+    {
+      "name": "shoyu",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "shoyu"
+    },
+    {
+      "name": "água",
+      "qty": 50,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "batata inglesa",
+      "qty": 500,
+      "unit": "g",
+      "ref": "batata-inglesa"
+    },
+    {
+      "name": "leite integral",
+      "qty": 100,
+      "unit": "ml",
+      "ref": "leite-integral"
+    },
+    {
+      "name": "manteiga",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "manteiga"
+    },
+    {
+      "name": "vinagre",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "páprica defumada",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Descasque as batatas, corte em pedaços e cozinhe em água com sal até ficarem macias.",
+      "seconds": 1080
+    },
+    {
+      "text": "Misture extrato, mel, shoyu, água, um fio de vinagre e páprica: é o molho barbecue."
+    },
+    {
+      "text": "Doure o frango em bifes finos no azeite.",
+      "seconds": 480,
+      "ingredientHint": "fogo alto"
+    },
+    {
+      "text": "Despeje o molho sobre o frango e deixe reduzir e brilhar.",
+      "seconds": 180
+    },
+    {
+      "text": "Amasse as batatas com o leite quente e a manteiga. Sirva com o frango."
+    }
+  ],
+  "photo": "/recipes/frango-bbq-pure.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "O molho caseiro tem menos açúcar que o de garrafa e fica pronto em 1 minuto."
+}

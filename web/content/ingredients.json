@@ -345,6 +345,63 @@
     "macarrao-cru": {
       "nome": "macarrão (cru)",
       "taco": 40
+    },
+    "leite-po-desnatado": {
+      "nome": "leite em pó desnatado",
+      "taco": 456,
+      "gramasPor": {
+        "colher": 10
+      }
+    },
+    "ricota": {
+      "nome": "ricota",
+      "taco": 469
+    },
+    "quiabo": {
+      "nome": "quiabo",
+      "taco": 147
+    },
+    "sobrecoxa": {
+      "nome": "sobrecoxa de frango sem pele (crua)",
+      "taco": 414
+    },
+    "charque": {
+      "nome": "carne seca (charque) dessalgada, crua",
+      "taco": 339
+    },
+    "feijao-fradinho-cozido": {
+      "nome": "feijão fradinho cozido",
+      "taco": 563
+    },
+    "pimentao-verde": {
+      "nome": "pimentão verde",
+      "taco": 144,
+      "gramasPor": {
+        "un": 150
+      }
+    },
+    "queijo-coalho": {
+      "nome": "queijo coalho",
+      "rotulo": {
+        "kcal": 320,
+        "protein_g": 23,
+        "carbs_g": 1,
+        "fat_g": 24
+      },
+      "fonteRotulo": "média de rótulos de queijo coalho (porção de 30 g ≈ 7 g de proteína)"
+    },
+    "curry-po": {
+      "nome": "curry em pó",
+      "rotulo": {
+        "kcal": 325,
+        "protein_g": 14,
+        "carbs_g": 56,
+        "fat_g": 14
+      },
+      "fonteRotulo": "média de rótulos de curry em pó",
+      "gramasPor": {
+        "colher": 6
+      }
     }
   }
 }

@@ -1,0 +1,96 @@
+{
+  "slug": "escondidinho-frango-batata-doce",
+  "name": "Escondidinho de frango com batata-doce",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 35,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "frango desfiado",
+      "qty": 240,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "batata-doce",
+      "qty": 450,
+      "unit": "g",
+      "ref": "batata-doce"
+    },
+    {
+      "name": "requeijão",
+      "qty": 2,
+      "unit": "colher",
+      "ref": "requeijao"
+    },
+    {
+      "name": "mozarela",
+      "qty": 60,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe a batata-doce em pedaços até ficar macia.",
+      "seconds": 900
+    },
+    {
+      "text": "Refogue cebola, alho e tomate no azeite e junte o frango desfiado.",
+      "seconds": 300
+    },
+    {
+      "text": "Amasse a batata com o requeijão e sal até virar purê."
+    },
+    {
+      "text": "Monte numa travessa: frango embaixo, purê por cima e a mozarela."
+    },
+    {
+      "text": "Leve ao forno quente até gratinar.",
+      "seconds": 600,
+      "ingredientHint": "forno 220 °C"
+    }
+  ],
+  "photo": "/recipes/escondidinho-frango-batata-doce.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Com o frango desfiado da semana pronto, sai em 20 minutos."
+}

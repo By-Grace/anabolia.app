@@ -1,0 +1,88 @@
+{
+  "slug": "cuscuz-carne-moida-ovos",
+  "name": "Cuscuz com carne moída e ovos",
+  "slot": [
+    "cafe",
+    "jantar"
+  ],
+  "minutes": 15,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "flocão de milho",
+      "qty": 60,
+      "unit": "g",
+      "ref": "flocos-milho"
+    },
+    {
+      "name": "água",
+      "qty": 60,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "patinho moído",
+      "qty": 80,
+      "unit": "g",
+      "ref": "patinho-moido"
+    },
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "cebola",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "tomate",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "azeite",
+      "qty": 0.5,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Hidrate o flocão com a água e sal e cozinhe na cuscuzeira.",
+      "seconds": 480,
+      "ingredientHint": "vapor"
+    },
+    {
+      "text": "Enquanto isso, doure a carne no azeite com a cebola e o tomate.",
+      "seconds": 360,
+      "ingredientHint": "fogo alto"
+    },
+    {
+      "text": "Junte os ovos à carne e mexa até firmar.",
+      "seconds": 120
+    },
+    {
+      "text": "Sirva o cuscuz com a carne e os ovos por cima e cheiro-verde."
+    }
+  ],
+  "photo": "/recipes/cuscuz-carne-moida-ovos.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "A carne pode ser a mesma do almoço: aqueça e junte os ovos na hora."
+}

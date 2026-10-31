@@ -1,0 +1,93 @@
+{
+  "slug": "arroz-carreteiro",
+  "name": "Arroz carreteiro meio a meio",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 40,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "carne seca dessalgada",
+      "qty": 320,
+      "unit": "g",
+      "ref": "charque"
+    },
+    {
+      "name": "arroz",
+      "qty": 140,
+      "unit": "g",
+      "ref": "arroz-cru"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "água fervente",
+      "qty": 400,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "pimenta-do-reino",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe a carne seca já dessalgada em água fervente, escorra e pique em cubos pequenos.",
+      "seconds": 600
+    },
+    {
+      "text": "Doure a carne no azeite com a cebola e o alho.",
+      "seconds": 300,
+      "ingredientHint": "fogo alto"
+    },
+    {
+      "text": "Junte o arroz e refogue mexendo.",
+      "seconds": 120
+    },
+    {
+      "text": "Acrescente o tomate e a água fervente e cozinhe tampado até secar.",
+      "seconds": 1080,
+      "ingredientHint": "fogo baixo"
+    },
+    {
+      "text": "Desligue, espere 5 minutos tampado e finalize com cheiro-verde.",
+      "seconds": 300
+    }
+  ],
+  "photo": "/recipes/arroz-carreteiro.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Meio a meio é o segredo: tanta carne quanto arroz no prato."
+}

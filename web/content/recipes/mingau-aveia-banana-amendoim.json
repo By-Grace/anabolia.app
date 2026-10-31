@@ -21,10 +21,10 @@
       "ref": "aveia"
     },
     {
-      "name": "leite em pó",
-      "qty": 20,
+      "name": "leite em pó desnatado",
+      "qty": 30,
       "unit": "g",
-      "ref": "leite-po-integral"
+      "ref": "leite-po-desnatado"
     },
     {
       "name": "banana prata",

@@ -1,0 +1,112 @@
+{
+  "slug": "frango-quiabo",
+  "name": "Frango com quiabo e arroz",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 300,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "sobrecoxa sem pele",
+      "qty": 150,
+      "unit": "g",
+      "ref": "sobrecoxa"
+    },
+    {
+      "name": "quiabo",
+      "qty": 300,
+      "unit": "g",
+      "ref": "quiabo"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "tomate",
+      "qty": 1,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "azeite",
+      "qty": 2,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "água",
+      "qty": 150,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 300,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "limão",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Lave o quiabo, seque muito bem e corte em rodelas."
+    },
+    {
+      "text": "Doure o quiabo em metade do azeite em fogo alto, com gotas de limão, mexendo pouco. Reserve.",
+      "seconds": 360,
+      "ingredientHint": "quiabo · fogo alto"
+    },
+    {
+      "text": "Tempere o frango em cubos com sal e doure no resto do azeite.",
+      "seconds": 360
+    },
+    {
+      "text": "Junte a cebola, o alho e o tomate e refogue.",
+      "seconds": 120
+    },
+    {
+      "text": "Coloque a água e cozinhe tampado.",
+      "seconds": 480,
+      "ingredientHint": "fogo médio"
+    },
+    {
+      "text": "Volte o quiabo, misture e finalize com cheiro-verde. Sirva com o arroz."
+    }
+  ],
+  "photo": "/recipes/frango-quiabo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Quiabo bem seco e fogo alto: a baba some. O limão ajuda."
+}

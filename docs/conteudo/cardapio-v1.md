@@ -1,6 +1,6 @@
-# Cardápio v1 — 40 receitas
+# Cardápio v1.1 — 52 receitas
 
-Data: 2026-10-31 · Status: APROVADO pelo Eduardo em 31/10 (fotos por IA como placeholder; sem nutricionista por agora)
+Data: 2026-10-31 · Status: APROVADO pelo Eduardo em 31/10 (fotos por IA como placeholder; sem nutricionista por agora). v1.1 no mesmo dia: trocas de leite em pó e 12 adições da pesquisa `docs/conteudo/pesquisa-receitas-proteicas.md`, pedidas pelo Eduardo.
 
 ## Critérios
 
@@ -59,8 +59,26 @@ Data: 2026-10-31 · Status: APROVADO pelo Eduardo em 31/10 (fotos por IA como pl
 39. Shake caseiro de leite em pó, banana e aveia · lanche, café
 40. Coxinha de frango com massa de batata-doce (airfryer) · lanche
 
-Opções por refeição: café 13 · almoço 13 · jantar 19 · lanche 18.
+## Adições v1.1 (pesquisa de 31/10)
+41. Frango desfiado da semana com arroz e feijão · almoço, jantar — receita-base: 11 receitas usam frango desfiado
+42. Frango com quiabo e arroz · almoço, jantar
+43. Baião de dois com queijo coalho e ovo · almoço, jantar
+44. Arroz carreteiro meio a meio · almoço, jantar
+45. Bowl mexicano de frango com feijão e vinagrete · almoço, jantar
+46. Frango cremoso ao curry com arroz · almoço, jantar
+47. Frango BBQ com purê de batata · almoço, jantar
+48. Escondidinho de frango com batata-doce · almoço, jantar
+49. Sopa de frango com batata-doce · jantar
+50. Tortinhas de tapioca com frango · lanche, café
+51. Cuscuz com carne moída e ovos · café, jantar
+52. Pão de ricota e ovo com frango · café, lanche
+
+## Trocas v1.1
+- Leite em pó integral → desnatado em shake, mingau (30 g), vitamina, aveia de geladeira, iogurte com aveia e bolo de caneca (+30 g de ricota); panqueca de banana ganhou 20 g de desnatado. Os itens doces saíram do piso de 25–27 g para 29–33 g, com menos caloria.
+- Batata recheada (#25) e coxinha de batata-doce (#40) seguem no cardápio; a pesquisa sugere trocá-las pelo escondidinho de frango e pelas tortinhas de tapioca, decisão em aberto.
+
+Opções por refeição: café 16 · almoço 21 · jantar 29 · lanche 20.
 
 ## Decisões (31/10)
 - Fotos: geradas por IA no estilo do kit, marcadas `photoSource: "gerada"` em cada receita; trocar por foto real das mais usadas depois do primeiro mês.
-- Nutricionista: não agora. Itens fora da TACO (goma de tapioca, leite integral, pasta de amendoim, pão de hambúrguer, wrap) usam média de rótulo e ficam marcados em content/ingredients.json para revisão futura.
+- Nutricionista: não agora. Itens fora da TACO (goma de tapioca, leite integral, pasta de amendoim, pão de hambúrguer, wrap, queijo coalho, curry em pó) usam média de rótulo e ficam marcados em content/ingredients.json para revisão futura.

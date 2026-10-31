@@ -7,10 +7,10 @@ import { MEAL_SLOTS } from "@/lib/recipes/schema";
 const recipes = getRecipes();
 const MAIN = new Set(["almoco", "jantar"]);
 
-describe("cardápio v1 (docs/conteudo/cardapio-v1.md)", () => {
-  it("tem 40 receitas, uma por arquivo, com slug igual ao nome do arquivo", () => {
+describe("cardápio v1.1 (docs/conteudo/cardapio-v1.md)", () => {
+  it("tem 52 receitas, uma por arquivo, com slug igual ao nome do arquivo", () => {
     const files = readdirSync(join(__dirname, "../content/recipes")).filter((f) => f.endsWith(".json")).map((f) => f.replace(".json", ""));
-    expect(recipes).toHaveLength(40);
+    expect(recipes).toHaveLength(52);
     expect(recipes.map((r) => r.slug).sort()).toEqual(files.sort());
   });
 
@@ -31,6 +31,10 @@ describe("cardápio v1 (docs/conteudo/cardapio-v1.md)", () => {
       expect(r.steps.length, r.slug).toBeGreaterThanOrEqual(2);
       for (const s of r.steps) if (s.seconds) expect(s.seconds, `${r.slug}: ${s.text}`).toBeLessThanOrEqual(2400);
     }
+  });
+
+  it("nenhuma receita usa leite em pó integral: o desnatado dá mais proteína com menos caloria", () => {
+    for (const r of recipes) expect(r.ingredients.some((i) => i.ref === "leite-po-integral"), r.slug).toBe(false);
   });
 
   it("toda receita tem foto no disco e a origem da foto declarada", () => {

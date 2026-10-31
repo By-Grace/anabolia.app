@@ -16,10 +16,10 @@
       "ref": "leite-integral"
     },
     {
-      "name": "leite em pó",
+      "name": "leite em pó desnatado",
       "qty": 30,
       "unit": "g",
-      "ref": "leite-po-integral"
+      "ref": "leite-po-desnatado"
     },
     {
       "name": "banana prata",

@@ -1,0 +1,98 @@
+{
+  "slug": "baiao-de-dois",
+  "name": "Baião de dois com queijo coalho e ovo",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 35,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "carne seca dessalgada",
+      "qty": 150,
+      "unit": "g",
+      "ref": "charque"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 250,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "feijão fradinho cozido",
+      "qty": 200,
+      "unit": "g",
+      "ref": "feijao-fradinho-cozido"
+    },
+    {
+      "name": "queijo coalho",
+      "qty": 100,
+      "unit": "g",
+      "ref": "queijo-coalho"
+    },
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "coentro ou cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "pimenta-do-reino",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Cozinhe a carne seca já dessalgada em água fervente e escorra.",
+      "seconds": 600
+    },
+    {
+      "text": "Desfie a carne e doure no azeite com a cebola e o alho.",
+      "seconds": 300,
+      "ingredientHint": "fogo médio-alto"
+    },
+    {
+      "text": "Junte o feijão e o arroz e misture até aquecer.",
+      "seconds": 180
+    },
+    {
+      "text": "Corte o queijo coalho em cubos, misture metade e doure o resto à parte.",
+      "seconds": 180
+    },
+    {
+      "text": "Frite os ovos e sirva um por prato, com o queijo dourado e o coentro por cima.",
+      "seconds": 180
+    }
+  ],
+  "photo": "/recipes/baiao-de-dois.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Compre a carne seca já dessalgada: economiza horas de molho."
+}

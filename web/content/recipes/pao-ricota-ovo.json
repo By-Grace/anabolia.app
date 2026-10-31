@@ -1,0 +1,75 @@
+{
+  "slug": "pao-ricota-ovo",
+  "name": "Pão de ricota e ovo com frango",
+  "slot": [
+    "cafe",
+    "lanche"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 1,
+  "ingredients": [
+    {
+      "name": "ricota",
+      "qty": 150,
+      "unit": "g",
+      "ref": "ricota"
+    },
+    {
+      "name": "ovo",
+      "qty": 2,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 40,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "tomate",
+      "qty": 0.5,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "alface",
+      "qty": 15,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "orégano",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Bata a ricota com os ovos, sal e orégano até ficar um creme liso.",
+      "seconds": 30,
+      "ingredientHint": "liquidificador"
+    },
+    {
+      "text": "Espalhe numa assadeira forrada com papel manteiga, numa camada fina."
+    },
+    {
+      "text": "Asse até firmar e dourar nas bordas.",
+      "seconds": 1200,
+      "ingredientHint": "forno 200 °C"
+    },
+    {
+      "text": "Recheie metade com frango, tomate e alface e dobre como um sanduíche."
+    }
+  ],
+  "photo": "/recipes/pao-ricota-ovo.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "É a versão brasileira do pão de cottage que viralizou: ricota custa um terço."
+}

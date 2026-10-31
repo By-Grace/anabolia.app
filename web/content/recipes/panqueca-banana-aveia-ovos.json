@@ -28,6 +28,12 @@
       "ref": "aveia"
     },
     {
+      "name": "leite em pó desnatado",
+      "qty": 20,
+      "unit": "g",
+      "ref": "leite-po-desnatado"
+    },
+    {
       "name": "manteiga",
       "qty": 5,
       "unit": "g",
@@ -50,7 +56,7 @@
       "text": "Amasse a banana com um garfo até virar purê."
     },
     {
-      "text": "Junte os ovos, a aveia e a canela e misture bem."
+      "text": "Junte os ovos, a aveia, o leite em pó e a canela e misture bem."
     },
     {
       "text": "Derreta a manteiga numa frigideira antiaderente em fogo médio-baixo."

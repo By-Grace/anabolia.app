@@ -1,0 +1,110 @@
+{
+  "slug": "bowl-mexicano-frango",
+  "name": "Bowl mexicano de frango com feijão e vinagrete",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 340,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 240,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "feijão cozido",
+      "qty": 200,
+      "unit": "g",
+      "ref": "feijao-carioca-cozido"
+    },
+    {
+      "name": "milho",
+      "qty": 80,
+      "unit": "g",
+      "ref": "milho-lata"
+    },
+    {
+      "name": "tomate",
+      "qty": 2,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "iogurte natural",
+      "qty": 1,
+      "unit": "un",
+      "ref": "iogurte-natural"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "alface",
+      "qty": 40,
+      "unit": "g",
+      "ref": "alface"
+    },
+    {
+      "name": "limão",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "cominho",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "páprica",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Tempere o frango em tiras com sal, cominho, páprica e limão."
+    },
+    {
+      "text": "Doure o frango no azeite, sem amontoar.",
+      "seconds": 420,
+      "ingredientHint": "fogo alto"
+    },
+    {
+      "text": "Pique o tomate e metade da cebola, tempere com limão e sal: é o vinagrete."
+    },
+    {
+      "text": "Misture o iogurte com limão e sal para o creme."
+    },
+    {
+      "text": "Monte: arroz, feijão, frango, milho, vinagrete, alface e o creme por cima."
+    }
+  ],
+  "photo": "/recipes/bowl-mexicano-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "O creme de iogurte faz o papel do creme azedo, com mais proteína."
+}

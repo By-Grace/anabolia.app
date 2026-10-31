@@ -1,0 +1,105 @@
+{
+  "slug": "frango-curry-cremoso",
+  "name": "Frango cremoso ao curry com arroz",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 380,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "iogurte natural",
+      "qty": 1,
+      "unit": "un",
+      "ref": "iogurte-natural"
+    },
+    {
+      "name": "curry em pó",
+      "qty": 2,
+      "unit": "colher",
+      "ref": "curry-po"
+    },
+    {
+      "name": "extrato de tomate",
+      "qty": 40,
+      "unit": "g",
+      "ref": "extrato-tomate"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 3,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "manteiga",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "manteiga"
+    },
+    {
+      "name": "creme de leite",
+      "qty": 50,
+      "unit": "g",
+      "ref": "creme-leite"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 300,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "cominho",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Corte o frango em cubos e misture com metade do iogurte, metade do curry e sal.",
+      "seconds": 600,
+      "ingredientHint": "marinada rápida"
+    },
+    {
+      "text": "Doure a cebola e o alho na manteiga com o resto do curry e o cominho.",
+      "seconds": 180
+    },
+    {
+      "text": "Junte o frango e doure.",
+      "seconds": 300,
+      "ingredientHint": "fogo médio-alto"
+    },
+    {
+      "text": "Acrescente o extrato e um pouco de água e cozinhe.",
+      "seconds": 480,
+      "ingredientHint": "fogo médio"
+    },
+    {
+      "text": "Desligue o fogo e misture o resto do iogurte e o creme de leite. Sirva com o arroz."
+    }
+  ],
+  "photo": "/recipes/frango-curry-cremoso.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Iogurte e creme só com o fogo desligado, para o molho não talhar."
+}

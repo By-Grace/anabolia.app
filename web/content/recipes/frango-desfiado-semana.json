@@ -1,0 +1,112 @@
+{
+  "slug": "frango-desfiado-semana",
+  "name": "Frango desfiado da semana com arroz e feijão",
+  "slot": [
+    "almoco",
+    "jantar"
+  ],
+  "minutes": 35,
+  "difficulty": "fácil",
+  "basePortions": 5,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 800,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "sobrecoxa sem pele",
+      "qty": 300,
+      "unit": "g",
+      "ref": "sobrecoxa"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 4,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "tomate",
+      "qty": 2,
+      "unit": "un",
+      "ref": "tomate"
+    },
+    {
+      "name": "azeite",
+      "qty": 2,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "água",
+      "qty": 200,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "arroz cozido",
+      "qty": 600,
+      "unit": "g",
+      "ref": "arroz-cozido"
+    },
+    {
+      "name": "feijão cozido",
+      "qty": 500,
+      "unit": "g",
+      "ref": "feijao-carioca-cozido"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "pimenta-do-reino",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Corte o peito em 3 pedaços grossos e tempere o frango com sal, pimenta e o alho amassado."
+    },
+    {
+      "text": "Na panela de pressão, doure a cebola no azeite e junte o frango e o tomate picado.",
+      "seconds": 240,
+      "ingredientHint": "fogo alto"
+    },
+    {
+      "text": "Coloque a água, feche e cozinhe depois de pegar pressão.",
+      "seconds": 900,
+      "ingredientHint": "pressão · fogo baixo"
+    },
+    {
+      "text": "Tire a pressão, abra e desfie o frango com dois garfos no próprio caldo."
+    },
+    {
+      "text": "Ferva destampado, mexendo, até o caldo quase secar.",
+      "seconds": 180,
+      "ingredientHint": "o caldo volta para dentro do frango"
+    },
+    {
+      "text": "Junte o cheiro-verde e divida em 5 potes com o arroz e o feijão."
+    }
+  ],
+  "photo": "/recipes/frango-desfiado-semana.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "A sobrecoxa deixa o desfiado suculento. Separe uma parte para crepioca, wrap e sanduíche durante a semana."
+}

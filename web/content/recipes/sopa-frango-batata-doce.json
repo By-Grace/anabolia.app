@@ -1,0 +1,100 @@
+{
+  "slug": "sopa-frango-batata-doce",
+  "name": "Sopa de frango com batata-doce",
+  "slot": [
+    "jantar"
+  ],
+  "minutes": 25,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "peito de frango",
+      "qty": 360,
+      "unit": "g",
+      "ref": "peito-frango"
+    },
+    {
+      "name": "batata-doce",
+      "qty": 300,
+      "unit": "g",
+      "ref": "batata-doce"
+    },
+    {
+      "name": "cenoura",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cenoura"
+    },
+    {
+      "name": "cebola",
+      "qty": 1,
+      "unit": "un",
+      "ref": "cebola"
+    },
+    {
+      "name": "alho",
+      "qty": 2,
+      "unit": "dente",
+      "ref": "alho"
+    },
+    {
+      "name": "azeite",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "azeite"
+    },
+    {
+      "name": "água",
+      "qty": 800,
+      "unit": "ml",
+      "ref": "agua"
+    },
+    {
+      "name": "requeijão",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "requeijao"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "cheiro-verde",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Refogue a cebola e o alho no azeite.",
+      "seconds": 120
+    },
+    {
+      "text": "Junte o frango em cubos pequenos e doure.",
+      "seconds": 240,
+      "ingredientHint": "fogo médio-alto"
+    },
+    {
+      "text": "Acrescente a batata-doce e a cenoura em cubos e a água.",
+      "seconds": 60
+    },
+    {
+      "text": "Cozinhe tampado até a batata desmanchar.",
+      "seconds": 900,
+      "ingredientHint": "fogo médio"
+    },
+    {
+      "text": "Amasse parte da batata na panela para engrossar."
+    },
+    {
+      "text": "Desligue, misture o requeijão e o cheiro-verde."
+    }
+  ],
+  "photo": "/recipes/sopa-frango-batata-doce.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Jantar leve: a proteína vem do frango, não de um prato cheio de arroz."
+}

@@ -28,10 +28,16 @@
       "ref": "aveia"
     },
     {
-      "name": "leite em pó",
+      "name": "leite em pó desnatado",
       "qty": 20,
       "unit": "g",
-      "ref": "leite-po-integral"
+      "ref": "leite-po-desnatado"
+    },
+    {
+      "name": "ricota",
+      "qty": 30,
+      "unit": "g",
+      "ref": "ricota"
     },
     {
       "name": "fermento",
@@ -56,7 +62,7 @@
       "text": "Amasse a banana dentro de uma caneca grande."
     },
     {
-      "text": "Misture os ovos, a aveia, o leite em pó e a canela; o fermento por último."
+      "text": "Misture os ovos, a aveia, o leite em pó, a ricota amassada e a canela; o fermento por último."
     },
     {
       "text": "Leve ao micro-ondas.",

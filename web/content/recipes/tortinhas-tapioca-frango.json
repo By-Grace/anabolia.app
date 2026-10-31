@@ -1,0 +1,76 @@
+{
+  "slug": "tortinhas-tapioca-frango",
+  "name": "Tortinhas de tapioca com frango",
+  "slot": [
+    "lanche",
+    "cafe"
+  ],
+  "minutes": 30,
+  "difficulty": "fácil",
+  "basePortions": 2,
+  "ingredients": [
+    {
+      "name": "goma de tapioca",
+      "qty": 60,
+      "unit": "g",
+      "ref": "goma-tapioca"
+    },
+    {
+      "name": "ovo",
+      "qty": 3,
+      "unit": "un",
+      "ref": "ovo"
+    },
+    {
+      "name": "frango desfiado",
+      "qty": 150,
+      "unit": "g",
+      "ref": "frango-desfiado"
+    },
+    {
+      "name": "requeijão",
+      "qty": 1,
+      "unit": "colher",
+      "ref": "requeijao"
+    },
+    {
+      "name": "mozarela",
+      "qty": 40,
+      "unit": "g",
+      "ref": "mozarela"
+    },
+    {
+      "name": "sal",
+      "qty": 0,
+      "unit": "a gosto"
+    },
+    {
+      "name": "orégano",
+      "qty": 0,
+      "unit": "a gosto"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Misture a goma, os ovos, metade da mozarela e sal até virar uma massa mole."
+    },
+    {
+      "text": "Misture o frango com o requeijão e o orégano para o recheio."
+    },
+    {
+      "text": "Unte 6 forminhas de muffin e coloque massa, recheio e mais massa."
+    },
+    {
+      "text": "Cubra com o resto da mozarela e asse até dourar.",
+      "seconds": 1200,
+      "ingredientHint": "forno 200 °C"
+    },
+    {
+      "text": "Espere 5 minutos para desenformar. São 3 por porção."
+    }
+  ],
+  "photo": "/recipes/tortinhas-tapioca-frango.webp",
+  "photoSource": "gerada",
+  "photoCredit": "Gerada por IA. Placeholder: trocar por foto real antes de escalar.",
+  "tip": "Fazem bem a semana na geladeira: aqueça na airfryer por 4 minutos."
+}
