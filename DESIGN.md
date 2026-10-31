@@ -1,224 +1,337 @@
 ---
 name: "Anaból[IA]"
-description: "Precisão Gostosa em forma de chat — a landing é a conversa de onboarding onde a meta vira almoço."
+description: "O treino do dia, na cozinha: meta de proteína como carga, refeição como série, receita como cronômetro."
 colors:
-  ink: "#17282B"
-  pulse: "#3156FF"
-  goal: "#C8F24C"
-  mist: "#B9D8DB"
-  ice: "#F1F5EA"
-  ink-2: "#22363A"
-  ice-2: "#FFFDF8"
-  line: "#DCE3D2"
-  muted: "#5D6E71"
+  paper: "#FFFFFF"
+  ink: "#0E0E0E"
+  grey: "#6B6B6B"
+  hair: "#ECECEC"
+  soft: "#F5F5F5"
+  track: "#E6E6E6"
+  ring: "#D6D6D6"
+  acc: "#D4451F"
+  acc-soft: "#FBE4DC"
+  acc-text: "#8E2F12"
 typography:
-  display:
-    fontFamily: "Space Grotesk, Plus Jakarta Sans, system-ui, sans-serif"
-    fontSize: "clamp(2.35rem, 8.5vw, 5.4rem)"
-    fontWeight: 500
-    lineHeight: 1.02
-    letterSpacing: "-0.035em"
-  title:
-    fontFamily: "Space Grotesk, Plus Jakarta Sans, system-ui, sans-serif"
-    fontSize: "1.35rem"
-    fontWeight: 500
+  numeral-giant:
+    fontFamily: "ui-rounded, SF Pro Rounded, Nunito, Roboto, system-ui, sans-serif"
+    fontSize: "104px"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "-0.04em"
+    fontFeature: "tnum"
+  numeral-hero:
+    fontFamily: "ui-rounded, SF Pro Rounded, Nunito, Roboto, system-ui, sans-serif"
+    fontSize: "44px"
+    fontWeight: 700
+    lineHeight: 1
     letterSpacing: "-0.02em"
+    fontFeature: "tnum"
+  numeral-stat:
+    fontFamily: "ui-rounded, SF Pro Rounded, Nunito, Roboto, system-ui, sans-serif"
+    fontSize: "26px"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+    fontFeature: "tnum"
+  display:
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Display, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "34px"
+    fontWeight: 700
+    lineHeight: 1.05
+    letterSpacing: "-0.025em"
+  headline:
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Display, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "28px"
+    fontWeight: 700
+    lineHeight: 1.1
+    letterSpacing: "-0.022em"
+  title:
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Text, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "19px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.015em"
+  body-strong:
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Text, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "16px"
+    fontWeight: 600
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
   body:
-    fontFamily: "Plus Jakarta Sans, system-ui, -apple-system, sans-serif"
-    fontSize: "1.0625rem"
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Text, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "15px"
     fontWeight: 400
-    lineHeight: 1.6
-  label:
-    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, monospace"
-    fontSize: "0.72rem"
+    lineHeight: 1.375
+  meta:
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Text, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "13px"
     fontWeight: 500
-    letterSpacing: "0.14em"
+    lineHeight: 1.35
+  label:
+    fontFamily: "-apple-system, BlinkMacSystemFont, SF Pro Text, Roboto, Segoe UI, system-ui, sans-serif"
+    fontSize: "11.5px"
+    fontWeight: 600
+    letterSpacing: "0.05em"
 rounded:
-  tick: "7px"
-  chip: "8px"
-  tail: "8px"
-  badge: "10px"
-  avatar: "12px"
-  card: "20px"
-  bubble: "22px"
-  pill: "999px"
+  check: "7px"
+  thumb: "10px"
+  field: "12px"
+  panel: "16px"
+  card: "18px"
+  photo: "20px"
+  full: "9999px"
 spacing:
-  gap-sm: "12px"
-  gap-md: "18px"
-  gap-lg: "26px"
-  gap-xl: "34px"
-  section: "56px"
-  gutter: "clamp(16px, 4.5vw, 32px)"
+  row-tight: "10px"
+  row: "12px"
+  card-pad: "18px"
+  gutter: "20px"
+  section: "24px"
 components:
   button-primary:
-    backgroundColor: "{colors.pulse}"
-    textColor: "#FFFFFF"
-    rounded: "{rounded.pill}"
-    padding: "0.72em 1.3em"
-  bubble-ia:
-    backgroundColor: "{colors.ice-2}"
+    backgroundColor: "{colors.acc}"
+    textColor: "{colors.paper}"
+    typography: "{typography.body-strong}"
+    rounded: "{rounded.full}"
+    height: "54px"
+    padding: "0 24px"
+  button-secondary:
+    backgroundColor: "{colors.soft}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.bubble}"
-    padding: "14px 18px"
-  bubble-me:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.ice}"
-    rounded: "{rounded.bubble}"
-    padding: "14px 18px"
-  chip-calc:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.goal}"
-    rounded: "{rounded.chip}"
-    padding: "0.08em 0.45em"
-  badge-macro:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.goal}"
-    rounded: "{rounded.badge}"
-    padding: "0.35em 0.6em"
-  appcard:
-    backgroundColor: "{colors.ice-2}"
+    rounded: "{rounded.full}"
+    size: "54px"
+  button-soft:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.full}"
+    height: "54px"
+    padding: "0 20px"
+  button-text:
+    textColor: "{colors.acc}"
+    height: "44px"
+    padding: "0 8px"
+  progress-card:
+    backgroundColor: "{colors.soft}"
     textColor: "{colors.ink}"
     rounded: "{rounded.card}"
+    padding: "16px 18px 18px"
+  progress-bar:
+    backgroundColor: "{colors.track}"
+    rounded: "{rounded.full}"
+    height: "10px"
+  progress-bar-fill:
+    backgroundColor: "{colors.acc}"
+    rounded: "{rounded.full}"
+  photo-card:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.photo}"
+    height: "220px"
+  photo-card-play:
+    backgroundColor: "{colors.acc}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.full}"
+    size: "46px"
+  set-row:
+    textColor: "{colors.ink}"
+    typography: "{typography.body-strong}"
+    padding: "12px 0"
+  set-ring-done:
+    backgroundColor: "{colors.acc}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.full}"
+    size: "26px"
+  chip:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.full}"
+    height: "36px"
+    padding: "0 14px"
+  chip-selected:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.full}"
+  timer-chip:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.full}"
+    padding: "6px 12px"
+  hint-chip:
+    backgroundColor: "{colors.acc-soft}"
+    textColor: "{colors.acc-text}"
+    rounded: "{rounded.field}"
+    padding: "10px 12px"
+  stepper:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.thumb}"
+    height: "32px"
+  search-field:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.field}"
+    height: "44px"
+    padding: "0 12px"
+  toast:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.panel}"
+    padding: "12px 16px"
+  tab-bar:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.grey}"
+    height: "60px"
 ---
 
 # Design System: Anaból[IA]
 
 ## Overview
 
-**Creative North Star: "A Página é a Conversa" (Precisão Gostosa em forma de chat)**
+**Creative North Star: "O treino do dia, na cozinha"**
 
-Registro do mundo CONSTRUÍDO em `landing/index.html` (contrato de direção no comentário do topo do body; seed 92f9f722). A landing recusa o hero-de-features da categoria fitness: ela É o onboarding encenado — a [ia] pergunta a meta, o visitante responde, e a manchete "Sua meta virou almoço." nasce dentro de uma bolha de chat. Fundo ICE claro e quente, superfícies levemente elevadas em branco-creme, estrutura e contraste em INK, um único azul de ação (PULSE) e o lima GOAL reservado ao que foi calculado. A camada de precisão é mono: todo número, timestamp e microlabel do sistema fala IBM Plex Mono.
+Registro do app construído em `web/` (Next.js, PWA mobile-first), contrato de direção em `.impeccable/surfaces/app-hoje-page-tsx.md` (direção B, aprovada por Eduardo em 31/10/2026). Este mundo SUBSTITUI o de setembro (Space Grotesk, lima, azul pulse, IBM Plex Mono, gramática de chat), rejeitado pelo usuário em 31/10/2026. A landing antiga (`landing/index.html`) fica no repositório como artefato congelado e não vinculante; nada dela é lei deste sistema.
 
-O sistema é mobile-first (descoberta via IG), coluna única, e alterna dois palcos: o chat sobre ICE e interlúdios full-bleed em INK (outdoor de campanha, fechamento). Tudo encenado é rotulado "demonstração" — regra visível no próprio card.
+O app empresta a gramática da tela de treino que o público sabe de cor: a meta de proteína é a carga do dia e a barra que enche, a próxima refeição é o card de exercício com play, a refeição marcada é a série concluída (círculo que preenche, barra que sobe), o modo cozinhar é o cronômetro de um passo por tela. Tema claro de propósito, para o celular apoiado no balcão de uma cozinha iluminada: branco puro, preto quase puro, cinza para o secundário, fio hairline entre linhas, superfícies em cinza muito claro sem borda. Um único acento, laranja de crosta, que só fala quando algo é ação, progresso, feito ou vínculo.
+
+Densidade de app nativo, não de site: coluna única de 480px no máximo, fonte do sistema (SF na Apple) em 600/700, números arredondados e tabulares, fotos de comida grandes com gradiente só na base. Nada de tagline, mascote, eyebrow, grid de cards com anéis de macros, nem tema escuro "de academia".
+
+**Sistema durável vs. superfície.** Herdável pela esteira de apps-irmãos [ia] (trocando apenas o matiz do acento e seus dois derivados `acc-soft`/`acc-text`): os papéis de cor e a lei do acento único, o par tipográfico sistema + rounded, a regra dos numerais `.num`, a set-row, o photo card com play, a barra de progresso e seu momento de subida, a família de botões, chips, stepper, toast, tab bar e a família de raios. Superfície só deste app (não é lei do sistema): a copy ("g para fechar", "Marquei, comi"), os quatro slots de refeição, a coluna de ingredientes grams-first (específica de receita; herdável só por quem tiver ficha técnica), o modo cozinhar com cronômetro e a ordem de composição da tela Hoje.
 
 **Key Characteristics:**
-- Cores com função, não decoração: INK estrutura · PULSE ação/reconhecimento · GOAL progresso calculado · MIST apoio no escuro · ICE respiro.
-- Colchetes são semântica: `[42g]` só existe como chip/badge mono lima-sobre-INK quando houve cálculo/personalização.
-- Display Space Grotesk 500 com tracking negativo e line-height ≤1.12; números viram manchete.
-- Sombras ambiente tingidas de INK; nunca duras.
-- Setas `→` marcam próximo passo e efeito em cadeia.
-
-**Sistema durável vs. superfície.** Herdável pela esteira [ia]: a paleta funcional e suas três leis, o trio tipográfico e a camada mono de precisão, o chip/badge de cálculo, a pill PULSE de CTA, o appcard (foto + badge + título + meta mono), a família de raios e a sombra ambiente, os microlabels mono uppercase, o sprite do avatar/ícone "a". Superfície só desta landing (não é lei do sistema; reutilizável apenas se outra superfície adotar a mesma forma): a gramática de chat inteira (bolhas por remetente, day separators, stamps, read receipts, typing indicator, reveal lateral), o interlúdio outdoor, o bloco promise sublinhado, a coluna de 760px e a copy encenada.
+- Fundo branco puro, texto ink, um acento só.
+- Fonte nativa da plataforma em 600/700; todo número em rounded tabular.
+- Cards sem borda em cinza suave; listas separadas por hairline.
+- Foto de comida grande sempre que há uma receita em foco (photo card, hero de receita).
+- Movimento curto com ease-out expressivo, reservado para confirmação e troca de passo.
 
 ## Colors
 
-Paleta de 5 cores do Brand Kit v1 "Precisão Gostosa" + 4 neutros derivados que o código introduziu para superfície e hierarquia.
+Neutro de app nativo com um único laranja de crosta funcional.
 
 ### Primary
-- **Pulse Blue** (#3156FF): a cor da ação e do reconhecimento de marca. No código: fundo do CTA único (pill "Seguir @anabolia.app"), links, anel de foco (`outline: 3px solid`), setas do sysline, "cozinhar →" nos cards, o `[ia]` do wordmark e o ponto do avatar. Porção pequena de qualquer tela; nunca fundo de seção.
-
-### Secondary
-- **Goal Lime** (#C8F24C): progresso e confirmação calculada. No código: texto de chips e badges sobre INK, o destaque `goal-ink` da manchete, ênfases nas seções INK (em do outdoor, ponto final do close, assinatura mono), fundo do tick marcado, `::selection` (com texto INK) e o sublinhado de 4px da promessa.
-
-### Tertiary
-- **Mist** (#B9D8DB): apoio sobre fundos INK — texto secundário das seções escuras, stamps da bolha do usuário, borda do tick vazio, pontinhos do typing indicator, links do footer.
+- **Laranja Crosta** (`acc`): fundo do botão primário e do play do photo card, preenchimento da barra de progresso e das pílulas de passo, círculo e checkbox de "feito", links de texto ("Trocar", "Marquei, comi", "Tentar de novo"), aba ativa, coração de favorita, dígitos do cronômetro rodando, ponto pulsante do timer-chip e anel de foco. Nunca em fundo de seção, nunca em título.
+- **Crosta Clara** (`acc-soft`): fundo do hint-chip de quantidade escalada no modo cozinhar e da seleção de texto.
+- **Crosta Funda** (`acc-text`): texto sobre `acc-soft`; é o único jeito de pôr texto pequeno em tom de acento sobre fundo tingido.
 
 ### Neutral
-- **Ink** (#17282B): estrutura. Texto padrão sobre claro, bolha do usuário, fundo de chip/badge, seções outdoor/close/footer, tinta das sombras.
-- **Ink-2** (#22363A): hairline sobre INK (borda superior do footer).
-- **Ice** (#F1F5EA): fundo da página e texto sobre INK; também o `theme-color`.
-- **Ice-2** (#FFFDF8): superfície elevada — bolhas da [ia], appcards, typing bubble.
-- **Line** (#DCE3D2): bordas de 1px e divisórias tracejadas (header, bolhas, cards, lista).
-- **Muted** (#5D6E71): texto secundário sobre claro — day separators, subs, metas, hints, qty, microlabels neutros.
+- **Papel** (`paper`): fundo de tudo; também texto sobre acento, foto e ink.
+- **Tinta** (`ink`): texto principal, anel da próxima refeição, chip selecionado, toast e timer-chip.
+- **Cinza** (`grey`): datas, sublinhas, metas, rótulos de stat, abas inativas, medida caseira.
+- **Fio** (`hair`): divisória de 1px entre linhas de lista e topo da tab bar.
+- **Suave** (`soft`): superfícies sem borda (card de proteína, chips, stepper, busca, aviso, dica, botões secundários) e fundo de foto ausente.
+- **Trilho** (`track`): fundo da barra de progresso e pílulas de passo futuras.
+- **Anel** (`ring`): círculo de refeição pendente, checkbox vazio, ícone de aba indisponível, coração não favoritado, placeholder de prato.
 
 ### Named Rules
-**The Bracket Rule.** Colchetes só enquadram o que foi calculado ou personalizado, e o valor calculado vive no chip/badge mono GOAL-sobre-INK (`[125g]`, `[42g] proteína`). Sem cálculo, sem colchete. Exceção única: o `[ia]` do wordmark (marca registrada do kit).
+**The One Crust Rule.** O laranja marca só ação primária, progresso, estado feito/selecionado/ao vivo e links. Seleção de filtro usa ink, não acento. Se o laranja aparecer em fundo de seção, título ou decoração, está errado.
 
-**The Food Layer Rule.** PULSE nunca toca a camada de comida. Sobre a foto, a única sobreposição permitida é o badge INK/GOAL; PULSE só aparece abaixo dela, no corpo do card.
+**The Ink Next Rule.** A próxima refeição é anel ink de 2px, vazio; pendente é anel `ring`; feito é círculo laranja cheio com check branco. Três estados, três tratamentos, nenhum outro.
 
-**The GOAL-on-INK Rule.** GOAL nunca é texto sobre fundo claro. Como texto, só sobre INK. Sobre claro, GOAL aparece apenas como preenchimento ou traço: fundo de tick (check em INK), sublinhado, fundo de seleção.
+**The Light Kitchen Rule.** Tema claro de propósito (`color-scheme: light`, `themeColor` branco). Não existe modo escuro neste sistema.
 
 ## Typography
 
-**Display Font:** Space Grotesk (fallback Plus Jakarta Sans → system-ui)
-**Body Font:** Plus Jakarta Sans (fallback system-ui) — pesos 400/500/700 + itálico 400
-**Label/Mono Font:** IBM Plex Mono (fallback ui-monospace) — pesos 400/500/600
+**Display/Body Font:** fonte do sistema (`-apple-system` / SF Pro na Apple, Roboto no Android, Segoe UI no Windows)
+**Numeral Font:** `ui-rounded` (SF Pro Rounded na Apple), com Nunito 700/800 via `next/font` como fallback fora da Apple
 
-Carregadas via Google Fonts (`display=swap`). **Character:** display geométrica em peso médio (500, nunca black), corpo humanista e legível, mono como voz de sistema — a precisão é literal: se é dado, é mono.
+**Character:** O SF em 600/700 dá a voz de app nativo sem personalidade emprestada; o rounded tabular nos números dá a leitura de placar de treino, macia e alinhada.
 
 ### Hierarchy
-- **Display** (500, clamp(2.35rem, 8.5vw, 5.4rem), lh 1.02, ls −0.035em, `text-wrap: balance`): a manchete do chat — um h1 dentro de bolha. Variações da mesma voz: outdoor h2 clamp(3rem, 10.5vw, 6rem)/lh 0.98, close h2 clamp(2.6rem, 8.5vw, 5rem)/lh 1, promise clamp(1.7rem, 4.6vw, 2.6rem)/lh 1.12.
-- **Title** (500, 1.35rem, ls −0.02em): título de receita no appcard. Wordmark: 1.25rem/ls −0.03em.
-- **Body** (400, 1.0625rem, lh 1.6): texto das bolhas e listas; bold 700 para ênfase; sub-linhas 1.12–1.15rem em Muted/Mist com max-width 34–56ch.
-- **Label** (mono 500, 0.66–0.8rem, ls 0.03–0.3em, uppercase nos rótulos de sistema): day separators (0.72rem/0.14em), stamps (0.68rem), meta de receita (0.78rem), demo-note (0.66rem/0.12em), sysline (0.8rem), assinatura outdoor (0.74rem/0.3em). Chips/badges: mono 600.
+- **Numeral giant** (700, 104px, 1, -0.04em): cronômetro do modo cozinhar; laranja rodando, ink em "Pronto".
+- **Numeral hero** (700, 44px, 1, -0.02em): "N g para fechar" na Hoje; a unidade cai para 18px/600 em cinza.
+- **Numeral stat** (700, 26px): trio proteína/min/kcal da receita.
+- **Display** (700, 34px, 1.05, -0.025em): título grande de tela ("Hoje", "Receitas"), sempre sob a data/contexto pequeno em cinza 13px.
+- **Headline** (700, 28px, 1.08–1.15, -0.022em, `text-balance`): nome da receita sobre a foto e o texto do passo no modo cozinhar.
+- **Title** (700, 19px, -0.015em): cabeçalho de seção ("Próxima refeição", "Ingredientes"). Nome no photo card usa 20px/700.
+- **Body strong** (600, 16px, -0.01em): rótulo de set-row e nome de receita na lista; valores numéricos à direita em 16/700 rounded.
+- **Body** (400, 15px, ~1.375): ingredientes, passos do preparo, dica.
+- **Meta** (500, 13px, cinza): sublinhas, datas, contadores ("2 de 4", "4/7").
+- **Label** (600, 11.5px, 0.05em, maiúsculas, cinza): só como unidade sob numeral de stat. Tab bar usa 11px/600 sem caixa alta.
 
 ### Named Rules
-**The Precision Layer Rule.** Todo metadado do sistema — número, tempo, timestamp, status, rótulo — é IBM Plex Mono; rótulos de sistema são uppercase com tracking largo. Números importantes não viram parágrafo: viram chip, badge ou manchete.
+**The Rounded Numeral Rule.** Todo número que o usuário lê como medida (gramas, kcal, minutos, porções, contadores, cronômetro, toast) leva `.num`: família rounded + `tabular-nums`. Texto corrido nunca leva.
 
-**The Medium Display Rule.** Display é sempre peso 500 com tracking negativo e line-height ≤1.12. Itálico só existe na "dica" de receita (`hint`).
+**The Grams-First Rule.** Em listas de ingredientes, a coluna da direita é sempre peso em gramas, rounded 700 alinhado à direita; a medida caseira ("1 un", "2 col. sopa") vai em cinza 13px colada ao nome. Sem peso conhecido, a medida caseira ocupa a coluna.
 
 ## Layout
 
-Coluna única de chat: `.wrap` com max-width 760px e gutter `clamp(16px, 4.5vw, 32px)`. Bolhas e appcards limitados a `min(560px, 86%)` (lista: 480px), alinhados por remetente — [ia] à esquerda com avatar de 38px, usuário à direita sem avatar. Header sticky (z-index 40) em ICE 90% com `backdrop-filter: blur(10px)` e borda Line. Interlúdios INK (outdoor, close, footer) são full-bleed e quebram a coluna; respiram com padding vertical `clamp(56px, 9vw, 104px)` e `clamp(64px, 10vw, 110px)`.
+Coluna única centralizada, `max-width: 480px`, gutter de 20px; no desktop a mesma coluna fica centrada sobre branco (sem breakpoints, sem layout de duas colunas). Topo e base respeitam `env(safe-area-inset-*)`. Ritmo: 20px de topo + safe area, cabeçalho de tela com 20px abaixo, seções separadas por 24px, cabeçalho de seção a 4–10px do conteúdo. Linhas de lista com 10–12px verticais e 12px de gap horizontal. O card de proteína respira 16/18px. Conteúdo rolável reserva 96px (tab bar) ou 110px (barra de ação fixa) mais a safe area no rodapé.
 
-Ritmo observado: 12px (gaps internos, header), 14px (padding vertical de bolha), 18px (entre mensagens, padding horizontal), 26px (day separator, sysline), 34px (cta-row), 56px (margens de seção). Breakpoints por max-width: **560px** (avatar 30px, bolhas/cards a 92%, CTA da cta-row em largura total) e **359px** (o par da manchete volta a quebrar linha). `scroll-behavior: smooth`.
+Ações fixas de rodapé ficam sobre um gradiente de branco (`from-white 70%` até transparente) para não cortar o conteúdo seco. Faixas horizontais de chips sangram até a borda (margem negativa de 20px) e escondem a scrollbar.
+
+**The One Step Rule.** No modo cozinhar, uma instrução por tela: pílulas de progresso (6px, uma por passo, laranja até o atual) com contador `N/total` em rounded cinza, texto do passo em headline, cronômetro gigante ancorado embaixo, e a dupla voltar (círculo suave 54px) + primário ("Próximo passo" / "Marquei, comi"). Troca de passo por botão ou deslize horizontal acima de 60px.
 
 ## Elevation & Depth
 
-Híbrido claro/escuro: sobre ICE, a profundidade vem de sombras ambiente tingidas de INK + borda Line em superfícies Ice-2; as seções INK são totalmente planas (contraste faz o trabalho). O header usa translucidez + blur em vez de sombra.
+Plano por padrão: profundidade vem de superfície suave sobre branco e de fios hairline, não de sombra. Sombra existe só em três coisas que flutuam ou são o alvo do polegar, sempre ambiente, preta e difusa. A tab bar é translúcida (branco 90% + blur) com fio no topo. A foto ganha legibilidade por gradiente preto só na base (75–80% até transparente), nunca por véu na imagem inteira.
 
 ### Shadow Vocabulary
-- **Ambient** (`box-shadow: 0 14px 34px rgba(23,40,43,.10), 0 2px 8px rgba(23,40,43,.06)` — token `--shadow`): bolhas da [ia], appcards, typing bubble.
-- **CTA glow** (`0 8px 22px rgba(49,86,255,.28)`; hover `0 12px 28px rgba(49,86,255,.34)`): exclusiva do botão PULSE — a única sombra colorida do sistema.
-- **Badge lift** (`0 6px 16px rgba(23,40,43,.35)`): badge de macro sobre foto.
+- **Lift** (`box-shadow: 0 6px 16px rgba(0,0,0,.14)`): botão primário.
+- **Play** (`box-shadow: 0 4px 12px rgba(0,0,0,.25)`): botão play do photo card, sobre foto.
+- **Float** (`box-shadow: 0 10px 30px rgba(0,0,0,.25)`): toast de confirmação.
 
 ### Named Rules
-**The Ambient Ink Rule.** Sombras são sempre difusas e tingidas de INK (`rgba(23,40,43,·)`), nunca duras nem cinza-neutro; a única exceção cromática é o glow PULSE do CTA.
+**The No-Border Card Rule.** Cards e superfícies não têm borda; a separação é o cinza `soft` sobre branco. Borda só existe como fio `hair` entre linhas e no anel dos círculos.
 
 ## Shapes
 
-Família arredondada suave, nunca circular além do necessário: pill 999px (CTA), bolha 22px com cauda assimétrica de 8px no canto do remetente (bottom-left na [ia], bottom-right no usuário), card 20px, avatar 12px, badge 10px, chip 8px, tick 7px, foco 4px; o destaque `goal-ink` usa raio relativo (0.14em). Divisórias internas são tracejadas (`border-bottom/top: dashed` Line) — linguagem de recibo/lista de compras. Traços SVG (read receipt, check do tick, colchetes do avatar) usam `stroke-linecap: square`, ecoando a geometria dos colchetes. Fotos vivem em `aspect-ratio` ~5:4 (1408/1126 e 1405/1126) com `object-fit: cover`.
+Família arredondada de app nativo: pílula total para botões, chips, barra, círculos de estado e timer-chip; 20px no photo card; 18px no card de proteína; 16px em toast, aviso e dica; 12px em busca e hint-chip; 10px em stepper e miniatura de receita (56px); 7px no checkbox de ingrediente (22px, borda 2px). Ícones em traço único de 2px, `round` cap e join, grade 24px; play, pausa e check são formas preenchidas próprias. Fotos sempre `object-cover` com recorte pelo raio do contêiner.
 
 ## Components
 
 ### Buttons
-- **Character:** uma só voz de ação — pill PULSE, sempre para o mesmo destino (instagram.com/anabolia.app nesta fase).
-- **Shape:** pill (999px), `inline-flex` com gap 10px e ícone Instagram inline SVG (18px, `stroke: currentColor`).
-- **Primary:** fundo PULSE, texto #FFFFFF, Space Grotesk 500 1rem (ls −0.01em), padding 0.72em 1.3em, CTA glow.
-- **Hover / Active:** `translateY(-2px)` + glow maior em 0.18s `cubic-bezier(.2,.8,.2,1)`; active volta a 0.
-- **Variantes de escala:** `.small` 0.92rem / 0.6em 1.1em (header); no close 1.15rem / 0.85em 1.6em. Não há variante secundária/ghost.
-- **Foco (global):** `outline: 3px solid PULSE, offset 3px, radius 4px` via `:focus-visible`.
+Família de pílulas de 54px, firmes e com resposta tátil (`active: scale(.98)`, desabilitado a 50% de opacidade).
+- **Shape:** pílula total.
+- **Primary:** fundo laranja, texto branco 17px/700, 54px de altura, ocupa a largura disponível, sombra Lift. Um por tela.
+- **Secondary:** círculo suave de 54px com ícone ink (voltar no modo cozinhar).
+- **Soft:** pílula suave de 54px, texto ink 16px/600.
+- **Text:** texto laranja 15px/600, 44px de alvo, para a ação alternativa ("Marquei, comi" sob "Começar a cozinhar").
+- **Focus:** contorno laranja de 2px com offset de 2px em todo foco visível.
 
 ### Chips
-- **chip-calc** (o dispositivo-assinatura): mono 600 0.95em, GOAL sobre INK, raio 8px, padding 0.08em 0.45em, `white-space: nowrap`. Só para valor calculado — ver The Bracket Rule.
-- **badge-macro:** mesmo DNA sobre foto — mono 600 0.95rem, raio 10px, padding 0.35em 0.6em, posicionado 14px do canto inferior-esquerdo, Badge lift.
+- **Style:** pílula de 36px, suave, texto ink 14px/600.
+- **State:** selecionado inverte para fundo ink e texto branco (nunca laranja). Toque alterna.
+- **Timer-chip:** pílula ink com ponto laranja pulsante de 6px e "Passo N · m:ss" em rounded; aparece quando outro passo tem cronômetro rodando e leva até ele.
+- **Hint-chip:** `acc-soft` com texto `acc-text` 14px/600 e ícone de chama; mostra a quantidade já escalada para as porções.
 
-### Cards / Containers (appcard)
-- **Corner Style:** 20px, `overflow: hidden`.
-- **Background / Border:** Ice-2 + 1px Line; sombra Ambient.
-- **Anatomia:** foto 5:4 com badge-macro → corpo (16px 18px 18px): título Space Grotesk 1.35rem, meta mono 0.78rem Muted ("22 min · fácil · 610 kcal"), hint em itálico Muted entre aspas, e rodapé com divisória tracejada contendo "cozinhar →" (Space Grotesk PULSE, não-clicável) e o rótulo "demonstração" (mono uppercase 0.66rem).
+### Cards / Containers
+- **Progress card:** superfície suave, raio 18px, padding 16/18px: numeral hero, sublinha meta em rounded, barra de progresso.
+- **Photo card:** 220px, raio 20px, foto cobrindo, gradiente preto na base com nome 20/700 branco e meta em rounded branco 90%, play laranja de 46px no canto inferior direito (14px da borda). O card inteiro é o link.
+- **Hero de receita:** foto sangrando 380px, nome em headline sobre gradiente, botão voltar circular translúcido (preto 35% + blur).
+- **Aviso / dica:** superfície suave, raio 16px, texto ink 14–15px; aviso de erro traz ação em texto laranja ("Tentar de novo").
+
+### Inputs / Fields
+- **Busca:** campo suave de 44px, raio 12px, ícone de lupa cinza, sem borda, sem anel próprio além do foco global.
+- **Stepper:** grupo suave raio 10px, botões de 36×32px, valor em rounded 15/700 ao centro; limite desabilita para `ring`.
+- **Checkbox de ingrediente:** quadrado 22px raio 7px, borda `ring`; marcado vira laranja com check branco e o nome passa a cinza riscado.
 
 ### Navigation
-- Header sticky translúcido (ICE 90% + blur 10px, borda Line): wordmark `anaból[ia]` (Space Grotesk 500, `[ia]` em PULSE) + ícone-avatar 34px à esquerda, `.btn.small` à direita. Sem menu; a página é um fluxo único.
+- **Tab bar:** fixa no rodapé, 60px + safe area, branco 90% com blur e fio no topo; ícone de traço 24px sobre rótulo 11px/600. Ativa em laranja, inativas em cinza; abas ainda não construídas ficam com ícone `ring` e `aria-disabled`.
 
-### Gramática do chat (superfície desta landing)
-- **Bolha [ia]:** Ice-2, borda Line, raio 22px/cauda 8px, padding 14px 18px, sombra Ambient; pode conter h1, chips, appcard ou lista.
-- **Bolha usuário (`.me`):** INK sólido, texto ICE, sem borda, cauda à direita; stamp mono 0.68rem em MIST + read receipt (SVG double-check 15×10, stroke MIST, linecap square).
-- **Day separator:** mono 500 0.72rem uppercase ls 0.14em Muted, centralizado.
-- **Sysline** (efeito em cadeia): linha central mono 0.8rem Muted com termos-âncora em INK bold e setas `→` em PULSE.
-- **Lista de compras:** dentro de bolha; linhas com divisória tracejada, tick 22px (raio 7px, borda 1.5px MIST; marcado = fundo GOAL + check INK stroke-width 3), nome (Muted quando resolvido), qty mono 0.8rem à direita, rodapé mono uppercase em PULSE.
-- **Avatar:** sprite SVG `#av-ia` (rect INK raio ~24%, colchetes GOAL linecap square, "a" ICE em Space Grotesk, ponto PULSE), 38px/raio 12px (30px ≤560px).
+### Set Row (signature)
+A refeição como série de treino. Linha com fio no topo: círculo de 26px à esquerda (anel `ring` pendente, anel ink próxima, laranja cheio com check feita), rótulo body-strong com sublinha cinza truncada, valor em gramas rounded 16/700 à direita (`+N g` para a próxima, `—` para pendente, que também fica cinza). Na próxima refeição o círculo é botão de marcar direto.
 
-### Moção (chat chegando)
-Progressive enhancement: classe `.js` no root; sem JS, sem IntersectionObserver ou com `prefers-reduced-motion: reduce`, tudo aparece estático. Com moção: elementos `.reveal` entram uma única vez ao cruzar o viewport (IO com `rootMargin: 0 0 -8%`, threshold 0.08, unobserve após entrar) em 0.5s `cubic-bezier(.16,1,.3,1)` — mensagens da [ia] deslizam de −16px (esquerda), do usuário de +16px (direita), demais elementos sobem 12px. Antes de cada bolha da [ia], um typing indicator (3 pontos MIST, bounce 1s com delays 0.15s/0.3s, fade 0.25s) segura ~620ms e some. Nenhuma animação em loop além dos pontos; nada re-anima.
+### Progress Bar e o momento "série concluída" (signature)
+Trilho de 10px em `track`, preenchimento laranja em pílula. Ao voltar de uma marcação, a barra monta no valor anterior (`from`) e sobe até o novo em 900ms `cubic-bezier(.16,1,.3,1)`; o círculo da refeição marcada preenche em laranja após 350ms (transição de cor 500ms, check aparecendo em 300ms); um toast ink sobe 12px em 400ms acima da tab bar com check laranja, "+N g · Slot marcado" em rounded e "Desfazer" em branco 80%, e some sozinho em 8s. `prefers-reduced-motion` zera as durações.
 
-### Seções INK (outdoor / close / footer)
-Outdoor: manchete display com `em` em GOAL, lista de valores em MIST com termos bold em ICE, assinatura mono GOAL ls 0.3em uppercase. Close: centralizado, ponto final em GOAL, sub em MIST, CTA grande, sign-off mono "precisão que dá fome". Footer: MIST sobre INK, hairline Ink-2, nota legal obrigatória ("demonstração do produto em desenvolvimento… nada aqui é conselho nutricional").
+### Recipe Row
+Miniatura 56px raio 10px, nome body-strong com "N min · dificuldade" em meta, à direita proteína em rounded 16/700 sobre kcal em cinza 12px, coração de 40px de alvo (laranja preenchido quando favorita).
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** enquadrar todo valor calculado no chip/badge mono GOAL-sobre-INK: `[125g]`, `[42g] proteína`.
-- **Do** usar `→` para próximo passo e efeito em cadeia (PULSE quando for o conector do sistema).
-- **Do** usar mono uppercase 0.66–0.8rem com tracking largo para todo microlabel de sistema.
-- **Do** usar foto real de comida (luz quente, sem pote de suplemento) com o badge INK/GOAL como única sobreposição.
-- **Do** rotular toda tela/momento encenado com "demonstração" e manter a nota legal no footer.
-- **Do** manter um único CTA por página — pill PULSE, mesmo destino em todas as instâncias.
+- **Do** manter um único acento por app e usá-lo só em ação primária, progresso, feito/selecionado/ao vivo e links; num app-irmão [ia], troque o matiz de `acc`, `acc-soft` e `acc-text` e nada mais.
+- **Do** pôr todo número de medida em `.num` (rounded + tabular-nums).
+- **Do** listar ingredientes com gramas na coluna da direita e a medida caseira em cinza junto ao nome.
+- **Do** usar fio `hair` entre linhas e superfície `soft` sem borda para agrupar.
+- **Do** confirmar marcação com o trio barra que sobe, círculo que preenche e toast com desfazer.
+- **Do** manter o modo cozinhar em um passo por tela, com contador `N/total` e o timer-chip para cronômetros de outros passos.
 
 ### Don't:
-- **Don't** usar GOAL como texto sobre fundo claro — sobre claro, só preenchimento/traço (tick, sublinhado, seleção).
-- **Don't** deixar PULSE tocar a camada de comida (nem overlay, nem texto sobre foto).
-- **Don't** usar colchetes decorativos; sem cálculo, sem colchete (exceção: wordmark `[ia]`).
-- **Don't** usar sombras duras, offset ou cinza-neutro — sempre Ambient Ink; glow só no CTA.
-- **Don't** usar itálico fora da hint de receita, nem display em peso diferente de 500.
-- **Don't** re-animar reveals nem animar em loop; com `prefers-reduced-motion`, entregar a página estática.
+- **Don't** usar o laranja em fundo de seção, título, chip de filtro selecionado ou decoração.
+- **Don't** criar tema escuro "de academia"; o sistema é claro de propósito.
+- **Don't** pôr eyebrow/kicker acima de títulos, tagline, ou mascote na interface.
+- **Don't** montar grid de cards de receita com anéis de macros nem acento verde.
+- **Don't** trazer de volta lima, azul pulse, Space Grotesk, IBM Plex Mono ou a gramática de chat da landing de setembro.
+- **Don't** dar borda a cards nem sombra a superfícies que não flutuam.
+- **Don't** escurecer a foto inteira; o gradiente vive só na base, sob a legenda.
