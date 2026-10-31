@@ -21,8 +21,10 @@ describe("escala de porções", () => {
     expect(scaleIngredients(frango, 0).find((i) => i.name === "peito de frango")!.qty).toBe(200);
     expect(scaleIngredients(frango, 9).find((i) => i.name === "peito de frango")!.qty).toBe(1600);
   });
-  it("ingrediente de 1 un em 1 porção de base 2 não vira 0", () => {
-    expect(scaleIngredients(frango, 1).find((i) => i.name === "ovo")!.qty).toBe(1);
+  it("ingrediente de 1 un em 1 porção de base 2 vira meia unidade (nunca 0) e as gramas acompanham", () => {
+    const ovo = scaleIngredients(frango, 1).find((i) => i.name === "ovo")!;
+    expect(ovo.qty).toBe(0.5);
+    expect(ovo.grams).toBe(25);
   });
   it("macrosFor multiplica por porções e clampa", () => {
     expect(macrosFor(frango, 3)).toEqual({ kcal: 1830, protein_g: 126, carbs_g: 174, fat_g: 63 });

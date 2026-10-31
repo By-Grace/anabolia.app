@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Recipe } from "@/lib/recipes/schema";
 import { slotForHour } from "@/lib/domain/suggest";
@@ -8,70 +8,97 @@ import { clampPortions } from "@/lib/domain/scale";
 import { localHour } from "@/lib/data/day-key";
 import { createTimer, fmtClock, type Timer } from "@/lib/cook/timer";
 import { scaleHint } from "@/lib/cook/scale-hint";
+import { beep, unlockAudio } from "@/lib/cook/beep";
+import { loggedUrl, postMeal } from "@/lib/client/meals";
 import { ChevronLeft, FlameIcon, PauseIcon, PlayIcon } from "@/components/ui/icons";
 import { buttonClass } from "@/components/ui/Button";
 
-export function CookMode({ recipe, portions, now = () => new Date() }: { recipe: Recipe; portions: number; now?: () => Date }) {
+type WakeLock = { release: () => Promise<void> };
+
+export function CookMode({ recipe, portions, now = () => new Date(), clock = Date.now }: {
+  recipe: Recipe; portions: number; now?: () => Date; clock?: () => number;
+}) {
   const router = useRouter();
   const [i, setI] = useState(0);
   const [, force] = useState(0);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const total = recipe.steps.length;
   const step = recipe.steps[i];
-  const last = i === recipe.steps.length - 1;
+  const last = i === total - 1;
   const factor = clampPortions(portions) / recipe.basePortions;
 
-  const timer = useMemo<Timer | null>(() => (step.seconds ? createTimer(step.seconds) : null), [step]);
-  const touchX = useRef<number | null>(null);
+  // Um cronômetro por passo, guardado fora do render: sobrevive a "próximo", "anterior" e deslizes.
+  const timers = useRef(new Map<number, Timer>());
+  const alerted = useRef(new Set<number>());
+  const timerFor = useCallback((k: number): Timer | null => {
+    const s = recipe.steps[k];
+    if (!s?.seconds) return null;
+    let t = timers.current.get(k);
+    if (!t) { t = createTimer(s.seconds, clock); timers.current.set(k, t); }
+    return t;
+  }, [recipe.steps, clock]);
+  const timer = timerFor(i);
+  const others = [...timers.current.entries()].filter(([k, t]) => k !== i && t.running());
 
-  // Atualiza o relógio enquanto roda.
   useEffect(() => {
-    if (!timer) return;
     const id = setInterval(() => {
-      force((n) => n + 1);
-      if (timer.done()) {
-        clearInterval(id);
-        if (typeof navigator !== "undefined" && "vibrate" in navigator) navigator.vibrate?.([200, 100, 200]);
+      let anyRunning = false;
+      for (const [k, t] of timers.current) {
+        if (t.running()) anyRunning = true;
+        else if (t.done() && !alerted.current.has(k)) {
+          alerted.current.add(k);
+          beep();
+          if ("vibrate" in navigator) navigator.vibrate?.([200, 100, 200]);
+          anyRunning = true;
+        }
       }
+      if (anyRunning) force((n) => n + 1);
     }, 250);
     return () => clearInterval(id);
-  }, [timer]);
+  }, []);
 
-  // Tela acesa enquanto cozinha.
+  // Tela acesa enquanto cozinha; readquire ao voltar de outro app.
   useEffect(() => {
-    let lock: { release: () => Promise<void> } | null = null;
-    const nav = navigator as Navigator & { wakeLock?: { request: (t: "screen") => Promise<{ release: () => Promise<void> }> } };
-    nav.wakeLock?.request("screen").then((l) => { lock = l; }).catch(() => {});
-    return () => { lock?.release().catch(() => {}); };
+    let lock: WakeLock | null = null;
+    const nav = navigator as Navigator & { wakeLock?: { request: (t: "screen") => Promise<WakeLock> } };
+    const acquire = () => { nav.wakeLock?.request("screen").then((l) => { lock = l; }).catch(() => {}); };
+    const onVisible = () => { if (document.visibilityState === "visible") acquire(); };
+    acquire();
+    document.addEventListener("visibilitychange", onVisible);
+    return () => { document.removeEventListener("visibilitychange", onVisible); lock?.release().catch(() => {}); };
   }, []);
 
   const go = (d: number) => {
     setError(null);
-    setI((v) => Math.min(recipe.steps.length - 1, Math.max(0, v + d)));
+    setI((v) => Math.min(total - 1, Math.max(0, v + d)));
+  };
+
+  const toggleTimer = () => {
+    if (!timer) return;
+    unlockAudio();
+    if (timer.running()) timer.pause(); else timer.start();
+    force((n) => n + 1);
   };
 
   const finish = async () => {
     setSaving(true);
     setError(null);
     try {
-      const res = await fetch("/api/log-meal", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ recipeSlug: recipe.slug, portions: 1, slot: slotForHour(localHour(now())) }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      router.push("/hoje");
+      const id = await postMeal(recipe.slug, slotForHour(localHour(now())));
+      router.push(loggedUrl(id));
     } catch {
       setError("Não deu para marcar agora. Tente de novo.");
       setSaving(false);
     }
   };
 
-  const toggleTimer = () => {
-    if (!timer) return;
-    if (timer.running()) timer.pause(); else timer.start();
-    force((n) => n + 1);
+  const exit = () => {
+    if (window.history.length > 1) router.back();
+    else router.push(`/receitas/${recipe.slug}`);
   };
+
+  const touchX = useRef<number | null>(null);
 
   return (
     <main
@@ -86,7 +113,7 @@ export function CookMode({ recipe, portions, now = () => new Date() }: { recipe:
       }}
     >
       <div className="flex items-center gap-3">
-        <button type="button" onClick={() => router.back()} aria-label="Sair do modo cozinhar"
+        <button type="button" onClick={exit} aria-label="Sair do modo cozinhar"
           className="grid size-9 flex-none place-items-center rounded-full bg-soft"><ChevronLeft size={20} /></button>
         <div className="flex flex-1 gap-1.5" aria-hidden="true">
           {recipe.steps.map((_, k) => (
@@ -94,12 +121,23 @@ export function CookMode({ recipe, portions, now = () => new Date() }: { recipe:
               className={"h-1.5 flex-1 rounded-full transition-colors " + (k <= i ? "bg-acc" : "bg-track")} />
           ))}
         </div>
+        <span aria-hidden="true" className="num flex-none text-[13px] font-semibold text-grey">{i + 1}/{total}</span>
       </div>
+      <p className="sr-only" aria-live="polite">Passo {i + 1} de {total}</p>
 
-      <p className="mt-5 text-[13px] font-semibold uppercase tracking-[0.06em] text-grey">
-        Passo {i + 1} de {recipe.steps.length}
-      </p>
-      <p key={i} className="mt-2 text-[28px] font-bold leading-[1.15] tracking-[-0.022em] text-balance animate-[stepIn_.35s_cubic-bezier(.16,1,.3,1)]">
+      {others.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {others.map(([k, t]) => (
+            <button key={k} type="button" onClick={() => setI(k)}
+              aria-label={`Cronômetro do passo ${k + 1}: ${fmtClock(t.remaining())}`}
+              className="num inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1.5 text-[13px] font-semibold text-white">
+              <span className="size-1.5 animate-pulse rounded-full bg-acc" />Passo {k + 1} · {fmtClock(t.remaining())}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <p key={i} className="mt-5 text-[28px] font-bold leading-[1.15] tracking-[-0.022em] text-balance animate-[stepIn_.35s_cubic-bezier(.16,1,.3,1)]">
         {step.text}
       </p>
 
@@ -128,7 +166,7 @@ export function CookMode({ recipe, portions, now = () => new Date() }: { recipe:
         )}
       </div>
 
-      {error && <p role="alert" className="mb-3 rounded-2xl bg-acc-soft px-4 py-3 text-sm font-medium text-acc-text">{error}</p>}
+      {error && <p role="alert" className="mb-3 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink">{error}</p>}
 
       <div className="flex gap-2.5">
         <button type="button" onClick={() => go(-1)} disabled={i === 0} aria-label="Passo anterior" className={buttonClass("secondary")}>

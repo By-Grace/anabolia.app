@@ -21,7 +21,9 @@ export const SearchIcon = (p: P) => <Svg {...p}><circle cx="11" cy="11" r="7" />
 export const HeartIcon = ({ filled, ...p }: P & { filled?: boolean }) => (
   <Svg {...p} fill={filled ? "currentColor" : "none"}><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" /></Svg>
 );
-export const FlameIcon = (p: P) => <Svg {...p}><path d="M12 3c2.5 3 4.5 5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9.5 6 12 3z" /></Svg>;
+export const FlameIcon = (p: P) => (
+  <Svg {...p}><path d="M12 21a6 6 0 0 0 6-6c0-3.6-2.4-5.6-3.6-8.4-.4 2-1.4 3.2-2.4 3.4.2-2.6-.8-5-2.6-7C9.4 6.4 6 9.4 6 15a6 6 0 0 0 6 6z" /><path d="M12 21a2.5 2.5 0 0 1-2.5-2.5c0-1.6 1.2-2.4 2.5-4 1.3 1.6 2.5 2.4 2.5 4A2.5 2.5 0 0 1 12 21z" /></Svg>
+);
 export const PlateIcon = (p: P) => <Svg {...p}><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="4" /></Svg>;
 
 export function PlayIcon({ size = 18 }: { size?: number }) {

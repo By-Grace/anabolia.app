@@ -18,9 +18,31 @@ export function recipeMeta(r: { minutes: number; perPortion: { protein_g: number
 
 const PLURAL: Record<string, string> = { dente: "dentes", colher: "colheres" };
 
-/** "400 g", "2 dentes", "1 un", "a gosto" */
-export function fmtQty(i: { qty: number; unit: string }): string {
-  if (i.unit === "a gosto") return "a gosto";
-  const unit = i.qty > 1 && PLURAL[i.unit] ? PLURAL[i.unit] : i.unit;
-  return `${fmtInt(i.qty)} ${unit}`;
+/** 0.5 → "½", 1.5 → "1½", 2 → "2" */
+export function fmtHalf(n: number): string {
+  const whole = Math.floor(n);
+  const half = n - whole >= 0.5;
+  if (!half) return fmtInt(whole);
+  return whole === 0 ? "½" : `${fmtInt(whole)}½`;
 }
+
+type Q = { qty: number; unit: string; grams?: number };
+
+/** Medida caseira: "1 un", "½ un", "2 dentes", "15 ml". */
+export function fmtHousehold(i: Q): string {
+  if (i.unit === "a gosto") return "a gosto";
+  if (i.unit === "g") return `${fmtInt(i.qty)} g`;
+  const unit = i.qty > 1 && PLURAL[i.unit] ? PLURAL[i.unit] : i.unit;
+  return `${fmtHalf(i.qty)} ${unit}`;
+}
+
+/** Coluna principal: sempre gramas quando houver peso; senão a medida caseira. */
+export function fmtWeight(i: Q): string {
+  if (i.unit === "a gosto") return "a gosto";
+  if (i.unit === "g") return `${fmtInt(i.qty)} g`;
+  if (i.grams) return `${fmtInt(i.grams)} g`;
+  return fmtHousehold(i);
+}
+
+/** Compatível com o formato anterior. */
+export const fmtQty = fmtWeight;

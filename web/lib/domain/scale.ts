@@ -8,12 +8,20 @@ export function clampPortions(portions: number): number {
   return Math.min(MAX_PORTIONS, Math.max(MIN_PORTIONS, Math.round(portions)));
 }
 
-/** Ingredientes escalados para `portions`; "a gosto" não escala e nada com quantidade vira 0. */
+const COUNTABLE = new Set(["un", "dente", "colher"]);
+
+/**
+ * Ingredientes escalados para `portions`. "a gosto" não escala; nada com quantidade vira 0.
+ * Gramas e ml arredondam para inteiro; unidades contáveis (un, dente, colher) para meia unidade.
+ */
 export function scaleIngredients(recipe: Recipe, portions: number): Ingredient[] {
   const factor = clampPortions(portions) / recipe.basePortions;
   return recipe.ingredients.map((ing) => {
     if (ing.unit === "a gosto" || ing.qty === 0) return { ...ing };
-    return { ...ing, qty: Math.max(1, Math.round(ing.qty * factor)) };
+    const raw = ing.qty * factor;
+    const qty = COUNTABLE.has(ing.unit) ? Math.max(0.5, Math.round(raw * 2) / 2) : Math.max(1, Math.round(raw));
+    const grams = ing.grams ? Math.max(1, Math.round(ing.grams * factor)) : undefined;
+    return { ...ing, qty, ...(grams ? { grams } : {}) };
   });
 }
 

@@ -16,6 +16,8 @@ export const IngredientSchema = z.object({
   name: z.string().min(1),
   qty: z.number().min(0),
   unit: z.enum(UNITS),
+  /** Peso em gramas da quantidade-base, para unidades caseiras (un, dente, colher, ml). */
+  grams: z.number().positive().optional(),
 });
 
 export const StepSchema = z.object({
@@ -40,6 +42,9 @@ export const RecipeSchema = z.object({
   ingredients: z.array(IngredientSchema).min(1),
   steps: z.array(StepSchema).min(1),
   photo: z.string().min(1).optional(),
+  /** Origem da foto: "gerada" é placeholder a trocar por foto real antes do lançamento. */
+  photoSource: z.enum(["gerada", "real"]).optional(),
+  photoCredit: z.string().min(1).optional(),
   tip: z.string().min(1).optional(),
 });
 

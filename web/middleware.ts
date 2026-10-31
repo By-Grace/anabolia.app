@@ -1,13 +1,16 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
-import { ensureSession } from "@/lib/supabase/session";
 
-/** Garante sessão (anônima nesta fase) antes de qualquer página do app, gravando os cookies na resposta. */
+/**
+ * Só renova a sessão existente (tokens em cookie). Não cria contas:
+ * a sessão anônima nasce na primeira ação que grava (marcar refeição, favoritar).
+ */
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !anonKey) return response;
+  if (!request.cookies.getAll().some((c) => c.name.startsWith("sb-"))) return response;
 
   const client = createServerClient(url, anonKey, {
     cookies: {
@@ -19,15 +22,10 @@ export async function middleware(request: NextRequest) {
       },
     },
   });
-
-  try {
-    await ensureSession(client);
-  } catch {
-    // Sem sessão a página mostra o estado de erro; não derruba a navegação.
-  }
+  await client.auth.getUser().catch(() => {});
   return response;
 }
 
 export const config = {
-  matcher: ["/((?!_next/|icons/|recipes/|sw.js|manifest.webmanifest|favicon).*)"],
+  matcher: ["/hoje", "/receitas/:path*", "/cozinhar/:path*", "/api/:path*"],
 };

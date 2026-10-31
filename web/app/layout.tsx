@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { Nunito } from "next/font/google";
 import "./globals.css";
+
+// Números arredondados fora da Apple (Android, Windows). No iPhone/Mac vale o SF Rounded do sistema.
+const rounded = Nunito({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-nunito", display: "swap" });
 import { RegisterSW } from "./RegisterSW";
 
 export const metadata: Metadata = {
@@ -18,7 +22,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={rounded.variable}>
       <body>
         {children}
         <RegisterSW />

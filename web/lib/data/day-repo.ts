@@ -10,6 +10,7 @@ export interface DayRepo {
   logMeal(userId: string, input: { recipeSlug: string; portions: number; slot: MealSlot; at?: Date }): Promise<MealLog>;
   getFavorites(userId: string): Promise<string[]>;
   toggleFavorite(userId: string, slug: string): Promise<boolean>;
+  deleteLog(userId: string, id: string): Promise<void>;
 }
 
 type LogRow = { id: string; recipe_slug: string; portions: number; slot: MealSlot; logged_at: string };
@@ -87,6 +88,10 @@ export function supabaseDayRepo(client: SupabaseClient): DayRepo {
       }
       check(await client.from("favorites").insert({ user_id: userId, recipe_slug: slug }));
       return true;
+    },
+
+    async deleteLog(userId, id) {
+      check(await client.from("meal_logs").delete().eq("user_id", userId).eq("id", id));
     },
   };
 }

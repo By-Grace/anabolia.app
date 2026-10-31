@@ -20,6 +20,7 @@ export async function POST(request: Request) {
     const log = await supabaseDayRepo(client).logMeal(userId, parsed.value);
     return NextResponse.json({ log }, { status: 201 });
   } catch (e) {
-    return NextResponse.json({ error: e instanceof Error ? e.message : "Erro ao registrar." }, { status: 500 });
+    console.error("log-meal POST", e);
+    return NextResponse.json({ error: "Não foi possível registrar a refeição." }, { status: 500 });
   }
 }

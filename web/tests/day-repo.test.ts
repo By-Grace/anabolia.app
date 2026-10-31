@@ -51,6 +51,12 @@ describe("supabaseDayRepo", () => {
     expect(calls.map((c) => c.kind)).toEqual(["select", "insert", "select", "delete"]);
   });
 
+  it("deleteLog apaga só a refeição daquele usuário", async () => {
+    const { client, calls } = fakeSupabase(() => ({ data: null, error: null }));
+    await supabaseDayRepo(client).deleteLog("u1", "l9");
+    expect(calls[0]).toMatchObject({ table: "meal_logs", kind: "delete", filters: { user_id: "u1", id: "l9" } });
+  });
+
   it("erro do Supabase vira exceção com a mensagem", async () => {
     const { client } = fakeSupabase(() => ({ data: null, error: { message: "permission denied" } }));
     await expect(supabaseDayRepo(client).getLogs("u1", "2026-10-31")).rejects.toThrow("permission denied");

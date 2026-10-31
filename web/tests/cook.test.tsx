@@ -20,6 +20,7 @@ describe("CookMode", () => {
     const pills = screen.getAllByTestId("pill");
     expect(pills).toHaveLength(7);
     expect(pills.filter((p) => p.dataset.on === "true")).toHaveLength(1);
+    expect(screen.getByText("1/7")).toBeInTheDocument();
   });
 
   it("no passo 3 mostra o chip do ingrediente e o cronômetro 3:00", async () => {
@@ -51,15 +52,28 @@ describe("CookMode", () => {
     expect(screen.getByRole("button", { name: "Marquei, comi" })).toBeInTheDocument();
   });
 
+  it("o cronômetro continua rodando ao trocar de passo e aparece como lembrete nos outros passos", async () => {
+    let t = 0;
+    const clock = () => t;
+    render(<CookMode recipe={frango} portions={2} now={NIGHT} clock={clock} />);
+    await next(); await next();
+    await userEvent.click(screen.getByRole("button", { name: "Iniciar cronômetro" }));
+    t += 10_000;
+    await next();
+    expect(screen.getByRole("button", { name: /Cronômetro do passo 3: 2:50/ })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Passo anterior" }));
+    expect(screen.getByTestId("clock")).toHaveTextContent("2:50");
+  });
+
   it("'Marquei, comi' registra 1 porção no jantar e volta para /hoje", async () => {
-    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ log: {} }), { status: 201 }));
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ log: { id: "l1" } }), { status: 201 }));
     render(<CookMode recipe={frango} portions={2} now={NIGHT} />);
     for (let i = 0; i < 6; i++) await next();
     await userEvent.click(screen.getByRole("button", { name: "Marquei, comi" }));
     expect(fetchMock).toHaveBeenCalledWith("/api/log-meal", expect.objectContaining({ method: "POST" }));
     const body = JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string);
     expect(body).toEqual({ recipeSlug: "frango-crocante-arroz-tostado", portions: 1, slot: "jantar" });
-    expect(push).toHaveBeenCalledWith("/hoje");
+    expect(push).toHaveBeenCalledWith("/hoje?marcou=l1");
   });
 
   it("se o registro falhar, avisa e não sai da tela", async () => {

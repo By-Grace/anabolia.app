@@ -15,6 +15,13 @@ describe("componentes da direção B", () => {
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "100");
   });
 
+  it("ProgressBar com 'from' anuncia o valor final e começa a largura no valor anterior", () => {
+    render(<ProgressBar value={0.72} from={0.46} label="Proteína" />);
+    const bar = screen.getByRole("progressbar");
+    expect(bar).toHaveAttribute("aria-valuenow", "72");
+    expect(bar.firstElementChild).toHaveStyle({ width: "46%" });
+  });
+
   it("SetRow done renderiza o check e todo não", () => {
     const { rerender } = render(<SetRow label="Café" sub="Tapioca" value="31 g" state="done" />);
     expect(screen.getByTestId("set-check")).toBeInTheDocument();

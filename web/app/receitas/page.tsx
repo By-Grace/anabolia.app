@@ -2,7 +2,7 @@ import { AppShell } from "@/components/ui/AppShell";
 import { getRecipes } from "@/lib/recipes/load";
 import { MEAL_SLOTS, type MealSlot } from "@/lib/recipes/schema";
 import { supabaseServer } from "@/lib/supabase/server";
-import { ensureSession } from "@/lib/supabase/session";
+import { getUserId } from "@/lib/supabase/session";
 import { supabaseDayRepo } from "@/lib/data/day-repo";
 import { Library } from "./Library";
 import { toggleFavoriteAction } from "./actions";
@@ -15,8 +15,8 @@ export default async function ReceitasPage({ searchParams }: { searchParams: Pro
   let favorites: string[] = [];
   try {
     const client = await supabaseServer();
-    const { userId } = await ensureSession(client);
-    favorites = await supabaseDayRepo(client).getFavorites(userId);
+    const userId = await getUserId(client);
+    favorites = userId ? await supabaseDayRepo(client).getFavorites(userId) : [];
   } catch {
     favorites = [];
   }
