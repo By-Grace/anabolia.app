@@ -25,10 +25,20 @@ describe("TabBar flutuante", () => {
     const r2 = render(<TabBar />);
     expect(r2.container).toBeEmptyDOMElement();
   });
-  it("Lista e Perfil seguem nomeadas e marcadas como em breve", () => {
-    pathname = "/hoje";
+  it("Lista e Perfil viram links e marcam a própria aba", () => {
+    pathname = "/lista";
+    const r1 = render(<TabBar />);
+    expect(screen.getByRole("link", { name: "Lista" })).toHaveAttribute("href", "/lista");
+    expect(screen.getByRole("link", { name: "Lista" })).toHaveAttribute("aria-current", "page");
+    r1.unmount();
+    pathname = "/perfil";
     render(<TabBar />);
-    expect(screen.getByLabelText("Lista, em breve")).toHaveAttribute("aria-disabled", "true");
-    expect(screen.getByLabelText("Perfil, em breve")).toHaveAttribute("aria-disabled", "true");
+    expect(screen.getByRole("link", { name: "Perfil" })).toHaveAttribute("href", "/perfil");
+    expect(screen.getByRole("link", { name: "Perfil" })).toHaveAttribute("aria-current", "page");
+  });
+  it("some no cadastro", () => {
+    pathname = "/comecar";
+    const { container } = render(<TabBar />);
+    expect(container).toBeEmptyDOMElement();
   });
 });

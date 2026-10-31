@@ -6,6 +6,7 @@ import { SetRow } from "@/components/ui/SetRow";
 import { Stepper } from "@/components/ui/Stepper";
 import { PhotoCard } from "@/components/ui/PhotoCard";
 import { Button } from "@/components/ui/Button";
+import { NumberField } from "@/components/ui/NumberField";
 
 describe("componentes da direção B", () => {
   it("ProgressBar expõe aria-valuenow em porcentagem inteira e clampa", () => {
@@ -50,5 +51,11 @@ describe("componentes da direção B", () => {
     render(<Button variant="primary">Cozinhar</Button>);
     const b = screen.getByRole("button", { name: "Cozinhar" });
     expect(b.className).toMatch(/bg-acc\b/);
+  });
+
+  it("NumberField: tocar em qualquer lugar da superfície põe o foco no campo", async () => {
+    render(<NumberField label="Idade" unit="anos" value="" onChange={vi.fn()} />);
+    await userEvent.click(screen.getByTestId("number-surface"));
+    expect(screen.getByLabelText("Idade")).toHaveFocus();
   });
 });

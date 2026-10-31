@@ -7,12 +7,12 @@ import { BookIcon, HomeIcon, ListIcon, PersonIcon } from "./icons";
 const TABS = [
   { id: "hoje", label: "Hoje", href: "/hoje", Icon: HomeIcon },
   { id: "receitas", label: "Receitas", href: "/receitas", Icon: BookIcon },
-  { id: "lista", label: "Lista", href: null, Icon: ListIcon },
-  { id: "perfil", label: "Perfil", href: null, Icon: PersonIcon },
+  { id: "lista", label: "Lista", href: "/lista", Icon: ListIcon },
+  { id: "perfil", label: "Perfil", href: "/perfil", Icon: PersonIcon },
 ] as const;
 
-/** Rotas que mostram a barra. Receita e modo cozinhar têm a própria ação no rodapé. */
-const ROOTS = ["/hoje", "/receitas"];
+/** Rotas que mostram a barra. Receita, modo cozinhar e cadastro têm a própria ação no rodapé. */
+const ROOTS = TABS.map((t) => t.href);
 
 /**
  * Barra flutuante de vidro (padrão iOS 26 / WhatsApp): cápsula afastada da borda, translúcida,
@@ -20,7 +20,7 @@ const ROOTS = ["/hoje", "/receitas"];
  */
 export function TabBar() {
   const pathname = usePathname() ?? "";
-  if (!ROOTS.includes(pathname)) return null;
+  if (!(ROOTS as readonly string[]).includes(pathname)) return null;
   const active = TABS.findIndex((t) => t.href === pathname);
 
   return (
@@ -34,16 +34,10 @@ export function TabBar() {
           const base = "relative z-10 flex h-full flex-col items-center justify-center gap-0.5 rounded-full text-[11px] font-semibold";
           return (
             <li key={id}>
-              {href ? (
-                <Link href={href} aria-current={on ? "page" : undefined}
-                  className={`${base} transition-colors duration-300 ${on ? "text-acc" : "text-ink/75 active:scale-95"}`}>
-                  <Icon size={25} weight={on ? "fill" : "regular"} />{label}
-                </Link>
-              ) : (
-                <span aria-disabled="true" aria-label={`${label}, em breve`} title="Em breve" className={`${base} text-grey`}>
-                  <Icon size={25} className="text-ring" />{label}
-                </span>
-              )}
+              <Link href={href} aria-current={on ? "page" : undefined}
+                className={`${base} transition-colors duration-300 ${on ? "text-acc" : "text-ink/75 active:scale-95"}`}>
+                <Icon size={25} weight={on ? "fill" : "regular"} />{label}
+              </Link>
             </li>
           );
         })}

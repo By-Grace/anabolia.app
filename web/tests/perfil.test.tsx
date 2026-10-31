@@ -40,6 +40,8 @@ describe("PerfilView", () => {
     expect(screen.getByRole("button", { name: "Editar meta de calorias, 3.150 kcal" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Editar peso, 80 kg" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Recalcular com os meus dados" })).toHaveAttribute("href", "/comecar");
+    expect(screen.getByText("180 cm · 30 anos · nível moderado")).toBeInTheDocument();
+    expect(screen.getByText("A coluna cheia é a meta.")).toBeInTheDocument();
   });
 
   it("gráfico tem 7 colunas com o valor de cada dia e o resumo '2 de 7 na meta'", async () => {
@@ -69,6 +71,8 @@ describe("PerfilView", () => {
     await userEvent.click(screen.getByRole("button", { name: "Editar peso, 80 kg" }));
     const sheet = within(screen.getByRole("dialog", { name: "Peso" }));
     expect(sheet.getByText("A meta é recalculada com o peso novo.")).toBeInTheDocument();
+    // o título da folha já diz "Peso": o rótulo do campo fica só para leitor de tela
+    expect(sheet.getByText("Peso", { selector: "label" })).toHaveClass("sr-only");
     await userEvent.clear(sheet.getByLabelText("Peso"));
     await userEvent.type(sheet.getByLabelText("Peso"), "82,5");
     await userEvent.click(sheet.getByRole("button", { name: "Salvar" }));
@@ -118,6 +122,7 @@ describe("PerfilView", () => {
       error: "Não deu para carregar o seu perfil agora." });
     expect(screen.getByRole("alert")).toHaveTextContent("Não deu para carregar o seu perfil agora.");
     expect(screen.queryByText("Você está usando a meta padrão.")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Meta de 160 g por dia/)).not.toBeInTheDocument();
     expect(screen.queryByText("Nenhuma refeição marcada nesta semana.")).not.toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Tentar de novo" }));
     expect(refresh).toHaveBeenCalled();

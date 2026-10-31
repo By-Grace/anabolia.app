@@ -180,7 +180,23 @@ components:
   tab-bar:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.grey}"
-    height: "60px"
+    rounded: "{rounded.full}"
+    height: "64px"
+  number-field:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.ink}"
+    typography: "{typography.numeral-stat}"
+    rounded: "{rounded.panel}"
+    height: "72px"
+    padding: "14px 16px 0"
+  week-column:
+    backgroundColor: "{colors.track}"
+    rounded: "{rounded.full}"
+    width: "10px"
+    height: "96px"
+  week-column-fill:
+    backgroundColor: "{colors.acc}"
+    rounded: "{rounded.full}"
 ---
 
 # Design System: Anaból[IA]
@@ -304,13 +320,25 @@ Família de pílulas de 54px, firmes e com resposta tátil (`active: scale(.98)`
 - **Busca:** campo suave de 44px, raio 12px, ícone de lupa cinza, sem borda, sem anel próprio além do foco global.
 - **Stepper:** grupo suave raio 10px, botões de 36×32px com ícones Phosphor menos/mais, valor em rounded 15/700 ao centro; limite desabilita para `ring`.
 - **Controle segmentado:** trilho `soft` raio 12px, 40–44px de altura, polegar branco raio 9px com sombra curta que desliza até a opção marcada (340ms, `cubic-bezier(.22,1,.36,1)`); opção marcada ink 600, demais cinza 500; `radiogroup` com setas do teclado. Usado para refeição na biblioteca e para tempo/proteína na folha de filtros.
-- **Folha de filtros:** sobe de baixo (raio 28px no topo, alça de 40×6px, véu preto 30%); título 22/700 com "Limpar" em texto; seções com controle segmentado; botão primário "Ver N receitas" com a contagem ao vivo. Só aplica ao tocar no botão; fechar descarta.
+- **Folha (Sheet):** sobe de baixo (raio 28px no topo, alça de 40×6px, véu preto 30%); título 22/700 com uma ação de texto opcional à direita ("Limpar"); foco vai para o painel, Esc e toque no véu fecham, a página não rola. Uma só para o app: filtros da biblioteca, peso e meta no Perfil.
+- **Folha de filtros:** seções com controle segmentado; botão primário "Ver N receitas" com a contagem ao vivo. Só aplica ao tocar no botão; fechar descarta.
+- **Campo numérico grande:** superfície suave de 72px, raio 16px, rótulo 15/600 acima (só para leitor de tela quando o título da folha já nomeia o campo); número em rounded 34/700 com a unidade em cinza 18/600 colada a ele; dica 13px embaixo, que vira ink 600 quando o valor sai da faixa. Aceita vírgula ("80,5"). Tocar em qualquer ponto da superfície abre o teclado; o anel de foco fica na superfície, nunca no texto.
+- **Escolha em linhas (rádio):** para opções com explicação (nível de atividade). Linha com fio, círculo de 26px à esquerda (anel `ring` vazio; marcado vira laranja cheio com check, a gramática da set-row), rótulo body-strong e dica meta em cinza.
 - **Botões de ícone:** 44×44px raio 12px em `soft` ao lado da busca (favoritas, filtros). Favoritas ativo: `acc-soft` com coração `fill` laranja. Filtros ativo: ink com selo laranja de contagem.
 - **Etiqueta de filtro ativo:** pílula ink 28px com rótulo e X; tocar remove o filtro. Aparece só quando há filtro, ao lado da contagem "N receitas".
 - **Checkbox de ingrediente:** quadrado 22px raio 7px, borda `ring`; marcado vira laranja com check branco e o nome passa a cinza riscado.
 
 ### Navigation
-- **Tab bar:** cápsula flutuante de vidro de 64px, até 440px de largura, no layout raiz (aparece só em /hoje e /receitas). Uma lente (preto 5,5% com realce interno) desliza até a aba ativa em 480ms `cubic-bezier(.22,1,.36,1)`. Ícone Phosphor 25px sobre rótulo 11px/600; ativa em laranja com ícone `fill`, inativas em tinta 75% com ícone `regular`; abas ainda não construídas ficam com ícone `ring`, rótulo cinza e `aria-disabled`.
+- **Tab bar:** cápsula flutuante de vidro de 64px, até 440px de largura, no layout raiz. Aparece nas quatro telas-raiz (/hoje, /receitas, /lista, /perfil) e some em receita, modo cozinhar e cadastro, que têm a própria ação no rodapé. Uma lente (preto 5,5% com realce interno) desliza até a aba ativa em 480ms `cubic-bezier(.22,1,.36,1)`. Ícone Phosphor 25px sobre rótulo 11px/600; ativa em laranja com ícone `fill`, inativas em tinta 75% com ícone `regular`.
+
+### Cadastro (onboarding)
+**The One Question Rule.** Uma pergunta por tela, na mesma moldura do modo cozinhar: voltar circular suave + pílulas de passo com `N/4` no topo, título em headline 28/700 com uma frase cinza de porquê, campos, e o primário "Continuar" ancorado embaixo, desabilitado até a resposta valer. Sexo começa sem escolha (o controle segmentado aceita vazio). A última tela mostra a meta calculada no card de proteína (numeral hero para os gramas, numeral stat para as kcal, separados por fio) e diz como foi calculada; nada é gravado antes de "Começar".
+
+### Gráfico da semana (Perfil)
+Sete colunas na gramática da barra de proteína: trilho `track` de 10×96px com a altura da meta, preenchimento laranja até onde o dia chegou (teto na meta, mínimo visível de 10% quando houve registro), subindo da base em 700ms `cubic-bezier(.16,1,.3,1)` com 40ms de atraso entre colunas. Dia em 3 letras embaixo ("sáb"), hoje em ink 600 escrito "hoje", coluna tocada em ink 700. Uma leitura acima ("Hoje · 44 g de 160 g") troca com o toque; cada coluna é um botão com o valor no nome acessível. Sem legenda em caixa: uma série só, e a frase "A coluna cheia é a meta." embaixo.
+
+### Lista de compras
+Agrupada por receita: nome em title 19/700 (leva à receita), "N porções · M de T" em meta, X num círculo suave de 36px para tirar a receita. Itens com o checkbox de ingrediente da receita e gramas à direita (Grams-First); comprado fica laranja com o nome e o peso em cinza riscado. "Limpar" em texto ao lado do título abre uma confirmação na própria tela (cartão suave com "Cancelar" e "Limpar lista"), nunca um diálogo do sistema. Tempero "a gosto" e água não entram.
 
 ### Set Row (signature)
 A refeição como série de treino. Linha com fio no topo: círculo de 26px à esquerda (anel `ring` pendente, anel ink próxima, laranja cheio com check feita), rótulo body-strong com sublinha cinza truncada, valor em gramas rounded 16/700 à direita (`+N g` para a próxima, `—` para pendente, que também fica cinza). Na próxima refeição o círculo é botão de marcar direto.

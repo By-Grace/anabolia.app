@@ -44,3 +44,37 @@ test("loop central: Hoje → receita → cozinhar → marcar → Hoje atualiza",
   await page.waitForURL("**/hoje");
   await expect(remaining).toContainText(String(Math.max(0, before - protein)));
 });
+
+test("parte 3: cadastro → Hoje com a meta própria → pôr na lista → Lista e Perfil", async ({ page }) => {
+  const reason = await anonymousEnabled();
+  test.skip(reason !== null, reason ?? "");
+
+  // Visitante novo cai no cadastro.
+  await page.goto("/");
+  await page.waitForURL("**/comecar");
+  await page.getByRole("radio", { name: "Homem" }).click();
+  await page.getByLabel("Idade").fill("30");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page.getByLabel("Peso").fill("80");
+  await page.getByLabel("Altura").fill("180");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page.getByRole("radio", { name: /Moderado/ }).click();
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await expect(page.getByTestId("goal-protein")).toContainText("160");
+  await page.getByRole("button", { name: "Começar" }).click();
+
+  await page.waitForURL("**/hoje");
+  await expect(page.getByText(/de 160 g de proteína/)).toBeVisible();
+  await expect(page.getByText(/meta padrão/)).toHaveCount(0);
+
+  await page.goto("/receitas/strogonoff-frango");
+  await page.getByRole("button", { name: "Pôr na lista de compras" }).click();
+  await expect(page.getByText("Na lista")).toBeVisible();
+  await page.getByRole("link", { name: "Ver lista" }).click();
+  await page.waitForURL("**/lista");
+  await expect(page.getByRole("region", { name: "Strogonoff de frango com arroz" })).toBeVisible();
+
+  await page.getByRole("link", { name: "Perfil" }).click();
+  await page.waitForURL("**/perfil");
+  await expect(page.getByRole("button", { name: "Editar meta de proteína, 160 g" })).toBeVisible();
+});

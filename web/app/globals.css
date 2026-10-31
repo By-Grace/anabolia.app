@@ -47,6 +47,11 @@ body {
   outline-offset: 2px;
 }
 
+/* Campo numérico grande: o anel de foco fica na superfície inteira, não no texto dentro dela. */
+.field-surface input:focus-visible {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

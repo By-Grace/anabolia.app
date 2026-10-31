@@ -54,7 +54,7 @@ export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
   return (
     <>
       <header className="mb-5">
-        <p className="num text-[13px] font-medium text-grey">Meta de {fmtInt(goal.protein_g)} g por dia</p>
+        <p className="num text-[13px] font-medium text-grey">{error ? "Sua meta e sua semana" : `Meta de ${fmtInt(goal.protein_g)} g por dia`}</p>
         <h1 className="mt-0.5 text-[34px] font-bold leading-[1.05] tracking-[-0.025em]">Perfil</h1>
       </header>
 
@@ -73,7 +73,7 @@ export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
               ? `Média de ${fmtInt(week.averageLogged_g)} g nos dias registrados.`
               : "Nenhuma refeição marcada nesta semana."}
           </span>{" "}
-          <span>A coluna cheia é a meta do dia.</span>
+          <span>A coluna cheia é a meta.</span>
         </p>
       </section>
 
@@ -93,7 +93,7 @@ export function PerfilView({ profile, week, onSaveWeight, onSaveGoal, error }: {
       {body ? (
         <section aria-labelledby="dados" className="mt-6">
           <h2 id="dados" className="mb-1 text-[19px] font-bold tracking-[-0.015em]">Seus dados</h2>
-          <Row label="Peso" sub={`${fmtInt(body.heightCm)} cm · ${body.age} anos · atividade ${activity}`}
+          <Row label="Peso" sub={`${fmtInt(body.heightCm)} cm · ${body.age} anos · nível ${activity}`}
             value={`${fmtKg(body.weightKg)} kg`} aria={`Editar peso, ${fmtKg(body.weightKg)} kg`} onClick={() => setSheet("peso")} />
         </section>
       ) : (
@@ -158,7 +158,7 @@ function WeightSheet({ initial, onSave, onClose }: { initial: number; onSave: (k
   return (
     <Sheet title="Peso" onClose={onClose}>
       <form noValidate onSubmit={(e) => { e.preventDefault(); if (ok) run(Math.round(kg! * 10) / 10); }}>
-        <NumberField label="Peso" unit="kg" decimal value={text} onChange={setText} invalid={text.trim() !== "" && !ok}
+        <NumberField label="Peso" unit="kg" decimal hideLabel value={text} onChange={setText} invalid={text.trim() !== "" && !ok}
           hint={ok || text.trim() === "" ? "A meta é recalculada com o peso novo." : `De ${LIMITS.weightKg[0]} a ${LIMITS.weightKg[1]} kg`} />
         {error && <p role="alert" className="mt-4 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink">{error}</p>}
         <SaveButton disabled={!ok} saving={saving} />
