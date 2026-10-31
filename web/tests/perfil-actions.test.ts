@@ -39,4 +39,13 @@ describe("cancelSubscriptionAction", () => {
     readSubscription.mockResolvedValue({ ...active, provider: "onprofit" });
     expect(await cancelSubscriptionAction()).toEqual({ ok: false, message: "O cancelamento ainda não está disponível pelo app. Fale com o suporte." });
   });
+
+  it("só cancela assinatura ativa ainda não cancelada (a ação é um endpoint público)", async () => {
+    getUser.mockResolvedValue(permanent);
+    for (const s of [{ ...active, status: "reembolsada" }, { ...active, status: "cancelada", cancelAtPeriodEnd: true }]) {
+      readSubscription.mockResolvedValueOnce(s);
+      expect(await cancelSubscriptionAction()).toEqual({ ok: false, message: "Você não tem assinatura ativa." });
+    }
+    expect(applyPaymentEvent).not.toHaveBeenCalled();
+  });
 });

@@ -45,4 +45,10 @@ describe("resolveAccess", () => {
   it("falha passageira na leitura não tranca quem paga", async () => {
     expect(await resolveAccess(async () => { throw new Error("fetch failed"); }, now)).toBe(true);
   });
+
+describe("raiz com código de login", () => {
+  it("visitante sem sessão em /?code=… não é mandado para entrar: a raiz repassa o código", () => {
+    expect(gate("/", none, true, { hasCode: true })).toBeNull();
+  });
+});
 });

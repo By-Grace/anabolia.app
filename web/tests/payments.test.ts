@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { getProvider } from "@/lib/payments";
+import { allowTestSubscriptions, configuredProviderId, getProvider } from "@/lib/payments";
 import { signTeste, testePaidEvent } from "@/lib/payments/teste";
 import { applyPaymentEvent } from "@/lib/payments/apply";
 import type { PaymentEvent } from "@/lib/domain/access";
@@ -48,6 +48,20 @@ describe("adaptador de teste", () => {
 });
 
 describe("provedores", () => {
+  it("em produção não há provedor padrão: o de teste só com escolha explícita, e nunca na rota", () => {
+    process.env.VERCEL_ENV = "production";
+    delete process.env.PAYMENT_PROVIDER;
+    expect(getProvider()).toBeNull();
+    expect(allowTestSubscriptions()).toBe(false);
+    process.env.PAYMENT_PROVIDER = "teste";
+    expect(getProvider()).toBeNull();
+    process.env.PAYMENT_PROVIDER = "onprofit";
+    expect(getProvider()?.id).toBe("onprofit");
+    delete process.env.VERCEL_ENV;
+    delete process.env.PAYMENT_PROVIDER;
+    expect(allowTestSubscriptions()).toBe(true);
+  });
+
   it("padrão é o de teste; desconhecido devolve null", () => {
     delete process.env.PAYMENT_PROVIDER;
     expect(getProvider()?.id).toBe("teste");
@@ -72,23 +86,32 @@ describe("applyPaymentEvent", () => {
     expect(calls.find((c) => c.table === "subscriptions" && c.kind === "upsert")?.payload).toMatchObject({ user_id: "u7", status: "ativa" });
   });
 
-  it("evento repetido não grava a assinatura de novo", async () => {
+  it("evento repetido (já aplicado) não grava a assinatura de novo", async () => {
     const { client, calls } = fakeSupabase((op) => {
-      if (op.table === "payment_events") return { data: null, error: { message: "duplicate", code: "23505" } };
+      if (op.table === "payment_events" && op.kind === "insert") return { data: null, error: { message: "duplicate", code: "23505" } };
+      if (op.table === "payment_events" && op.kind === "select") return { data: { applied_at: "2026-11-01T12:00:00Z" }, error: null };
       return { data: null, error: null };
     });
     expect(await applyPaymentEvent(client, { ...ev, userId: "u1" }, {})).toBe("repetido");
     expect(calls.some((c) => c.table === "subscriptions")).toBe(false);
   });
 
-  it("se gravar a assinatura falha, apaga o evento para o reenvio do provedor valer", async () => {
+  it("depois de aplicar, marca o evento como aplicado", async () => {
+    const { client, calls } = fakeSupabase(() => ({ data: null, error: null }));
+    expect(await applyPaymentEvent(client, { ...ev, userId: "u1" }, {})).toBe("aplicado");
+    const mark = calls.find((c) => c.table === "payment_events" && c.kind === "update");
+    expect(mark?.filters).toEqual({ provider: "teste", provider_event_id: "ev-1" });
+    expect(mark?.payload).toHaveProperty("applied_at");
+  });
+
+  it("evento registrado mas não aplicado (queda no meio) é aplicado no reenvio", async () => {
     const { client, calls } = fakeSupabase((op) => {
-      if (op.table === "subscriptions" && op.kind === "upsert") return { data: null, error: { message: "caiu" } };
+      if (op.table === "payment_events" && op.kind === "insert") return { data: null, error: { message: "duplicate", code: "23505" } };
+      if (op.table === "payment_events" && op.kind === "select") return { data: { applied_at: null }, error: null };
       return { data: null, error: null };
     });
-    await expect(applyPaymentEvent(client, { ...ev, userId: "u1" }, {})).rejects.toThrow("caiu");
-    expect(calls.find((c) => c.table === "payment_events" && c.kind === "delete")?.filters)
-      .toEqual({ provider: "teste", provider_event_id: "ev-1" });
+    expect(await applyPaymentEvent(client, { ...ev, userId: "u1" }, {})).toBe("aplicado");
+    expect(calls.some((c) => c.table === "subscriptions" && c.kind === "upsert")).toBe(true);
   });
 
   it("e-mail sem conta registra o evento e devolve 'sem-usuario'", async () => {
@@ -109,6 +132,13 @@ describe("rota do webhook", () => {
     const { POST } = await import("@/app/api/pagamento/webhook/[provider]/route");
     return POST(r, { params: Promise.resolve({ provider }) });
   }
+
+  it("a rota só aceita o provedor configurado", async () => {
+    process.env.PAYMENT_PROVIDER = "onprofit";
+    expect(configuredProviderId()).toBe("onprofit");
+    expect((await post("teste", req(body, signTeste(body, SECRET)))).status).toBe(404);
+    delete process.env.PAYMENT_PROVIDER;
+  });
 
   it("200 com assinatura certa, 401 errada, 404 provedor desconhecido, 503 sem segredo", async () => {
     expect((await post("teste", req(body, signTeste(body, SECRET)))).status).toBe(200);

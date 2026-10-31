@@ -57,4 +57,31 @@ describe("PLAN", () => {
   it("é R$ 29,90 por mês, 30 dias", () => {
     expect(PLAN).toEqual({ id: "mensal", priceCents: 2990, label: "R$ 29,90 por mês", periodDays: 30 });
   });
+
+describe("correções da revisão", () => {
+  it("ativa vence: acesso até o fim do período mais 3 dias de tolerância", () => {
+    const end = "2026-10-30T12:00:00.000Z";
+    expect(hasAccess(sub({ currentPeriodEnd: end }), new Date("2026-11-01T12:00:00Z"))).toBe(true);
+    expect(hasAccess(sub({ currentPeriodEnd: end }), new Date("2026-11-03T12:00:01Z"))).toBe(false);
+    expect(hasAccess(sub({ currentPeriodEnd: null }), NOW)).toBe(true);
+  });
+  it("reembolsada é final: cancelado depois não devolve o acesso; só um novo pagamento", () => {
+    const refunded = applyEvent(sub(), ev("reembolsado"));
+    expect(refunded).toMatchObject({ status: "reembolsada", currentPeriodEnd: null });
+    const after = applyEvent(refunded, ev("cancelado"));
+    expect(after.status).toBe("reembolsada");
+    expect(hasAccess(after, NOW)).toBe(false);
+    expect(applyEvent(refunded, ev("atrasado")).status).toBe("reembolsada");
+    expect(applyEvent(refunded, ev("pago", { periodEnd: FUTURE })).status).toBe("ativa");
+  });
+  it("pendente nunca sobrescreve uma assinatura que já existe", () => {
+    const canceledPaid = sub({ status: "cancelada", cancelAtPeriodEnd: true });
+    expect(applyEvent(canceledPaid, ev("pendente"))).toEqual(canceledPaid);
+    expect(hasAccess(applyEvent(canceledPaid, ev("pendente")), NOW)).toBe(true);
+  });
+  it("assinatura de teste não vale onde o teste não é permitido", () => {
+    expect(hasAccess(sub({ provider: "teste" }), NOW, { allowTest: false })).toBe(false);
+    expect(hasAccess(sub({ provider: "onprofit" }), NOW, { allowTest: false })).toBe(true);
+  });
+});
 });

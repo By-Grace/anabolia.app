@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
-import { getProvider, PaymentConfigError } from "@/lib/payments";
+import { configuredProviderId, getProvider, PaymentConfigError } from "@/lib/payments";
 import { applyPaymentEvent } from "@/lib/payments/apply";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 
 /** Webhook de pagamento: verifica a assinatura do provedor, registra e aplica o evento. */
 export async function POST(request: Request, { params }: { params: Promise<{ provider: string }> }) {
   const { provider: id } = await params;
-  const provider = getProvider(id);
+  // Só o provedor configurado recebe webhook (o de teste não fica aberto em produção).
+  const provider = id === configuredProviderId() ? getProvider(id) : null;
   if (!provider) return NextResponse.json({ error: "Provedor desconhecido." }, { status: 404 });
 
   let parsed;

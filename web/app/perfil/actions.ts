@@ -61,7 +61,8 @@ export async function cancelSubscriptionAction(): Promise<CancelResult> {
     const user = data?.user;
     if (!user || user.is_anonymous) return { ok: false, message: "Entre na sua conta para cancelar." };
     const sub = await readSubscription(client, user.id);
-    if (!sub) return { ok: false, message: "Você não tem assinatura ativa." };
+    // A ação é um endpoint público: só cancela o que está ativo e ainda não foi cancelado.
+    if (!sub || sub.status !== "ativa" || sub.cancelAtPeriodEnd) return { ok: false, message: "Você não tem assinatura ativa." };
     const provider = getProvider(sub.provider);
     if (!provider) return { ok: false, message: FAIL };
     const event = await provider.cancel(user.id, sub);

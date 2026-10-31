@@ -1,19 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import type { SendResult } from "@/lib/auth/login";
+import type { CodeKind, SendResult } from "@/lib/auth/login";
 import { Button, buttonClass } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/ui/icons";
 
 const FAIL = "Não deu para enviar o link agora. Tente de novo.";
 
 /** Entrar sem senha: e-mail, link mágico, e Google/Apple quando configurados no Supabase. */
-export function EntrarView({ next, onSend, google = false, apple = false, linkError = false }: {
-  next: string; onSend: (email: string, next: string) => Promise<SendResult>;
+export function EntrarView({ next, onSend, onVerify, google = false, apple = false, linkError = false }: {
+  next: string;
+  onSend: (email: string, next: string) => Promise<SendResult & { kind?: CodeKind }>;
+  /** Entrar pelo código de 6 dígitos do e-mail (o link não funciona no app instalado do iPhone). */
+  onVerify?: (email: string, code: string, kind: CodeKind, next: string) => Promise<SendResult>;
   google?: boolean; apple?: boolean; linkError?: boolean;
 }) {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState<string | null>(null);
+  const [kind, setKind] = useState<CodeKind>("email");
+  const [code, setCode] = useState("");
+  const [verifying, setVerifying] = useState(false);
+  const [codeError, setCodeError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -23,10 +30,26 @@ export function EntrarView({ next, onSend, google = false, apple = false, linkEr
     setSending(true);
     setError(null);
     const value = email.trim();
-    const res = await onSend(value, next).catch((): SendResult => ({ ok: false, message: FAIL }));
-    if (res.ok) setSent(value);
+    const res = await onSend(value, next).catch((): SendResult & { kind?: CodeKind } => ({ ok: false, message: FAIL }));
+    if (res.ok) { setSent(value); setKind(res.kind ?? "email"); setCode(""); setCodeError(null); }
     else setError(res.message);
     setSending(false);
+  };
+
+  const verify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!onVerify || !sent || verifying) return;
+    setVerifying(true);
+    setCodeError(null);
+    try {
+      const res = await onVerify(sent, code, kind, next);
+      if (!res.ok) setCodeError(res.message);
+    } catch (err) {
+      // Código certo: a ação redireciona (exceção do Next), deixa passar.
+      if ((err as { digest?: string })?.digest?.startsWith("NEXT_REDIRECT")) throw err;
+      setCodeError("Não deu para entrar agora. Tente de novo.");
+    }
+    setVerifying(false);
   };
 
   const oauth = async (provider: "google" | "apple") => {
@@ -49,6 +72,19 @@ export function EntrarView({ next, onSend, google = false, apple = false, linkEr
           <p className="mt-2 text-[15px] leading-snug text-grey">
             Enviamos um link para <span className="font-semibold text-ink">{sent}</span>. Abra no celular para entrar.
           </p>
+          {onVerify && (
+            <form onSubmit={verify} noValidate className="mt-7">
+              <label htmlFor="codigo" className="mb-2 block text-[15px] font-semibold">Código de 6 dígitos</label>
+              <p className="mb-2 text-[13px] text-grey">Se o link abrir em outro navegador, digite aqui o código do mesmo e-mail.</p>
+              <input id="codigo" inputMode="numeric" autoComplete="one-time-code" maxLength={7} value={code}
+                onChange={(ev) => setCode(ev.target.value.replace(/[^\d ]/g, ""))} placeholder="000000"
+                className="num h-[54px] w-full rounded-[12px] bg-soft px-4 text-[22px] font-bold tracking-[0.2em] placeholder:text-ring" />
+              {codeError && <p role="alert" className="mt-3 text-sm font-medium text-ink">{codeError}</p>}
+              <button type="submit" disabled={verifying || code.replace(/\s/g, "").length !== 6} className={`${buttonClass("primary")} mt-4 w-full`}>
+                {verifying ? "Entrando…" : "Entrar com o código"}
+              </button>
+            </form>
+          )}
           <Button variant="text" className="-ml-2 mt-4" onClick={() => setSent(null)}>Usar outro e-mail</Button>
         </div>
       ) : (
@@ -57,7 +93,7 @@ export function EntrarView({ next, onSend, google = false, apple = false, linkEr
           <p className="mt-2 text-[15px] leading-snug text-grey">Receba um link no seu e-mail para entrar. Sem senha.</p>
 
           {linkError && (
-            <p className="mt-5 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink">Esse link expirou ou já foi usado. Peça outro.</p>
+            <p className="mt-5 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink">Esse link não abriu aqui. Ele vence, só vale uma vez e só funciona no navegador onde você pediu. Peça outro e, se precisar, use o código de 6 dígitos do e-mail.</p>
           )}
 
           <label htmlFor="email" className="mb-2 mt-7 block text-[15px] font-semibold">E-mail</label>

@@ -24,6 +24,8 @@ create table if not exists public.payment_events (
   email text,
   payload jsonb,
   received_at timestamptz not null default now(),
+  -- Preenchido só depois de gravar a assinatura: evento registrado sem applied_at é reaplicado no reenvio.
+  applied_at timestamptz,
   unique (provider, provider_event_id)
 );
 alter table public.payment_events enable row level security;

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { safeNext, sendLoginLink } from "@/lib/auth/login";
+import { safeNext, sendLoginLink, verifyLoginCode } from "@/lib/auth/login";
 
 const REDIRECT = "https://app.test/auth/callback?next=%2Fhoje";
 
@@ -47,6 +47,37 @@ describe("sendLoginLink", () => {
   });
 });
 
+describe("sendLoginLink com falha passageira", () => {
+  it("erro ao ler a sessão (não 'sem sessão') não cria outra conta: devolve erro", async () => {
+    const auth = {
+      getUser: vi.fn().mockResolvedValue({ data: { user: null }, error: { name: "AuthRetryableFetchError", message: "fetch failed" } }),
+      updateUser: vi.fn(), signInWithOtp: vi.fn(),
+    };
+    expect(await sendLoginLink({ auth } as never, "a@b.com", REDIRECT)).toEqual({ ok: false, message: "Não deu para enviar o link agora. Tente de novo." });
+    expect(auth.signInWithOtp).not.toHaveBeenCalled();
+  });
+  it("diz se o link é de entrada ou de conversão da conta anônima (para validar o código de 6 dígitos)", async () => {
+    const anon = fakeAuth({ id: "anon", is_anonymous: true });
+    expect(await sendLoginLink(anon.client, "a@b.com", REDIRECT, { withKind: true })).toEqual({ ok: true, kind: "email_change" });
+    const fresh = fakeAuth(null);
+    expect(await sendLoginLink(fresh.client, "a@b.com", REDIRECT, { withKind: true })).toEqual({ ok: true, kind: "email" });
+  });
+});
+
+describe("verifyLoginCode", () => {
+  it("valida o código de 6 dígitos com o tipo certo", async () => {
+    const auth = { verifyOtp: vi.fn().mockResolvedValue({ data: {}, error: null }) };
+    expect(await verifyLoginCode({ auth } as never, " A@B.com ", "123 456", "email_change")).toEqual({ ok: true });
+    expect(auth.verifyOtp).toHaveBeenCalledWith({ email: "a@b.com", token: "123456", type: "email_change" });
+  });
+  it("código com formato errado nem chega ao Supabase; código recusado vira mensagem", async () => {
+    const auth = { verifyOtp: vi.fn().mockResolvedValue({ data: {}, error: { message: "Token has expired or is invalid" } }) };
+    expect(await verifyLoginCode({ auth } as never, "a@b.com", "12a", "email")).toEqual({ ok: false, message: "O código tem 6 números." });
+    expect(auth.verifyOtp).not.toHaveBeenCalled();
+    expect(await verifyLoginCode({ auth } as never, "a@b.com", "123456", "email")).toEqual({ ok: false, message: "Código errado ou vencido. Peça outro link." });
+  });
+});
+
 describe("safeNext", () => {
   it("aceita só caminho interno", () => {
     expect(safeNext("/hoje")).toBe("/hoje");
@@ -55,5 +86,11 @@ describe("safeNext", () => {
     expect(safeNext("//mal.com")).toBe("/");
     expect(safeNext("/\\mal.com")).toBe("/");
     expect(safeNext(null)).toBe("/");
+  });
+  it("recusa caracteres de controle e barras invertidas que o navegador transforma em outro site", () => {
+    expect(safeNext("/\t/evil.com")).toBe("/");
+    expect(safeNext("/\n/evil.com")).toBe("/");
+    expect(safeNext("/a\\b")).toBe("/");
+    expect(safeNext("/hoje#topo")).toBe("/hoje#topo");
   });
 });

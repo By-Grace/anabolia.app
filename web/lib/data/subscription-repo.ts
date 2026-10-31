@@ -29,19 +29,24 @@ export async function readSubscription(client: SupabaseClient, userId: string): 
   };
 }
 
-/** Grava o evento. Devolve false se ele já tinha chegado antes (webhook repetido). Só chave de serviço. */
-export async function recordEvent(admin: SupabaseClient, e: PaymentEvent, payload: unknown): Promise<boolean> {
+/**
+ * Grava o evento. "novo" na primeira vez; se já tinha chegado, "aplicado" (webhook repetido, ignorar)
+ * ou "pendente" (registrado mas não aplicado: uma queda no meio; o reenvio aplica). Só chave de serviço.
+ */
+export async function recordEvent(admin: SupabaseClient, e: PaymentEvent, payload: unknown): Promise<"novo" | "aplicado" | "pendente"> {
   const res = (await admin.from("payment_events").insert({
     provider: e.provider, provider_event_id: e.id, type: e.type, user_id: e.userId, email: e.email, payload,
   })) as Res<unknown>;
-  if (res.error?.code === "23505") return false;
-  check(res);
-  return true;
+  if (res.error?.code !== "23505") { check(res); return "novo"; }
+  const row = check(
+    await admin.from("payment_events").select("applied_at").eq("provider", e.provider).eq("provider_event_id", e.id).maybeSingle()
+  ) as { applied_at: string | null } | null;
+  return row?.applied_at ? "aplicado" : "pendente";
 }
 
-/** Desfaz o registro de um evento que não chegou a ser aplicado, para o reenvio valer. */
-export async function forgetEvent(admin: SupabaseClient, e: PaymentEvent): Promise<void> {
-  check(await admin.from("payment_events").delete().eq("provider", e.provider).eq("provider_event_id", e.id) as Res<unknown>);
+export async function markApplied(admin: SupabaseClient, e: PaymentEvent, now = new Date()): Promise<void> {
+  check(await admin.from("payment_events").update({ applied_at: now.toISOString() })
+    .eq("provider", e.provider).eq("provider_event_id", e.id) as Res<unknown>);
 }
 
 export async function userIdByEmail(admin: SupabaseClient, email: string): Promise<string | null> {

@@ -11,6 +11,7 @@ import { cancelSubscriptionAction, saveGoalAction, updateWeightAction } from "./
 import { signOutAction } from "@/app/entrar/actions";
 import { hasAccess } from "@/lib/domain/access";
 import { readSubscription } from "@/lib/data/subscription-repo";
+import { allowTestSubscriptions } from "@/lib/payments";
 import type { Account } from "./AccountSection";
 
 export const dynamic = "force-dynamic";
@@ -36,7 +37,7 @@ export default async function PerfilPage() {
         // A assinatura é lida à parte: se falhar, o Perfil abre e avisa, sem oferecer assinar de novo.
         let failed = false;
         const sub = await readSubscription(client, userId).catch(() => { failed = true; return null; });
-        account = { email: data.user.email ?? null, subscription: sub, access: hasAccess(sub, now), subscriptionError: failed };
+        account = { email: data.user.email ?? null, subscription: sub, access: hasAccess(sub, now, { allowTest: allowTestSubscriptions() }), subscriptionError: failed };
       }
     }
   } catch {

@@ -16,18 +16,24 @@ describe("subscription-repo", () => {
     expect(await readSubscription(empty.client, "u1")).toBeNull();
   });
 
-  it("recordEvent grava o evento e devolve true", async () => {
+  it("recordEvent grava o evento e devolve 'novo'", async () => {
     const { client, calls } = fakeSupabase(() => ({ data: null, error: null }));
-    expect(await recordEvent(client, ev, { bruto: 1 })).toBe(true);
+    expect(await recordEvent(client, ev, { bruto: 1 })).toBe("novo");
     expect(calls[0]).toMatchObject({
       table: "payment_events", kind: "insert",
       payload: { provider: "teste", provider_event_id: "e1", type: "pago", user_id: "u1", email: "a@b.com", payload: { bruto: 1 } },
     });
   });
 
-  it("recordEvent devolve false quando o evento já existe (23505)", async () => {
-    const { client } = fakeSupabase(() => ({ data: null, error: { message: "duplicate key", code: "23505" } }));
-    expect(await recordEvent(client, ev, {})).toBe(false);
+  it("recordEvent com evento já existente: 'aplicado' se já foi aplicado, 'pendente' se não", async () => {
+    const applied = fakeSupabase((op) => op.kind === "insert"
+      ? { data: null, error: { message: "duplicate key", code: "23505" } }
+      : { data: { applied_at: "2026-11-01T12:00:00Z" }, error: null });
+    expect(await recordEvent(applied.client, ev, {})).toBe("aplicado");
+    const pending = fakeSupabase((op) => op.kind === "insert"
+      ? { data: null, error: { message: "duplicate key", code: "23505" } }
+      : { data: { applied_at: null }, error: null });
+    expect(await recordEvent(pending.client, ev, {})).toBe("pendente");
   });
 
   it("recordEvent propaga outros erros", async () => {

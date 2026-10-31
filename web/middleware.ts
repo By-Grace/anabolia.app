@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { gate, resolveAccess } from "@/lib/auth/gate";
 import { readSubscription } from "@/lib/data/subscription-repo";
+import { allowTestSubscriptions } from "@/lib/payments/env";
 
 /**
  * 1. Renova a sessão existente (tokens em cookie). Não cria contas: a sessão anônima nasce na primeira
@@ -38,8 +39,10 @@ export async function middleware(request: NextRequest) {
 
   const path = request.nextUrl.pathname;
   const permanent = !!user && !user.is_anonymous;
-  const access = permanent ? await resolveAccess(() => readSubscription(client, user!.id), new Date()) : false;
-  const dest = gate(path, { user: !!user, anonymous: !!user?.is_anonymous, access }, true);
+  const access = permanent
+    ? await resolveAccess(() => readSubscription(client, user!.id), new Date(), { allowTest: allowTestSubscriptions() })
+    : false;
+  const dest = gate(path, { user: !!user, anonymous: !!user?.is_anonymous, access }, true, { hasCode: request.nextUrl.searchParams.has("code") });
   if (!dest) return response;
 
   if (path.startsWith("/api/")) {

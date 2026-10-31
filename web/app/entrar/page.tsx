@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { safeNext } from "@/lib/auth/login";
 import { supabaseServer } from "@/lib/supabase/server";
 import { EntrarView } from "./EntrarView";
-import { sendLoginLinkAction } from "./actions";
+import { sendLoginLinkAction, verifyCodeAction } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Entrar · Anaból[IA]" };
@@ -18,7 +18,7 @@ export default async function EntrarPage({ searchParams }: { searchParams: Promi
     if ((e as { digest?: string })?.digest?.startsWith("NEXT_REDIRECT")) throw e;
   }
   return (
-    <EntrarView next={next} onSend={sendLoginLinkAction} linkError={erro === "link"}
+    <EntrarView next={next} onSend={sendLoginLinkAction} onVerify={verifyCodeAction} linkError={erro === "link"}
       google={process.env.NEXT_PUBLIC_LOGIN_GOOGLE === "on"} apple={process.env.NEXT_PUBLIC_LOGIN_APPLE === "on"} />
   );
 }

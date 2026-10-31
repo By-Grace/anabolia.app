@@ -35,7 +35,7 @@ describe("EntrarView", () => {
 
   it("link expirado mostra o aviso para pedir outro", () => {
     render(<EntrarView next="/" onSend={vi.fn()} linkError />);
-    expect(screen.getByText("Esse link expirou ou já foi usado. Peça outro.")).toBeInTheDocument();
+    expect(screen.getByText("Esse link não abriu aqui. Ele vence, só vale uma vez e só funciona no navegador onde você pediu. Peça outro e, se precisar, use o código de 6 dígitos do e-mail.")).toBeInTheDocument();
   });
 
   it("Google e Apple só aparecem com as flags", () => {
@@ -44,5 +44,27 @@ describe("EntrarView", () => {
     rerender(<EntrarView next="/" onSend={vi.fn()} google apple />);
     expect(screen.getByRole("button", { name: "Continuar com Google" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Continuar com Apple" })).toBeInTheDocument();
+  });
+
+  it("no app instalado, dá para entrar digitando o código de 6 dígitos do e-mail", async () => {
+    const onSend = vi.fn().mockResolvedValue({ ok: true, kind: "email_change" });
+    const onVerify = vi.fn().mockResolvedValue({ ok: true });
+    render(<EntrarView next="/assinar" onSend={onSend} onVerify={onVerify} />);
+    await userEvent.type(screen.getByLabelText("E-mail"), "a@b.com");
+    await userEvent.click(screen.getByRole("button", { name: "Receber link" }));
+    await userEvent.type(await screen.findByLabelText("Código de 6 dígitos"), "123456");
+    await userEvent.click(screen.getByRole("button", { name: "Entrar com o código" }));
+    expect(onVerify).toHaveBeenCalledWith("a@b.com", "123456", "email_change", "/assinar");
+  });
+
+  it("código recusado mostra o erro e deixa tentar de novo", async () => {
+    const onVerify = vi.fn().mockResolvedValue({ ok: false, message: "Código errado ou vencido. Peça outro link." });
+    render(<EntrarView next="/" onSend={vi.fn().mockResolvedValue({ ok: true, kind: "email" })} onVerify={onVerify} />);
+    await userEvent.type(screen.getByLabelText("E-mail"), "a@b.com");
+    await userEvent.click(screen.getByRole("button", { name: "Receber link" }));
+    await userEvent.type(await screen.findByLabelText("Código de 6 dígitos"), "000000");
+    await userEvent.click(screen.getByRole("button", { name: "Entrar com o código" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("Código errado ou vencido. Peça outro link.");
+    expect(screen.getByRole("button", { name: "Entrar com o código" })).toBeEnabled();
   });
 });

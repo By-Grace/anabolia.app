@@ -23,13 +23,22 @@ export type PaymentEvent = {
 
 export const PLAN = { id: "mensal", priceCents: 2990, label: "R$ 29,90 por mês", periodDays: 30 } as const;
 
+/** Tolerância depois do fim do período, para a renovação chegar sem cortar quem paga. */
+export const GRACE_MS = 3 * 86_400_000;
+
 const inPeriod = (sub: Subscription, now: Date) =>
   sub.currentPeriodEnd !== null && new Date(sub.currentPeriodEnd).getTime() > now.getTime();
 
-/** Ativa dá acesso; cancelada ou atrasada, só até o fim do período pago; reembolsada corta na hora. */
-export function hasAccess(sub: Subscription | null, now: Date): boolean {
+/**
+ * Ativa dá acesso até o fim do período mais a tolerância (sem fim conhecido, vale); cancelada ou atrasada,
+ * só até o fim do período pago; reembolsada corta na hora. Assinatura de teste só conta onde o teste é permitido.
+ */
+export function hasAccess(sub: Subscription | null, now: Date, opts: { allowTest?: boolean } = {}): boolean {
   if (!sub) return false;
-  if (sub.status === "ativa") return true;
+  if (sub.provider === "teste" && opts.allowTest === false) return false;
+  if (sub.status === "ativa") {
+    return sub.currentPeriodEnd === null || new Date(sub.currentPeriodEnd).getTime() + GRACE_MS > now.getTime();
+  }
   if (sub.status === "cancelada" || sub.status === "atrasada") return inPeriod(sub, now);
   return false;
 }
@@ -40,16 +49,19 @@ export function applyEvent(prev: Subscription | null, e: PaymentEvent): Subscrip
     provider: e.provider, providerRef: e.providerRef, status: "pendente", currentPeriodEnd: null, cancelAtPeriodEnd: false,
   };
   const ref = e.providerRef ?? base.providerRef;
+  // Reembolso é final: só um pagamento novo reabre (um "cancelado" atrasado não devolve o acesso).
+  if (prev?.status === "reembolsada" && e.type !== "pago") return prev;
   switch (e.type) {
     case "pago":
       return { ...base, provider: e.provider, providerRef: ref, status: "ativa", currentPeriodEnd: e.periodEnd ?? base.currentPeriodEnd, cancelAtPeriodEnd: false };
     case "pendente":
-      return prev && prev.status === "ativa" ? { ...prev, providerRef: ref } : { ...base, providerRef: ref, status: "pendente" };
+      // Nunca sobrescreve o que já existe: um "pendente" fora de ordem não tranca quem pagou.
+      return prev ?? { ...base, providerRef: ref, status: "pendente" };
     case "atrasado":
       return { ...base, providerRef: ref, status: "atrasada" };
     case "cancelado":
       return { ...base, providerRef: ref, status: "cancelada", cancelAtPeriodEnd: true };
     case "reembolsado":
-      return { ...base, providerRef: ref, status: "reembolsada", cancelAtPeriodEnd: false };
+      return { ...base, providerRef: ref, status: "reembolsada", currentPeriodEnd: null, cancelAtPeriodEnd: false };
   }
 }

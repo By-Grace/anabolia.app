@@ -14,8 +14,10 @@ const under = (path: string, prefix: string) =>
  * Para onde mandar a pessoa, ou null para seguir. Desligado (PAYWALL != "on"), nunca bloqueia.
  * Sem conta permanente → entrar (voltando para onde estava). Conta sem assinatura → paywall nas telas do app.
  */
-export function gate(path: string, s: GateState, paywall: boolean): string | null {
+export function gate(path: string, s: GateState, paywall: boolean, opts: { hasCode?: boolean } = {}): string | null {
   if (!paywall) return null;
+  // Link do e-mail que caiu na raiz: a raiz repassa o código para a troca pela sessão.
+  if (path === "/" && opts.hasCode) return null;
   if (PUBLIC.some((p) => under(path, p))) return null;
   const guarded = BEFORE_PAYWALL.includes(path) || APP.some((p) => under(path, p));
   if (!guarded) return null;
@@ -25,9 +27,9 @@ export function gate(path: string, s: GateState, paywall: boolean): string | nul
 }
 
 /** Falha passageira ao ler a assinatura não tranca quem paga: a tela de assinatura confere de novo. */
-export async function resolveAccess(read: () => Promise<Subscription | null>, now: Date): Promise<boolean> {
+export async function resolveAccess(read: () => Promise<Subscription | null>, now: Date, opts: { allowTest?: boolean } = {}): Promise<boolean> {
   try {
-    return hasAccess(await read(), now);
+    return hasAccess(await read(), now, opts);
   } catch {
     return true;
   }

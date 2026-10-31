@@ -1,6 +1,7 @@
 import { getRecipes } from "@/lib/recipes/load";
 import { hasAccess } from "@/lib/domain/access";
 import { readSubscription } from "@/lib/data/subscription-repo";
+import { allowTestSubscriptions } from "@/lib/payments";
 import { supabaseServer } from "@/lib/supabase/server";
 import { AssinarView } from "./AssinarView";
 import { startCheckoutAction } from "./actions";
@@ -16,7 +17,7 @@ export default async function AssinarPage() {
     const { data } = await client.auth.getUser();
     if (data.user && !data.user.is_anonymous) {
       const sub = await readSubscription(client, data.user.id);
-      access = hasAccess(sub, new Date());
+      access = hasAccess(sub, new Date(), { allowTest: allowTestSubscriptions() });
       periodEnd = sub?.currentPeriodEnd ?? null;
     }
   } catch {
