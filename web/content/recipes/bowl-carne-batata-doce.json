@@ -8,45 +8,42 @@
   "minutes": 25,
   "difficulty": "fácil",
   "basePortions": 2,
-  "perPortion": {
-    "kcal": 680,
-    "protein_g": 45,
-    "carbs_g": 62,
-    "fat_g": 24
-  },
   "ingredients": [
     {
       "name": "patinho moído",
       "qty": 400,
-      "unit": "g"
+      "unit": "g",
+      "ref": "patinho-moido"
     },
     {
       "name": "batata-doce",
       "qty": 400,
-      "unit": "g"
+      "unit": "g",
+      "ref": "batata-doce"
     },
     {
       "name": "feijão cozido",
       "qty": 200,
-      "unit": "g"
+      "unit": "g",
+      "ref": "feijao-carioca-cozido"
     },
     {
       "name": "cebola",
       "qty": 1,
       "unit": "un",
-      "grams": 110
+      "ref": "cebola"
     },
     {
       "name": "alho",
       "qty": 2,
       "unit": "dente",
-      "grams": 6
+      "ref": "alho"
     },
     {
       "name": "azeite",
       "qty": 15,
       "unit": "ml",
-      "grams": 14
+      "ref": "azeite"
     },
     {
       "name": "sal e cominho",

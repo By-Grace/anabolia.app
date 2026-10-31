@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { getRecipe, getRecipes } from "@/lib/recipes/load";
+import { getRecipe } from "@/lib/recipes/load";
 import { scaleIngredients, macrosFor } from "@/lib/domain/scale";
 import { dayTotals, DEFAULT_GOAL, type MealLog } from "@/lib/domain/day";
 import { slotForHour, suggest } from "@/lib/domain/suggest";
-import { fakeRecipe } from "./fixtures";
+import { fakeRecipe, demoMenu } from "./fixtures";
 
 const frango = getRecipe("frango-crocante-arroz-tostado")!;
 const log = (recipeSlug: string, portions = 1, slot: MealLog["slot"] = "almoco"): MealLog => ({
@@ -27,8 +27,9 @@ describe("escala de porções", () => {
     expect(ovo.grams).toBe(25);
   });
   it("macrosFor multiplica por porções e clampa", () => {
-    expect(macrosFor(frango, 3)).toEqual({ kcal: 1830, protein_g: 126, carbs_g: 174, fat_g: 63 });
-    expect(macrosFor(frango, 0).protein_g).toBe(42);
+    const p = frango.perPortion;
+    expect(macrosFor(frango, 3)).toEqual({ kcal: p.kcal * 3, protein_g: p.protein_g * 3, carbs_g: p.carbs_g * 3, fat_g: p.fat_g * 3 });
+    expect(macrosFor(frango, 0).protein_g).toBe(p.protein_g);
   });
 });
 
@@ -67,12 +68,12 @@ describe("sugestões", () => {
     );
   });
   it("suggest para jantar com 87 g faltando ordena bowl (45) antes de frango (42); tapioca fora do slot é excluída", () => {
-    expect(suggest(getRecipes(), 87, "jantar").map((r) => r.slug)).toEqual([
+    expect(suggest(demoMenu, 87, "jantar").map((r) => r.slug)).toEqual([
       "bowl-carne-batata-doce",
       "frango-crocante-arroz-tostado",
     ]);
   });
   it("suggest respeita limit", () => {
-    expect(suggest(getRecipes(), 87, "jantar", 1)).toHaveLength(1);
+    expect(suggest(demoMenu, 87, "jantar", 1)).toHaveLength(1);
   });
 });

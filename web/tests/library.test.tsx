@@ -2,9 +2,9 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Library } from "@/app/receitas/Library";
-import { getRecipes } from "@/lib/recipes/load";
+import { demoMenu } from "./fixtures";
 
-const recipes = getRecipes();
+const recipes = demoMenu;
 const slugs = () => screen.queryAllByTestId("recipe-row").map((el) => el.getAttribute("data-slug"));
 
 describe("Library", () => {

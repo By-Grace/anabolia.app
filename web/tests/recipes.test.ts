@@ -13,10 +13,10 @@ describe("receitas", () => {
     for (const r of all) expect(() => RecipeSchema.parse(r)).not.toThrow();
   });
 
-  it("frango crocante tem 42 g de proteína e 610 kcal por porção, 22 min, 7 passos", () => {
+  it("frango crocante: 22 min, 7 passos, 2 porções, macros calculados pela TACO", () => {
     const r = getRecipe("frango-crocante-arroz-tostado")!;
-    expect(r.perPortion.protein_g).toBe(42);
-    expect(r.perPortion.kcal).toBe(610);
+    expect(r.perPortion.protein_g).toBe(53);
+    expect(r.perPortion.kcal).toBe(605);
     expect(r.minutes).toBe(22);
     expect(r.steps).toHaveLength(7);
     expect(r.basePortions).toBe(2);

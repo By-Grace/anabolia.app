@@ -1,0 +1,23 @@
+{
+  "_sobre": "Ingredientes do app. 'taco' aponta para content/taco/taco.json (TACO 4ª ed., NEPA/UNICAMP). Itens fora da TACO usam 'rotulo' (média de rótulos de mercado) e precisam de revisão de nutricionista. 'gramasPor' converte medida caseira em gramas. Quantidades nas receitas devem estar no mesmo estado do item (cru × cozido).",
+  "ingredientes": {
+    "peito-frango": { "nome": "peito de frango (cru)", "taco": 409 },
+    "frango-desfiado": { "nome": "peito de frango cozido desfiado", "taco": 408 },
+    "patinho-moido": { "nome": "patinho moído (cru)", "taco": 376 },
+    "ovo": { "nome": "ovo inteiro (cru)", "taco": 489, "gramasPor": { "un": 50 } },
+    "arroz-cozido": { "nome": "arroz branco cozido", "taco": 3 },
+    "feijao-carioca-cozido": { "nome": "feijão carioca cozido", "taco": 561 },
+    "batata-doce": { "nome": "batata-doce (crua)", "taco": 89 },
+    "farinha-rosca": { "nome": "farinha de rosca", "taco": 34 },
+    "queijo-minas-frescal": { "nome": "queijo minas frescal", "taco": 461 },
+    "mamao-papaia": { "nome": "mamão papaia", "taco": 226 },
+    "cebola": { "nome": "cebola", "taco": 107, "gramasPor": { "un": 110 } },
+    "alho": { "nome": "alho", "taco": 82, "gramasPor": { "dente": 3 } },
+    "azeite": { "nome": "azeite de oliva", "taco": 260, "gramasPor": { "ml": 0.92, "colher": 13 } },
+    "goma-tapioca": {
+      "nome": "goma de tapioca hidratada",
+      "rotulo": { "kcal": 240, "protein_g": 0, "carbs_g": 60, "fat_g": 0 },
+      "fonteRotulo": "média de rótulos de goma de tapioca hidratada pronta para uso"
+    }
+  }
+}

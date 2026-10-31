@@ -8,38 +8,36 @@
   "minutes": 12,
   "difficulty": "fácil",
   "basePortions": 1,
-  "perPortion": {
-    "kcal": 520,
-    "protein_g": 38,
-    "carbs_g": 48,
-    "fat_g": 18
-  },
   "ingredients": [
     {
       "name": "goma de tapioca",
       "qty": 60,
-      "unit": "g"
+      "unit": "g",
+      "ref": "goma-tapioca"
     },
     {
       "name": "frango desfiado",
       "qty": 80,
-      "unit": "g"
+      "unit": "g",
+      "ref": "frango-desfiado"
     },
     {
       "name": "ovo",
       "qty": 2,
       "unit": "un",
-      "grams": 100
+      "ref": "ovo"
     },
     {
       "name": "queijo minas",
       "qty": 30,
-      "unit": "g"
+      "unit": "g",
+      "ref": "queijo-minas-frescal"
     },
     {
       "name": "mamão",
       "qty": 150,
-      "unit": "g"
+      "unit": "g",
+      "ref": "mamao-papaia"
     },
     {
       "name": "sal",

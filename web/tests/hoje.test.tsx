@@ -2,9 +2,9 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { HojeView } from "@/app/hoje/HojeView";
-import { getRecipes } from "@/lib/recipes/load";
+
 import type { MealLog } from "@/lib/domain/day";
-import { fakeRecipe } from "./fixtures";
+import { fakeRecipe, demoMenu } from "./fixtures";
 
 const replace = vi.fn();
 const refresh = vi.fn();
@@ -18,7 +18,7 @@ const log = (recipeSlug: string, slot: MealLog["slot"], portions = 1): MealLog =
 });
 
 describe("HojeView", () => {
-  const fixtures = [fakeRecipe("tapioca-teste", 31, ["cafe"]), fakeRecipe("bowl-teste", 42, ["almoco"]), ...getRecipes()];
+  const fixtures = [fakeRecipe("tapioca-teste", 31, ["cafe"]), fakeRecipe("bowl-teste", 42, ["almoco"]), ...demoMenu];
 
   it("com 2 refeições (31+42) e meta 160 mostra '87 g para fechar', '73 de 160 g de proteína' e barra 46%", () => {
     render(<HojeView recipes={fixtures} logs={[log("tapioca-teste", "cafe"), log("bowl-teste", "almoco")]} goal={goal} now={NIGHT} />);
@@ -39,7 +39,7 @@ describe("HojeView", () => {
   });
 
   it("às 21h a próxima refeição é do jantar e o card mostra o bowl com '+45 g proteína · 25 min · 680 kcal'", () => {
-    render(<HojeView recipes={getRecipes()} logs={[]} goal={goal} now={NIGHT} />);
+    render(<HojeView recipes={demoMenu} logs={[]} goal={goal} now={NIGHT} />);
     const card = within(screen.getByRole("region", { name: "Próxima refeição" }));
     expect(card.getByRole("link", { name: /Bowl de carne com batata-doce/ })).toHaveAttribute("href", "/receitas/bowl-carne-batata-doce");
     expect(screen.getByText("+45 g proteína · 25 min · 680 kcal")).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe("HojeView", () => {
   beforeEach(() => { replace.mockReset(); refresh.mockReset(); vi.restoreAllMocks(); });
 
   it("linha 'escolher' leva à biblioteca filtrada e a próxima leva à receita", () => {
-    render(<HojeView recipes={getRecipes()} logs={[]} goal={goal} now={NIGHT} />);
+    render(<HojeView recipes={demoMenu} logs={[]} goal={goal} now={NIGHT} />);
     const rows = screen.getAllByTestId("meal-row");
     expect(within(rows.find((r) => r.dataset.label === "Lanche")!).getByRole("link")).toHaveAttribute("href", "/receitas?slot=lanche");
     expect(within(rows.find((r) => r.dataset.label === "Jantar")!).getByRole("link")).toHaveAttribute("href", "/receitas/bowl-carne-batata-doce");
@@ -69,7 +69,7 @@ describe("HojeView", () => {
 
   it("o círculo preenche na hora do toque, antes da resposta do servidor", async () => {
     vi.spyOn(globalThis, "fetch").mockReturnValue(new Promise(() => {}));
-    render(<HojeView recipes={getRecipes()} logs={[]} goal={goal} now={NIGHT} />);
+    render(<HojeView recipes={demoMenu} logs={[]} goal={goal} now={NIGHT} />);
     await userEvent.click(screen.getByRole("button", { name: "Marcar Jantar como feito" }));
     const jantar = screen.getAllByTestId("meal-row").find((r) => r.dataset.label === "Jantar")!;
     expect(jantar.dataset.state).toBe("done");
@@ -77,7 +77,7 @@ describe("HojeView", () => {
 
   it("o círculo da próxima refeição marca direto, sem cozinhar", async () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ log: { id: "l3" } }), { status: 201 }));
-    render(<HojeView recipes={getRecipes()} logs={[]} goal={goal} now={NIGHT} />);
+    render(<HojeView recipes={demoMenu} logs={[]} goal={goal} now={NIGHT} />);
     await userEvent.click(screen.getByRole("button", { name: "Marcar Jantar como feito" }));
     expect(JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string)).toEqual({ recipeSlug: "bowl-carne-batata-doce", portions: 1, slot: "jantar" });
     expect(replace).toHaveBeenCalledWith("/hoje?marcou=l3");
@@ -111,7 +111,7 @@ describe("HojeView", () => {
 
   it("com o café já feito de manhã, a próxima refeição passa a ser o almoço", () => {
     const MORNING = new Date("2026-10-31T13:38:00Z"); // 10h38 em São Paulo
-    render(<HojeView recipes={getRecipes()} logs={[log("tapioca-frango-omelete", "cafe")]} goal={goal} now={MORNING} />);
+    render(<HojeView recipes={demoMenu} logs={[log("tapioca-frango-omelete", "cafe")]} goal={goal} now={MORNING} />);
     const card = within(screen.getByRole("region", { name: "Próxima refeição" }));
     expect(card.getByRole("link", { name: /Bowl de carne/ })).toHaveAttribute("href", "/receitas/bowl-carne-batata-doce");
     expect(card.getByRole("link", { name: "Trocar" })).toHaveAttribute("href", "/receitas?slot=almoco");

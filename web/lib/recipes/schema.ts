@@ -16,14 +16,23 @@ export const IngredientSchema = z.object({
   name: z.string().min(1),
   qty: z.number().min(0),
   unit: z.enum(UNITS),
-  /** Peso em gramas da quantidade-base, para unidades caseiras (un, dente, colher, ml). */
+  /** Peso em gramas da quantidade-base (preenchido pela tabela para un, dente, colher, ml). */
   grams: z.number().positive().optional(),
+  /** Id em content/ingredients.json; obrigatório para tudo que não é "a gosto". */
+  ref: z.string().min(1).optional(),
 });
 
 export const StepSchema = z.object({
   text: z.string().min(1),
   seconds: z.number().int().positive().optional(),
   ingredientHint: z.string().min(1).optional(),
+});
+
+const PerPortionSchema = z.object({
+  kcal: z.number().nonnegative(),
+  protein_g: z.number().nonnegative(),
+  carbs_g: z.number().nonnegative(),
+  fat_g: z.number().nonnegative(),
 });
 
 export const RecipeSchema = z.object({
@@ -33,12 +42,7 @@ export const RecipeSchema = z.object({
   minutes: z.number().int().positive(),
   difficulty: z.enum(["fácil", "médio"]),
   basePortions: z.number().int().min(1).max(8),
-  perPortion: z.object({
-    kcal: z.number().nonnegative(),
-    protein_g: z.number().nonnegative(),
-    carbs_g: z.number().nonnegative(),
-    fat_g: z.number().nonnegative(),
-  }),
+  perPortion: PerPortionSchema,
   ingredients: z.array(IngredientSchema).min(1),
   steps: z.array(StepSchema).min(1),
   photo: z.string().min(1).optional(),
@@ -47,6 +51,9 @@ export const RecipeSchema = z.object({
   photoCredit: z.string().min(1).optional(),
   tip: z.string().min(1).optional(),
 });
+
+/** Como a receita vem do arquivo: macros são calculados pela tabela, então podem faltar. */
+export const RecipeInputSchema = RecipeSchema.extend({ perPortion: PerPortionSchema.optional() });
 
 export type Ingredient = z.infer<typeof IngredientSchema>;
 export type Step = z.infer<typeof StepSchema>;
