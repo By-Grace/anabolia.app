@@ -5,7 +5,7 @@ type Op = {
   payload?: unknown;
   options?: unknown;
 };
-type Result = { data: unknown; error: null | { message: string } };
+type Result = { data: unknown; error: null | { message: string; code?: string } };
 export type Handler = (op: Op) => Result;
 
 /**
@@ -33,5 +33,11 @@ export function fakeSupabase(handler: Handler) {
     };
     return b;
   };
-  return { client: { from } as never, calls };
+  /** rpc("fn", args) aparece como table "rpc:fn" com os argumentos em payload. */
+  const rpc = (fn: string, args: unknown) => {
+    const op: Op = { table: `rpc:${fn}`, kind: "select", filters: {}, payload: args };
+    calls.push(op);
+    return Promise.resolve(handler(op));
+  };
+  return { client: { from, rpc } as never, calls };
 }
