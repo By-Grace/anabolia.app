@@ -2,7 +2,7 @@
 
 Em português, com o link e o código do e-mail. O link leva o `token_hash` direto para `/auth/callback`, então abre em qualquer navegador; o código serve para o app instalado no iPhone.
 
-O Supabase só aceita trocar estes modelos com um serviço de e-mail próprio (SMTP), no plano gratuito. Depois de configurar o SMTP (Authentication → Emails → SMTP), cole cada arquivo no modelo correspondente:
+Os e-mails saem pelo Resend (SMTP `smtp.resend.com`, remetente `entrar@anabolia.app`, domínio verificado em 03/11/2026, DNS na Hostinger). O plano gratuito do Supabase só aceita trocar os modelos com esse SMTP próprio. Os modelos abaixo foram aplicados pela API de gestão em 03/11/2026; para mudar, edite o arquivo e aplique de novo (ou cole no modelo correspondente em Authentication → Emails):
 
 | Arquivo | Modelo no Supabase | Assunto |
 |---|---|---|
